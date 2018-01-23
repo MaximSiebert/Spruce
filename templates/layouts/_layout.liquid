@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.is_homepage %}
+    <meta rel="canonical" href="{{ site.url }}" />
+    {% endif %}
+    {% format_header %}
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="{% format_body_class %} sans-serif">
+    {% content_header %}
+    {{ content_for_layout }}
+    {% format_footer %}
+    <script src="{% asset_pipeline theme_api/vendor/jquery-1.11.2.min.js %}"></script>
+    <script src="{% asset_pipeline theme_api/vendor/jquery.fitvid-1.1.js %}"></script>
+    <script src="{% asset js/vendor/lazysizes.min.js %}"></script>
+    <script src="{% asset js/vendor/ls.parent-fit.min.js %}"></script>
+    <script src="{% asset js/vendor/ls.respimg.min.js %}"></script>
+    <script src="{% asset js/theme.js %}"></script>
+</body>
+</html>

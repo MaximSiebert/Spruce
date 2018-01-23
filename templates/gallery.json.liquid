@@ -1,0 +1,10 @@
+{% capture html %}{% theme_include 'partials/assets' %}{% endcapture %}
+{
+  "title": {{ meta.title | json }},
+  "page": {
+    "id": {{ page.id | json }},
+    "title": {{ site.name | json }},
+    "type": {{ page.type | json }}
+  },
+  "rendered_html": {{ html | strip_newlines | json }}
+}

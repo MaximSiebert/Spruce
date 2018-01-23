@@ -1,0 +1,22 @@
+---
+name: theme2018
+description: Format theme
+skins:
+- name: Light
+  id: light
+- name: Dark
+  id: dark
+default_skin: light
+using_position:
+  right: 20
+  bottom: 20
+preview_images:
+- path: preview_images/1.jpg
+- path: preview_images/2.jpg
+- path: preview_images/3.jpg
+background_images:
+- path: background_images/1.jpg
+preview_site_images:
+- preview_site_images/
+filter_attributes:
+- vertical

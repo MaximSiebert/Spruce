@@ -1,0 +1,459 @@
+groups:
+
+  # ----- General -----
+
+  - name: Logo
+    id: logo
+    notes: The logo image or the name of your website.
+
+  - name: Headlines
+    id: headlines
+    notes: Headlines that appear throughout your site in the content.
+
+  - name: Text
+    id: text
+    notes: The text appearing in the body across your site, usually on non Gallery and Listing pages.
+
+  - name: Links
+    id: links
+    notes: The links displayed in the body text across your site.
+
+  - name: Footer
+    id: footer
+    notes: The text located at the bottom of your website. Used for copyrights, credits, or similar text.
+
+  # ----- Menu -----
+
+  - name: Items
+    id: menu_items
+    notes: The links to different pages located in the menu of your website.
+
+  - name: Categories
+    id: menu_categories
+    notes: The links located in the categories inside your menu on your website.
+
+  # ----- Gallery Page -----
+
+  - name: Captions
+    id: gallery_captions
+    notes: The captions appearing below or beside gallery elements.
+
+  # ----- Listing Page -----
+
+  - name: Thumbnail Titles
+    id: listing_link_titles
+    notes: The titles for thumbnail links on Listing Pages.
+
+  # ---- Blog ----
+
+  - name: Titles
+    id: blog_titles
+    notes: Titles of posts in your blog.
+
+  - name: Body Text
+    id: blog_body
+    notes: The basic text style in your blog posts.
+
+  - name: Image Captions
+    id: blog_image_captions
+    notes: Caption text style for images in your post.
+
+  # ---- Social -----
+
+  - name: Social Network Links
+    id: social_links
+    notes: The icon links of your social networks located at the top of your website.
+
+  - name: Social Share
+    id: social_share
+    notes: The button appearing beside social network links which allows users to share your website.
+
+  - name: Icon 1
+    id: icon1
+    notes: First Social Icon
+
+  - name: Icon 2
+    id: icon2
+    notes: Second Social Icon
+
+  - name: Icon 3
+    id: icon3
+    notes: Third Social Icon
+
+  - name: Icon 4
+    id: icon4
+    notes: Fourth Social Icon
+
+  - name: Icon 5
+    id: icon5
+    notes: Fifth Social Icon
+
+# ----------------- Variables -----------------
+
+variables:
+
+  general:
+
+    # ----------------- General -----------------
+
+    - name: background_color
+      display_name: "Background Color"
+      kind: color
+      notes: The background color of your site
+      value:
+        light: "#ffffff"
+        dark: "#111111"
+
+    # --- Logo ---
+
+    - name: logo_image
+      display_name: Logo Image
+      kind: image
+      group: logo
+      notes: The logo image displayed on your menu.
+      value:
+
+    - name: logo_text
+      display_name: Text
+      kind: text
+      group: logo
+      notes: The text displayed if there is no logo image.
+      value: Ellen Smith
+
+    - name: logo_typography
+      group: website_logo
+      kind: typography
+      value:
+        color:
+          light: "#444444"
+          dark: "#ffffff"
+        font-family: "Helvetica Neue"
+        font-weight: bold
+        font-size: 16
+        font-style: normal
+        hover:
+          color: "#ffa07a"
+
+    # --- Typography ---
+
+    - name: text_typography
+      group: text
+      kind: typography
+      value:
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        font-family: "Helvetica Neue"
+        font-size: 14
+        line-height: "1.5"
+
+    - name: headline_typography
+      group: headlines
+      kind: typography
+      value:
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        font-family: "Helvetica Neue"
+        font-size: 16
+        font-weight: bold
+
+    - name: link_typography
+      group: links
+      kind: typography
+      value:
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        font-style: normal
+        font-weight: normal
+        text-decoration: underline
+        hover:
+          color: "#ffa07a"
+          text-decoration: underline
+
+    # --- Footer ---
+
+    - name: footer_text
+      group: footer
+      display_name: "Text"
+      kind: text
+      notes: This text is displayed in your footer at the bottom of a page.
+      value: Copyright &copy; All rights reserved.
+
+    - name: footer_typography
+      group: footer
+      kind: typography
+      value:
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        font-family: "Helvetica Neue"
+        font-size: 11
+
+  menu:
+
+    # ----------------- Menu -----------------
+
+    - name: menu_typography
+      group: menu_items
+      kind: typography
+      value:
+        color:
+          light: "#222222"
+          dark: "#cccccc"
+        font-family: "Helvetica Neue"
+        font-size: 13
+        font-weight: normal
+        line-height: 1.6
+        hover:
+          color: "#ffa07a"
+          text-decoration: underline
+        selected:
+          color: "#ffa07a"
+          text-decoration: none
+
+    - name: menu_category_typography
+      group: menu_categories
+      kind: typography
+      value:
+        font-weight: bold
+        hover:
+          color: "#ffa07a"
+          text-decoration: underline
+        selected:
+          color: "#ffa07a"
+          text-decoration: underline
+
+  gallery:
+
+    # ----------------- Gallery -----------------
+
+    - name: gallery_caption_typography
+      group: gallery_captions
+      kind: typography
+      value:
+        color: "#444444"
+        font-size: 14
+        line-height: 1.2
+   
+    - name: gallery_fit_images
+      display_name: "Fit Tall Images to Screen"
+      notes: Shrink tall images to fit better within browser windows.
+      kind: boolean 
+      value: false
+
+  listing:
+
+    # ----------------- Listing -----------------
+
+    - name: listing_caption_typography
+      group: listing_link_titles
+      kind: typography
+      value:
+        color:
+          light: "#666666"
+          dark: "#cccccc"
+        font-family: "Helvetica Neue"
+        font-style: normal
+        font-weight: normal
+        font-size: 16
+        line-height: 1.4
+        hover:
+          color: "#ffa07a"
+
+  social:
+
+    # ----------------- Social -----------------
+
+    - name: social_links_typography
+      kind: typography
+      group: social_links
+      value:
+        color:
+          light: "#888888"
+          dark: "#999999"
+        font-size: 11
+        font-weight: normal
+        hover:
+          color:
+            light: "#555555"
+            dark: "#cccccc"
+
+    - name: social_links_style
+      display_name: "Link Style"
+      group: social_links
+      kind: select
+      values:
+        - Icon
+        - Text
+      value: Icon
+
+    - name: icon1
+      kind: select
+      group: icon1
+      display_name: "Social Network"
+      values:
+        - None
+        - Twitter
+        - Facebook
+        - LinkedIn
+        - Google+
+        - Instagram
+        - Pinterest
+        - Tumblr
+        - Flickr
+      value: Twitter
+
+    - name: icon1text
+      display_name: "Link"
+      group: icon1
+      kind: string
+      notes: "Paste the entire URL here including 'http://'"
+      value: http://twitter.com/useformat
+
+    - name: icon2
+      kind: select
+      group: icon2
+      display_name: "Social Network"
+      values:
+        - None
+        - Twitter
+        - Facebook
+        - LinkedIn
+        - Google+
+        - Instagram
+        - Pinterest
+        - Tumblr
+        - Flickr
+      value: Facebook
+
+    - name: icon2text
+      display_name: "Link"
+      group: icon2
+      kind: string
+      notes: "Paste the entire URL here including 'http://'"
+      value: http://facebook.com/useformat
+
+    - name: icon3
+      kind: select
+      group: icon3
+      display_name: "Social Network"
+      values:
+        - None
+        - Twitter
+        - Facebook
+        - LinkedIn
+        - Google+
+        - Instagram
+        - Pinterest
+        - Tumblr
+        - Flickr
+      value: LinkedIn
+
+    - name: icon3text
+      display_name: "Link"
+      group: icon3
+      kind: string
+      notes: "Paste the entire URL here including 'http://'"
+      value: http://linkedin.com/in/useformat
+
+    - name: icon4
+      kind: select
+      group: icon4
+      display_name: "Social Network"
+      values:
+        - None
+        - Twitter
+        - Facebook
+        - LinkedIn
+        - Google+
+        - Instagram
+        - Pinterest
+        - Tumblr
+        - Flickr
+      value: None
+
+    - name: icon4text
+      display_name: "Link"
+      group: icon4
+      kind: string
+      notes: "Paste the entire URL here including 'http://'"
+
+    - name: icon5
+      kind: select
+      group: icon5
+      display_name: "Social Network"
+      values:
+        - None
+        - Twitter
+        - Facebook
+        - LinkedIn
+        - Google+
+        - Instagram
+        - Pinterest
+        - Tumblr
+        - Flickr
+      value: None
+
+    - name: icon5text
+      display_name: "Link"
+      group: icon5
+      kind: string
+      notes: "Paste the entire URL here including 'http://'"
+
+    - name: show_social_sharing
+      group: Social Share
+      display_name: "Button"
+      kind: boolean
+      notes: Shows or hides the Share Button.
+      value: true
+
+  blog:
+
+    # ----------------- Blog -----------------
+
+    - name: blog_title_typography
+      group: blog_titles
+      kind: typography
+      value:
+        font-family: Helvetica Neue
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        font-size: 36
+        font-style: normal
+        font-weight: bold
+        hover:
+          text-decoration: none
+          color:
+            light: "#222222"
+            dark: "#eeeeee"
+
+    - name: blog_body_typography
+      group: blog_body
+      kind: typography
+      value:
+        font-family: Helvetica Neue
+        color:
+          light: "#444444"
+          dark: "#cccccc"
+        line-height: 1.7
+        font-size: 14
+
+    - name: blog_caption_typography
+      group: blog_image_captions
+      kind: typography
+      value:
+        font-family: Helvetica Neue
+        font-size: 14
+
+    - name: blog_images_slideshow_color
+      display_name: Blog Slideshow Background Color
+      kind: select
+      values:
+        - Dark
+        - Light
+      value:
+        light: Light
+        dark: Dark
