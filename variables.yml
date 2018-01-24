@@ -121,7 +121,7 @@ variables:
       value: Ellen Smith
 
     - name: logo_typography
-      group: website_logo
+      group: logo
       kind: typography
       value:
         color:
