@@ -137,6 +137,38 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
 */
 
 /*
+   BACKGROUND SIZE
+   Docs: http://tachyons.io/docs/themes/background-size/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+/*
+  Often used in combination with background image set as an inline style
+  on an html element.
+*/
+
+  .cover { background-size: cover!important; }
+  .contain { background-size: contain!important; }
+
+@media #{$breakpoint-not-small} {
+  .cover-ns { background-size: cover!important; }
+  .contain-ns { background-size: contain!important; }
+}
+
+@media #{$breakpoint-medium} {
+  .cover-m { background-size: cover!important; }
+  .contain-m { background-size: contain!important; }
+}
+
+@media #{$breakpoint-large} {
+  .cover-l { background-size: cover!important; }
+  .contain-l { background-size: contain!important; }
+}
+
+/*
     BORDERS
     Docs: http://tachyons.io/docs/themes/borders/
     Base:
@@ -188,6 +220,7 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .bl-l { border-left-style: solid; border-left-width: 1px; }
   .bn-l { border-style: none; border-width: 0; }
 }
+
 
 /*
    COORDINATES
@@ -768,6 +801,22 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
 }
 
 /*
+   FORMS
+   
+*/
+
+.input-reset {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button-reset::-moz-focus-inner,
+.input-reset::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
    LISTS
    http://tachyons.io/docs/elements/lists/
 */
@@ -1041,6 +1090,155 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
 }
 
 /*
+  HOVER EFFECTS
+  Docs: http://tachyons.io/docs/themes/hovers/
+    - Dim
+    - Glow
+    - Hide Child
+    - Underline text
+    - Grow
+    - Pointer
+    - Shadow
+*/
+
+/*
+  Dim element on hover by adding the dim class.
+*/
+.dim {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+.dim:hover,
+.dim:focus {
+  opacity: .5;
+  transition: opacity .15s ease-in;
+}
+.dim:active {
+  opacity: .8; transition: opacity .15s ease-out;
+}
+
+/*
+  Animate opacity to 100% on hover by adding the glow class.
+*/
+.glow {
+  transition: opacity .15s ease-in;
+}
+.glow:hover,
+.glow:focus {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+
+/*
+  Hide child & reveal on hover:
+  Put the hide-child class on a parent element and any nested element with the
+  child class will be hidden and displayed on hover or focus.
+  <div class="hide-child">
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+  </div>
+*/
+
+.hide-child .child {
+  opacity: 0;
+  transition: opacity .15s ease-in;
+}
+.hide-child:hover  .child,
+.hide-child:focus  .child,
+.hide-child:active .child {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+
+.underline-hover:hover,
+.underline-hover:focus {
+  text-decoration: underline;
+}
+
+/* Can combine this with overflow-hidden to make background images grow on hover
+ * even if you are using background-size: cover */
+
+.grow {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.grow:hover,
+.grow:focus {
+  transform: scale(1.05);
+}
+
+.grow:active {
+  transform: scale(.90);
+}
+
+.grow-large {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform .25s ease-in-out;
+}
+
+.grow-large:hover,
+.grow-large:focus {
+  transform: scale(1.2);
+}
+
+.grow-large:active {
+  transform: scale(.95);
+}
+
+/* Add pointer on hover */
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+/*
+   Add shadow on hover.
+   Performant box-shadow animation pattern from
+   http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+*/
+
+.shadow-hover {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.shadow-hover::after {
+  content: '';
+  box-shadow: 0px 0px 16px 2px rgba( 0, 0, 0, .2 );
+  border-radius: inherit;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.shadow-hover:hover::after,
+.shadow-hover:focus::after {
+  opacity: 1;
+}
+
+/* Combine with classes in skins and skins-pseudo for
+ * many different transition possibilities. */
+
+.bg-animate,
+.bg-animate:hover,
+.bg-animate:focus {
+  transition: background-color .15s ease-in-out;
+}
+
+/*
     OPACITY
     Docs: http://tachyons.io/docs/themes/opacity/
 */
@@ -1094,6 +1292,38 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .tl-l  { text-align: left; }
   .tr-l  { text-align: right; }
   .tc-l  { text-align: center; }
+}
+
+/*
+   TEXT DECORATION
+   Docs: http://tachyons.io/docs/typography/text-decoration/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.strike       { text-decoration: line-through; }
+.underline    { text-decoration: underline; }
+.no-underline { text-decoration: none; }
+
+
+@media #{$breakpoint-not-small} {
+  .strike-ns       { text-decoration: line-through; }
+  .underline-ns    { text-decoration: underline; }
+  .no-underline-ns { text-decoration: none; }
+}
+
+@media #{$breakpoint-medium} {
+  .strike-m       { text-decoration: line-through; }
+  .underline-m    { text-decoration: underline; }
+  .no-underline-m { text-decoration: none; }
+}
+
+@media #{$breakpoint-large} {
+  .strike-l       { text-decoration: line-through; }
+  .underline-l {    text-decoration: underline; }
+  .no-underline-l { text-decoration: none; }
 }
 
 /*
@@ -2252,9 +2482,11 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
 .w-30 {  width:  30%; }
 .w-33 {  width:  33%; }
 .w-34 {  width:  34%; }
+.w-35 {  width:  35%; }
 .w-40 {  width:  40%; }
 .w-50 {  width:  50%; }
 .w-60 {  width:  60%; }
+.w-65 {  width:  65%; }
 .w-70 {  width:  70%; }
 .w-75 {  width:  75%; }
 .w-80 {  width:  80%; }
@@ -2277,9 +2509,11 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .w-30-ns { width:  30%; }
   .w-33-ns { width:  33%; }
   .w-34-ns { width:  34%; }
+  .w-35-ns { width:  35%; }
   .w-40-ns { width:  40%; }
   .w-50-ns { width:  50%; }
   .w-60-ns { width:  60%; }
+  .w-65-ns { width:  65%; }
   .w-70-ns { width:  70%; }
   .w-75-ns { width:  75%; }
   .w-80-ns { width:  80%; }
@@ -2302,9 +2536,11 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .w-30-m { width:  30%; }
   .w-33-m { width:  33%; }
   .w-34-m { width:  34%; }
+  .w-35-m { width:  35%; }
   .w-40-m { width:  40%; }
   .w-50-m { width:  50%; }
   .w-60-m { width:  60%; }
+  .w-65-m { width:  65%; }
   .w-70-m { width:  70%; }
   .w-75-m { width:  75%; }
   .w-80-m { width:  80%; }
@@ -2327,9 +2563,11 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .w-30-l {    width:  30%; }
   .w-33-l {    width:  33%; }
   .w-34-l {    width:  34%; }
+  .w-35-l {    width:  35%; }
   .w-40-l {    width:  40%; }
   .w-50-l {    width:  50%; }
   .w-60-l {    width:  60%; }
+  .w-65-l {    width:  65%; }
   .w-70-l {    width:  70%; }
   .w-75-l {    width:  75%; }
   .w-80-l {    width:  80%; }
@@ -2427,11 +2665,19 @@ img {
   height: auto;
 }
 
+a {
+  transition: color .15s ease-in;
+}
+
 /*
 ------------------------------------------------------------------
 Header / Menu Styles
 ------------------------------------------------------------------
 */
+
+.bg-none {
+  background: none;
+}
 
 .left-auto {
   margin-left: auto;
@@ -2439,57 +2685,143 @@ Header / Menu Styles
 
 .logo {
   margin: 0;
+  a {
+     {% css_block theme.logo_typography %};
+    &:hover {
+       {% css_block theme.logo_typography.hover %};
+    }
+  }
   img {
     max-width: 250px;
     max-height: 100px;
   }
 }
 
+.menu {
+  background-color: {{ theme.background_color }};
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.header-items-container h2 {
+  {% css_block theme.menu_typography %};
+  color: {{ theme.text_typography.color }};
+  text-decoration: none;
+}
+
+.mobile-menu-toggle, .menu li a {
+  {% css_block theme.menu_typography %};
+  text-decoration-skip: ink;
+  &:hover {
+    {% css_block theme.menu_typography.hover %};
+  }
+}
+
+.menu-icon:hover {
+  text-decoration: none;
+}
+
+.nav-container {
+  transition: background-color .15s ease-in;
+  &:hover {
+    background-color: {{ theme.background_color }};
+  }
+}
+
+.active {
+  .nav-container {
+    background-color: {{ theme.background_color }};
+  }
+  .menu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown {
+  display: none;
+  &.open {
+    display: block;
+  }
+}
+
+/*
+------------------------------------------------------------------
+Footer Styles
+------------------------------------------------------------------
+*/
+
+.footer {
+  {% css_block theme.footer_typography %};
+  a {
+    {% css_block theme.link_typography %};
+    &:hover {
+      {% css_block theme.link_typography.hover %};
+    }
+  }
+}
+
+/*
+------------------------------------------------------------------
+Gallery loop
+------------------------------------------------------------------
+*/
+
 body.gallery {
   .asset {
     &.image {
       position: relative;
       line-height: 0;
-      &:before {
-        background: rgba(0,0,0,.2);
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-      }
+      // &:before {
+      //   background: rgba(0,0,0,.4);
+      //   content: "";
+      //   position: absolute;
+      //   height: 100%;
+      //   width: 100%;
+      //   left: 0;
+      //   top: 0;
+      //   bottom: 0;
+      //   right: 0;
+      //   z-index: 1;
+      // }
       img {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
         opacity: 0;
         transition: opacity 300ms ease-in-out;
       }
       .lazyloaded {
         opacity: 1;
       }
-      .lazyloaded + .caption {
-        opacity: 1;
-      }
-      .caption {
-        opacity: 0;
-        transition: opacity 300ms ease-in-out;
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.35) 100%);
-        p {
-          line-height: 1.25;
+    }
+    &.video {
+      background: #000;
+    }
+    .caption {
+      {% css_block theme.gallery_caption_typography %};
+      a {
+        {% css_block theme.gallery_caption_link_typography %};
+        &:hover {
+          {% css_block theme.gallery_caption_link_typography.hover %};
         }
       }
     }
+    &.text:first-child {
+      margin-top: 8rem;
+    }
+    &.text + .text {
+      margin-top: 0;
+    }
   }
-  .asset.image:nth-child(3n + 1) {
+  .asset:not(.text):nth-child(3n + 1) {
     width: 100%;
     padding: 0;
+    .caption {
+      width: 90%;
+      margin:0 auto;
+      div {
+        max-width: 40%;
+      }
+    }
   }
   .asset.image:nth-child(6n + 1) {
     justify-content: flex-end;
@@ -2502,10 +2834,6 @@ body.gallery {
   }
   .asset.image:nth-child(7n + 1) {
     align-items: center;
-  }
-  .asset.image:last-child {
-    width: 100%;
-    padding: 0;
   }
 }
 
@@ -2526,33 +2854,84 @@ Collection loop
 */
 
 .homepage-container {
-  .asset {
-    &:nth-child(3n + 1) {
-      width: 100%;
-      a {
-        padding: 0;
+  .inner-asset-container {
+    display: grid;
+    grid-template-columns: repeat( 12, 1fr );
+    grid-template-rows: repeat( 4, 1fr );
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .inner-asset-container {
+    .asset {
+      &:first-child {
+        grid-column-end: 9;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        a {
+          padding: 3rem;
+        }
+        .title {
+          font-size: 3rem;
+        }
+      }
+      &:nth-child(2), &:nth-child(3) {
+        grid-column-end: 13;
+        grid-column-start: 9;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      &:nth-child(3) {
+        grid-row-start: 3;
+        grid-row-end: 5;
       }
     }
-    &:last-child {
-      width: 100%;
-      padding: 0;
+    &:nth-child(even) {
+      .asset {
+        &:first-child {
+          grid-column-end: 13;
+          grid-column-start: 5;
+        }
+        &:nth-child(2), &:nth-child(3) {
+          grid-column-end: 5;
+          grid-column-start: 1;
+        }
+      }
     }
   }
 }
-
+.asset, .title-element {
+  a {
+    {% css_block theme.link_typography %};
+    text-decoration-skip: ink;
+    &:hover {
+      {% css_block theme.link_typography.hover %};
+    }
+  }
+}
 .asset {
+  a {
+    {% css_block theme.link_typography %};
+    &:hover {
+      {% css_block theme.link_typography.hover %};
+    }
+  }
   img {
     transition: all .3s cubic-bezier(.23,1,.32,1);
   }
   .overlay {
-    background: rgba(0,0,0,.2)
+    background: rgba(0,0,0,.4)
+  }
+  .title {
+    color: #fff;
   }
   .overlay, .title {
     opacity: 0;
     transition: all .3s cubic-bezier(.23,1,.32,1);
   }
   .title {
-    transform: translateX(-10%);
+    transform: translateX(-5%);
     transition: all .6s cubic-bezier(.23,1,.32,1);
   }
   &:hover {

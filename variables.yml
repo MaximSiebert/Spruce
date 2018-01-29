@@ -38,6 +38,10 @@ groups:
     id: gallery_captions
     notes: The captions appearing below or beside gallery elements.
 
+  - name: Caption Links
+    id: gallery_caption_links
+    notes: The links in the captions appearing below or beside gallery elements.
+
   # ----- Listing Page -----
 
   - name: Thumbnail Titles
@@ -102,7 +106,8 @@ variables:
       notes: The background color of your site
       value:
         light: "#ffffff"
-        dark: "#111111"
+        dark: "#1a1a1a"
+        coloured: "#022422"
 
     # --- Logo ---
 
@@ -121,18 +126,26 @@ variables:
       value: Ellen Smith
 
     - name: logo_typography
-      group: website_logo
+      group: logo
       kind: typography
       value:
         color:
-          light: "#444444"
+          light: "#000000"
           dark: "#ffffff"
-        font-family: "Helvetica Neue"
-        font-weight: bold
-        font-size: 16
-        font-style: normal
+          coloured: "#E6AB8B"
+        font-family: 
+          light: "Nobile"
+          dark: "Big Caslon FB Roman"
+          coloured: "Lydian Regular"
         hover:
-          color: "#ffa07a"
+          color:
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: 
+            light: "none"
+            dark: "none"
+            coloured: "none"
 
     # --- Typography ---
 
@@ -141,9 +154,13 @@ variables:
       kind: typography
       value:
         color:
-          light: "#444444"
-          dark: "#cccccc"
-        font-family: "Helvetica Neue"
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#C89379"
+        font-family: 
+          light: "Nobile"
+          dark: "Big Caslon FB Roman"
+          coloured: "Roboto"
         font-size: 14
         line-height: "1.5"
 
@@ -152,9 +169,13 @@ variables:
       kind: typography
       value:
         color:
-          light: "#444444"
-          dark: "#cccccc"
-        font-family: "Helvetica Neue"
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#C89379"
+        font-family: 
+          light: "Nobile"
+          dark: "Big Caslon FB Roman"
+          coloured: "Lydian Regular"
         font-size: 16
         font-weight: bold
 
@@ -162,15 +183,26 @@ variables:
       group: links
       kind: typography
       value:
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Lydian Regular"
         color:
-          light: "#444444"
-          dark: "#cccccc"
+          light: "#000000"
+          dark: "#999999"
+          coloured: "#ffffff"
         font-style: normal
         font-weight: normal
-        text-decoration: underline
+        text-decoration: 
+          light: "underline"
+          dark: "none"
+          coloured: "none"
         hover:
-          color: "#ffa07a"
-          text-decoration: underline
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: none
 
     # --- Footer ---
 
@@ -179,17 +211,20 @@ variables:
       display_name: "Text"
       kind: text
       notes: This text is displayed in your footer at the bottom of a page.
-      value: Copyright &copy; All rights reserved.
+      value: Copyright &copy;
 
     - name: footer_typography
       group: footer
       kind: typography
       value:
         color:
-          light: "#444444"
-          dark: "#cccccc"
-        font-family: "Helvetica Neue"
-        font-size: 11
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#C89379"
+        font-family: 
+          light: "Nobile"
+          dark: "Big Caslon FB Roman"
+          coloured: "Roboto"
 
   menu:
 
@@ -200,30 +235,45 @@ variables:
       kind: typography
       value:
         color:
-          light: "#222222"
-          dark: "#cccccc"
-        font-family: "Helvetica Neue"
-        font-size: 13
-        font-weight: normal
-        line-height: 1.6
+          light: "#000000"
+          dark: "#999999"
+          coloured: "#ffffff"
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Roboto"
+        text-decoration: none
         hover:
-          color: "#ffa07a"
-          text-decoration: underline
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: 
+            light: "underline"
+            dark: "none"
+            coloured: "none"
         selected:
-          color: "#ffa07a"
-          text-decoration: none
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: 
+            light: "underline"
+            dark: "none"
+            coloured: "none"
 
     - name: menu_category_typography
       group: menu_categories
       kind: typography
       value:
         font-weight: bold
+        text-decoration: underline
         hover:
-          color: "#ffa07a"
-          text-decoration: underline
+          color: "#000000"
+          text-decoration: none
         selected:
-          color: "#ffa07a"
-          text-decoration: underline
+          color: "#000000"
+          text-decoration: none
 
   gallery:
 
@@ -233,15 +283,38 @@ variables:
       group: gallery_captions
       kind: typography
       value:
-        color: "#444444"
+        color: 
+          light: "#999999"
+          dark: "#666666"
+          coloured: "#184E3F"
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Roboto"
         font-size: 14
-        line-height: 1.2
-   
-    - name: gallery_fit_images
-      display_name: "Fit Tall Images to Screen"
-      notes: Shrink tall images to fit better within browser windows.
-      kind: boolean 
-      value: false
+        line-height: 1.4
+
+    - name: gallery_caption_link_typography
+      group: gallery_caption_links
+      kind: typography
+      value:
+        color: 
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Roboto"
+        font-style: normal
+        font-weight: normal
+        text-decoration: underline
+        hover:
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: none
 
   listing:
 
@@ -254,7 +327,11 @@ variables:
         color:
           light: "#666666"
           dark: "#cccccc"
-        font-family: "Helvetica Neue"
+          coloured: "#cccccc"
+        font-family: 
+          light: "Nobile"
+          dark: "Big Caslon FB Roman"
+          coloured: "Lydian Regular"
         font-style: normal
         font-weight: normal
         font-size: 16
@@ -273,12 +350,14 @@ variables:
         color:
           light: "#888888"
           dark: "#999999"
+          coloured: "#999999"
         font-size: 11
         font-weight: normal
         hover:
           color:
             light: "#555555"
             dark: "#cccccc"
+            coloured: "#cccccc"
 
     - name: social_links_style
       display_name: "Link Style"
@@ -417,10 +496,11 @@ variables:
       group: blog_titles
       kind: typography
       value:
-        font-family: Helvetica Neue
+        font-family: Nobile
         color:
           light: "#444444"
           dark: "#cccccc"
+          coloured: "#cccccc"
         font-size: 36
         font-style: normal
         font-weight: bold
@@ -429,15 +509,17 @@ variables:
           color:
             light: "#222222"
             dark: "#eeeeee"
+            coloured: "#eeeeee"
 
     - name: blog_body_typography
       group: blog_body
       kind: typography
       value:
-        font-family: Helvetica Neue
+        font-family: Nobile
         color:
           light: "#444444"
           dark: "#cccccc"
+          coloured: "#cccccc"
         line-height: 1.7
         font-size: 14
 
@@ -445,7 +527,7 @@ variables:
       group: blog_image_captions
       kind: typography
       value:
-        font-family: Helvetica Neue
+        font-family: Nobile
         font-size: 14
 
     - name: blog_images_slideshow_color
@@ -457,3 +539,4 @@ variables:
       value:
         light: Light
         dark: Dark
+        coloured: Dark

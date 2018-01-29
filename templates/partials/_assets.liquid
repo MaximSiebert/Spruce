@@ -1,31 +1,35 @@
 {% for asset in page.assets %}
   {% case asset.type %}
       {% when 'image' %}
-          <div class="asset image w-50-l w-100 flex items-start justify-center pa5" style="background-color:{{ dominantColor }};">
+          <div class="asset image w-50-l w-100 flex items-start justify-center pa5-ns pa4">
             <div class="relative">
                 {% assign ratioWidth = asset.image_dimensions_1600x1200[0] %}
                 {% assign ratioHeight = asset.image_dimensions_1600x1200[1] %}
                 {% capture dominantColor %}{% if asset.dominant_color %}{{ asset.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
-                <img data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" class="lazyload" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
+                <img class="absolute db bottom-0 right-0 top-0 left-0 z-2 lazyload" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
+                <canvas class="image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
                 {% if asset.copy %}
-                    <div class="caption absolute bottom-0 left-0 pv4 w-100" style="color:white">
-                        <div class="mw9 center ph4 lh-title">
+                    <div class="caption pt3 pb4 w-100 z-2 relative">
+                        <div>
                             {{ asset.copy }}
                         </div>
                     </div>
                 {% endif %}
-                <canvas class="image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
             </div>
           </div>
       {% when 'video' %}
-          <div class="asset video w-100">
+          <div class="asset video w-50 pa5">
               {{ asset.embed_dimensions }}
               {% if asset.copy %}
-                <div class="caption f4 pl4 w-25 mt3 mb5">{{ asset.copy }}</div>
+                <div class="caption pt3 pb4 w-100 z-2 relative">
+                    <div>
+                        {{ asset.copy }}
+                    </div>
+                </div>
               {% endif %}
           </div>
       {% when 'text' %}
-          <div class="asset text f2 ph4 mv5 mw9 center w-100">
+          <div class="asset text f2-l f3-m f4 ph4 mv5 w-90-ns center">
                 {{ asset.copy }}
           </div>
   {% endcase %}

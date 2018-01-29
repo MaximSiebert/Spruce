@@ -1,11 +1,13 @@
 {% if page.title %}
-    <div class="title-element mt6 mb5 mw9 center">
-        {% if page.title.image_url and page.title.copy_alignment != "only" %}
-            <img src='{{ page.title.image_url_900x0 }}'>
-        {% else if page.title.copy and page.title.copy_alignment != "none" %}
-            <div class="flex">
-                <div class="text f2 fw3 w-100 ph4 left-auto">{{ page.title.copy }}</div>
-            </div>
+    {% if page.title.image_url and page.title.copy_alignment != "only" %}
+        <img src='{{ page.title.image_url_1600x0 }}'>
+    {% else if page.title.copy and page.title.copy_alignment != "none" %}
+        {% if page.type == "gallery" %}
+            <div class="title-element mt6 mb5 w-90-ns center flex ph4">
+        {% else %}
+            <div class="title-element mt5 w-90-ns center flex ph4">
         {% endif %}
-    </div>
+            <div class="text f2-l f3-m f4 lh-title">{{ page.title.copy }}</div>
+        </div>
+    {% endif %}
 {% endif %}

@@ -1,13 +1,13 @@
 {% if theme.footer_text %}
-<footer class="footer container mw9 ph4 center mv4 flex flex-wrap">
-    <div class="w-50 f6">
-        <div class="mw5">
+<footer class="f3-l f4-m f5 footer container bt">
+    <div class="flex flex-wrap w-90 pv5 center">
+        <div class="w-25-ns w-50 pl4 f4-l f3-m f5">
             {{ theme.footer_text }}
         </div>
-    </div>
-    <div class="w-50">
-        <div class="f6 pb2 mb2">Follow</div>
-        {% theme_include 'partials/social' %}
+        <div class="w-75-ns w-50 left-auto">
+            <div class="mb3 f4-l f3-m f5 pl4">Social</div>
+            {% theme_include 'partials/social' %}
+        </div>
     </div>
 </footer>
 {% endif %}

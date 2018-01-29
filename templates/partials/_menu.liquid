@@ -1,34 +1,19 @@
-{% if page.is_homepage %}
-    <nav class="menu">
-        <ul class="ma0 pa0 flex flex-wrap f3 list lh-title">
-            {% for item in menu_items %}
-            {% case item.type %}
-                {% when 'category' %}
-                    {% for nested in item.pages %}
-                        <li class="item{% if nested.id == page.id %} selected{% endif %} w-third pl4 mb1">
-                            <a class="link" href="{{ nested.href }}"{% if nested.type == 'link' and nested.open_in_new_window %} target='_blank'{% endif %}>
-                                {{ nested.name }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                {% else %}
-                    <li class="item item{% if item.id == page.id %} selected{% endif %} w-third pl4 mb1">
-                        <a class="link" href="{{ item.href }}" {% if item.type == 'link' and item.open_in_new_window %} target="_blank"{% endif %}>{{ item.name }}</a>
-                    </li>
-            {% endcase %}
-            {% endfor %}
-        </ul>
-    </nav>
-{% else %}
-    <div class="flex lh-solid">
-        <h2 class="ma0 f2-l f3 fw3 pl4 w-two-thirds">
-            {{ page.name }}
-        </h2>
+<div class="w-25 pl4 db-ns dn">
+    <button class="mobile-menu-toggle link bg-none bn pa0 input-reset button-reset">Menu</button>
+</div>
+<div class="flex w-50-ns w-75">
+    <h2 class="ma0 fw4 pl4">
         {% if page.is_homepage != true %}
-        <div class="tr pl4 mt1">
-            <a class="link f2-l f3" href="{{ paths.root }}">↩</a>
-            <button class="mobile-menu-toggle dn-ns">Menu</button>
-        </div>
+            {{ page.name }}
+        {% else %}
+            Home
         {% endif %}
-    </div>
-{% endif %}
+    </h2>
+    {% comment %} <div class="tr pl4 mt1">
+        <a class="link" href="{{ paths.root }}">↩</a>
+        <button class="mobile-menu-toggle dn-ns">Menu</button>
+    </div> {% endcomment %}
+</div>
+<div class="w-25 dn-ns db tr">
+    <button class="mobile-menu-toggle link bg-none bn pa0 input-reset button-reset mr4 menu-icon">☰</button>
+</div>

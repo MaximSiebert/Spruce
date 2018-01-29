@@ -6,6 +6,8 @@ skins:
   id: light
 - name: Dark
   id: dark
+- name: Coloured
+  id: coloured
 default_skin: light
 using_position:
   right: 20

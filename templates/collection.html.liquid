@@ -2,25 +2,33 @@
 
     {% theme_include 'partials/header' %}
 
-    <main class="container homepage-container">
+    <main class="container homepage-container pt5">
 
         {% theme_include 'partials/title' %}
 
-        <div class="asset-container flex flex-wrap">
+        <div class="asset-container w-90-ns center ph4 mv5">
             {% for asset in page.assets %}
-                <div class="asset w-50 flex">
-                    <a class="link relative db pa5 w-100" href="{{ asset.link_url }}"{% if asset.open_in_new_window %} target="_blank"{% endif %} style="background: {{ asset.dominant_color }}">
-                        <img class="w-100" src="{{ asset.image_url_1600x1200 }}" alt="{% if asset.copy %}{{ asset.copy }}{% endif %}" />
-                        <div class="overlay absolute left-0 top-0 w-100 h-100 z-1 pa5 flex items-center">
-                            {% if asset.copy %}
-                                <div class="title fw6 f2 lh-solid mw9 center w-100 ph4" style="color: white;">
-                                    <span class="f6 db mb2 o-60">View</span>
-                                    {{ asset.copy }}
+                {% capture modulo %}{{ forloop.index | modulo: 3 }}{% endcapture %}
+                {% if modulo == '1' %}
+                    <div class="inner-asset-container vh-75">
+                {% endif %}
+                        <div class="asset w-100">
+                            <a class="link relative db w-100 h-100" href="{{ asset.link_url }}"{% if asset.open_in_new_window %} target="_blank"{% endif %} style="background: {{ asset.dominant_color }}">
+                                <div class="h-100 cover" style="background: url('{{ asset.image_url_1600x1200 }}') center center"> 
+                                    <div class="overlay absolute left-0 top-0 w-100 h-100 z-1 pa3 flex items-center">
+                                        {% if asset.copy %}
+                                            <div class="title f3 lh-solid w-80 ph4">
+                                                <span class="f6 db mb2 o-60">View</span>
+                                                {{ asset.copy }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            {% endif %}
+                            </a>
                         </div>
-                    </a>
-                </div>
+                {% if modulo == '0' or forloop.last %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 

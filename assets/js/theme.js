@@ -54,3 +54,23 @@ window.Theme.Gallery = window.Theme.Gallery || {
 $(document).on('DOMContentLoaded', function () {
   Theme.init();
 });
+
+$(document).ready(function(){
+  var dropdownTrigger = $('.dropdown-trigger'),
+      dropdown = $('.dropdown');
+
+  dropdownTrigger.click(function(){
+    if ($(this).hasClass('open')) {
+      $(this).removeClass('open');
+      $(this).siblings(dropdown).removeClass('open');
+    } else {
+      $(this).addClass('open');
+      $(this).siblings(dropdown).addClass('open');
+    }
+  });
+});
+
+
+$(document).on('ready page:before-unload', function (event) {
+  $('body').addClass('hai');
+});
