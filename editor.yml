@@ -1,0 +1,34 @@
+drawers:
+  - id: theme
+    tabs:
+      - id: basic
+      - id: advanced
+        variables:
+
+  - id: website_logo
+    tabs:
+      - id: website_logo
+        custom_editor: logo_editor
+
+  - id: colors
+    tabs:
+      - id: basic
+        base_variables:
+      - id: advanced
+        variables:
+
+  - id: typography
+    tabs:
+      - id: basic
+        base_variables:
+      - id: advanced
+        variables:
+
+  - id: social
+    tabs:
+      - id: basic
+        variables:
+
+  - id: code_editor
+
+groups:
