@@ -1,15 +1,19 @@
 {% for asset in page.assets %}
   {% case asset.type %}
       {% when 'image' %}
-          <div class="asset image w-50-l w-100 flex items-start justify-center pa5-ns pa4">
-            <div class="relative">
-                {% assign ratioWidth = asset.image_dimensions_1600x1200[0] %}
-                {% assign ratioHeight = asset.image_dimensions_1600x1200[1] %}
-                {% capture dominantColor %}{% if asset.dominant_color %}{{ asset.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
-                <img class="absolute db bottom-0 right-0 top-0 left-0 z-2 lazyload" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
-                <canvas class="image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
+        {% capture galleryFramesColor %}{% if theme.gallery_frames_color %}{{ theme.gallery_frames_color_code }}{% else %}{{ asset.dominant_color }}{% endif %}{% endcapture %}
+        {% assign ratioWidth = asset.image_dimensions_1600x1200[0] %}
+        {% assign ratioHeight = asset.image_dimensions_1600x1200[1] %}
+        {% capture dominantColor %}{% if asset.dominant_color %}{{ asset.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
+        {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
+          <div class="asset {{ orientation }} image w-50-l w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
+            <div class="img-container relative">
+                <a class="db" href="{{ asset.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
+                    <img class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" src="{{ asset.image_url_1600x1200 }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
+                </a>
+                <canvas class="{{ orientation }} image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
                 {% if asset.copy %}
-                    <div class="caption pt3 pb4 w-100 z-2 relative">
+                    <div class="caption pv3 w-100 z-2 relative">
                         <div>
                             {{ asset.copy }}
                         </div>
@@ -18,19 +22,29 @@
             </div>
           </div>
       {% when 'video' %}
-          <div class="asset video w-50 pa5">
-              {{ asset.embed_dimensions }}
-              {% if asset.copy %}
-                <div class="caption pt3 pb4 w-100 z-2 relative">
+          <div class="asset video w-50 pa5 relative">
+            <div class="relative">
+                <div class="pointer absolute z-1 top-0 left-0 right-0 bottom-0 cover video-overlay flex items-center justify-center" style="background: url({{ asset.thumbnail_url_960x0 }}) no-repeat center center;">
+                    <p class="f3 z-1 relative link">
+                        Play
+                        <span class="f4 play-icon dib">▶</span>
+                    </p>
+                </div>
+                {{ asset.embed_dimensions }}
+            </div>
+            {% if asset.copy %}
+                <div class="caption pv3 w-100 z-2 relative">
                     <div>
                         {{ asset.copy }}
                     </div>
                 </div>
-              {% endif %}
+            {% endif %}
           </div>
       {% when 'text' %}
-          <div class="asset text f2-l f3-m f4 ph4 mv5 w-90-ns center">
+          <div class="asset text f2-l f3-m f4 ph4">
+            <div class="w-90-ns center mv5">
                 {{ asset.copy }}
+            </div>
           </div>
   {% endcase %}
 {% endfor %}

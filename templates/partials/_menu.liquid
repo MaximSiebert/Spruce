@@ -1,19 +1,22 @@
 <div class="w-25 pl4 db-ns dn">
     <button class="mobile-menu-toggle link bg-none bn pa0 input-reset button-reset">Menu</button>
+    <span>☰</span>
 </div>
-<div class="flex w-50-ns w-75">
-    <h2 class="ma0 fw4 pl4">
-        {% if page.is_homepage != true %}
-            {{ page.name }}
-        {% else %}
-            Home
-        {% endif %}
-    </h2>
-    {% comment %} <div class="tr pl4 mt1">
-        <a class="link" href="{{ paths.root }}">↩</a>
-        <button class="mobile-menu-toggle dn-ns">Menu</button>
-    </div> {% endcomment %}
-</div>
-<div class="w-25 dn-ns db tr">
+{% if theme.menu_title %}
+    <div class="flex w-50-ns w-75">
+        <h2 class="ma0 fw4 pl4">
+            {% if page.is_homepage != true %}
+                {{ page.name }}
+            {% else %}
+                Home
+            {% endif %}
+        </h2>
+        {% comment %} <div class="tr pl4 mt1">
+            <a class="link" href="{{ paths.root }}">↩</a>
+            <button class="mobile-menu-toggle dn-ns">Menu</button>
+        </div> {% endcomment %}
+    </div>
+{% endif %}
+<div class="w-25 dn-ns db tr absolute right-0">
     <button class="mobile-menu-toggle link bg-none bn pa0 input-reset button-reset mr4 menu-icon">☰</button>
 </div>

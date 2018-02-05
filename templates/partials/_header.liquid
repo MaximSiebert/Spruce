@@ -1,21 +1,19 @@
-<header class="header f3-l f4-m f5 z-3 fixed w-100 top-0 bb">
+<header class="header f3-l f4-m f5 fixed w-100 top-0">
     <div class="nav-container relative z-3">
         <div class="flex pv3 w-90-ns center items-start">
             <div class="w-25-ns w-50 pl4">
                 {% theme_include 'partials/logo' %}
             </div>
-            <div class="header-items-container w-75-ns w-50 left-auto flex flex-wrap">
-                {% theme_include 'partials/menu' %}
-            </div>
+            {% theme_include 'partials/menu' %}
         </div>
     </div>
-    <nav class="menu absolute pb3 w-100 z-2 left-0 f4-l f5 bb">
+    <nav class="menu absolute pb3 w-100 z-2 left-0 f4-l f5">
         <div class="w-90-ns center pt1">
-            <ul class="ma0 pa0 list flex flex-wrap w-75-ns w-50 left-auto">
+            <ul class="ma0 pa0 list flex flex-wrap w-100-ns w-50 left-auto">
                 {% for item in menu_items %}
                 {% case item.type %}
                     {% when 'category' %}
-                        <li class="lh-copy category {% if item.id == page.category_id %} selected{% endif %} pl4 mb2 w-25-ns w-100">
+                        <li class="lh-copy category {% if item.id == page.category_id %} selected{% endif %} pl4-ns mb2 w-25-l w-50-ns w-100">
                             <a class="pointer dropdown-trigger link">{{ item.name }}</a><span class="dib ml1">⌄</span>
                             <ul class="list f6 pa0 mt1 mb3 dropdown w-100">
                                 {% for nested in item.pages %}
@@ -28,7 +26,7 @@
                             </ul>
                         </li>
                     {% else %}
-                        <li class="lh-copy item item{% if item.id == page.id %} selected{% endif %} pl4 mb2 w-25-ns w-100">
+                        <li class="lh-copy item item{% if item.id == page.id %} selected{% endif %} pl4-ns mb2 w-25-l w-50-ns w-100">
                             <a class="link" href="{{ item.href }}" {% if item.type == 'link' and item.open_in_new_window %} target="_blank"{% endif %}>{{ item.name }}</a>
                         </li>
                 {% endcase %}

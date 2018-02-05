@@ -4,9 +4,23 @@
   
   <main class="container">
     {% theme_include 'partials/title' %}
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap asset-container">
       {% theme_include 'partials/assets' %}
     </div>
+    {% if page.parent %}
+      {% if page.prev_nested_page %}
+        <a href="{{ page.parent.url }}{{ page.prev_nested_page.url }}">
+          <p>Previous:</p>
+          <h3>{{ page.prev_nested_page.name }}</h3>
+        </a>
+      {% endif %}
+      {% if page.next_nested_page %}
+        <a href="{{ page.parent.url }}{{ page.next_nested_page.url }}">
+          <p>Next:</p>
+          <h3>{{ page.next_nested_page.name }}</h3>
+        </a>
+      {% endif %}
+    {% endif %}
   </main>
 
   {% theme_include 'partials/footer' %}

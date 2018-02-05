@@ -22,15 +22,35 @@ groups:
     id: footer
     notes: The text located at the bottom of your website. Used for copyrights, credits, or similar text.
 
+  - name: Footer Links
+    id: footer_links
+    notes: The links located in the footer of your website.
+
+  - name: Footer Border
+    id: footer_border
+    notes: The border located at the top of your footer.
+
+  - name: Footer Background
+    id: footer_background
+    notes: The background of your footer.
+
   # ----- Menu -----
 
   - name: Items
     id: menu_items
     notes: The links to different pages located in the menu of your website.
 
-  - name: Categories
-    id: menu_categories
-    notes: The links located in the categories inside your menu on your website.
+  - name: Title
+    id: menu_title
+    notes: The title located inside your menu.
+
+  - name: Border
+    id: menu_border
+    notes: The border at the bottom of the menu
+
+  - name: Background
+    id: menu_background
+    notes: The background color of the menu
 
   # ----- Gallery Page -----
 
@@ -42,11 +62,23 @@ groups:
     id: gallery_caption_links
     notes: The links in the captions appearing below or beside gallery elements.
 
+  - name: Gallery Frames
+    id: gallery_frames
+    notes: The frames around your images on gallery pages.
+
   # ----- Listing Page -----
 
   - name: Thumbnail Titles
     id: listing_link_titles
     notes: The titles for thumbnail links on Listing Pages.
+
+  - name: Listing Layout
+    id: listing_layout
+    notes: The different layout options for your listing pages.
+
+  - name: Listing Frames
+    id: listing_frames
+    notes: Showing or hiding the frames around a collection listing.
 
   # ---- Blog ----
 
@@ -106,7 +138,7 @@ variables:
       notes: The background color of your site
       value:
         light: "#ffffff"
-        dark: "#1a1a1a"
+        dark: "#111111"
         coloured: "#022422"
 
     # --- Logo ---
@@ -129,6 +161,10 @@ variables:
       group: logo
       kind: typography
       value:
+        font-weight: 
+          light: "bold"
+          dark: "normal"
+          coloured: "normal"
         color:
           light: "#000000"
           dark: "#ffffff"
@@ -161,8 +197,14 @@ variables:
           light: "Nobile"
           dark: "Big Caslon FB Roman"
           coloured: "Roboto"
-        font-size: 14
-        line-height: "1.5"
+        font-size: 
+          light: 22
+          dark: 28
+          coloured: 18
+        line-height: 
+          light: '1.5'
+          dark: '1.4'
+          coloured: '1.4'
 
     - name: headline_typography
       group: headlines
@@ -204,7 +246,9 @@ variables:
             coloured: "#E6AB8B"
           text-decoration: none
 
-    # --- Footer ---
+  footer:
+
+    # ----------------- Footer -----------------
 
     - name: footer_text
       group: footer
@@ -225,6 +269,61 @@ variables:
           light: "Nobile"
           dark: "Big Caslon FB Roman"
           coloured: "Roboto"
+
+    - name: footer_link_typography
+      group: footer_links
+      kind: typography
+      value:
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Lydian Regular"
+        color:
+          light: "#000000"
+          dark: "#999999"
+          coloured: "#ffffff"
+        font-style: normal
+        font-weight: normal
+        text-decoration: 
+          light: "underline"
+          dark: "none"
+          coloured: "none"
+        hover:
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: none
+
+    - name: footer_border
+      group: footer_border
+      display_name: "Border"
+      kind: boolean
+      notes: Shows or hides the footer border.
+      value: 
+        light: true
+        dark: false
+        coloured: false
+
+    - name: footer_border_color
+      group: footer_border
+      display_name: "Border Color"
+      kind: color
+      notes: The border color of your footer.
+      value:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#ffffff"
+
+    - name: footer_background_color
+      group: footer_background
+      display_name: "Background Color"
+      kind: color
+      notes: The background color of your footer.
+      value:
+        light: "#ffffff"
+        dark: "#111111"
+        coloured: "#022422"
 
   menu:
 
@@ -262,18 +361,52 @@ variables:
             dark: "none"
             coloured: "none"
 
-    - name: menu_category_typography
-      group: menu_categories
+    - name: menu_title
+      group: menu_title
+      display_name: "Show Title"
+      kind: boolean
+      notes: Shows or hides the menu title.
+      value: true
+
+    - name: menu_title_typography
+      group: menu_title
       kind: typography
       value:
-        font-weight: bold
-        text-decoration: underline
-        hover:
-          color: "#000000"
-          text-decoration: none
-        selected:
-          color: "#000000"
-          text-decoration: none
+        font-weight: normal
+        color:
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#ffffff"
+    
+    - name: menu_border
+      group: menu_border
+      display_name: "Border"
+      kind: boolean
+      notes: Shows or hides the menu border.
+      value: 
+        light: true
+        dark: false
+        coloured: false
+
+    - name: menu_border_color
+      group: menu_border
+      display_name: "Border Color"
+      kind: color
+      notes: The border color of your menu.
+      value:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#ffffff"
+
+    - name: menu_background_color
+      group: menu_background
+      display_name: "Background Color"
+      kind: color
+      notes: The background color of your menu.
+      value:
+        light: "#ffffff"
+        dark: "#111111"
+        coloured: "#022422"
 
   gallery:
 
@@ -284,7 +417,7 @@ variables:
       kind: typography
       value:
         color: 
-          light: "#999999"
+          light: "#ffffff"
           dark: "#666666"
           coloured: "#184E3F"
         font-family: 
@@ -299,7 +432,7 @@ variables:
       kind: typography
       value:
         color: 
-          light: "#000000"
+          light: "#ffffff"
           dark: "#ffffff"
           coloured: "#E6AB8B"
         font-family: 
@@ -311,10 +444,60 @@ variables:
         text-decoration: underline
         hover:
           color: 
-            light: "#000000"
+            light: "#ffffff"
             dark: "#ffffff"
             coloured: "#E6AB8B"
           text-decoration: none
+
+    - name: gallery_frames
+      group: gallery_frames
+      display_name: "Frame around gallery images"
+      kind: boolean
+      notes: Shows or hides the frame around gallery images.
+      value: 
+        light: true
+        dark: false
+        coloured: true
+
+    - name: gallery_frames_color
+      group: gallery_frames
+      display_name: "Use global color for all frames"
+      kind: boolean
+      notes: Use global color for all frames.
+      value: 
+        light: false
+        dark: false
+        coloured: true
+
+    - name: gallery_frames_color_code
+      group: gallery_frames
+      display_name: "Frame color"
+      kind: color
+      notes: The background color for your gallery frames. This will also be seen in empty spaces.
+      value:
+        light: "#eeeeee"
+        dark: "#1a1a1a"
+        coloured: "#022422"
+
+    - name: gallery_video_frames_color
+      group: gallery_frames
+      display_name: "Video frame color"
+      kind: color
+      notes: The background color for your video frames. Seen when a video has a caption.
+      value:
+        light: "#000000"
+        dark: "#111111"
+        coloured: "#022422"
+
+    - name: gallery_frame_size
+      group: gallery_frames
+      display_name: "Gallery frame size"
+      kind: text
+      notes: The size of the frames around your images.
+      value: 
+        light: "3rem"
+        dark: "4rem"
+        coloured: "50px"
 
   listing:
 
@@ -325,19 +508,94 @@ variables:
       kind: typography
       value:
         color:
-          light: "#666666"
-          dark: "#cccccc"
-          coloured: "#cccccc"
+          light: "#ffffff"
+          dark: "#ffffff"
+          coloured: "#ffffff"
         font-family: 
           light: "Nobile"
           dark: "Big Caslon FB Roman"
           coloured: "Lydian Regular"
-        font-style: normal
-        font-weight: normal
-        font-size: 16
-        line-height: 1.4
-        hover:
-          color: "#ffa07a"
+        font-weight: 
+          light: "bold"
+          dark: "normal"
+          coloured: "normal"
+        font-size: 
+          light: 24
+          dark: 36
+          coloured: 36
+
+    - name: listing_caption_text
+      group: listing_link_titles
+      display_name: Text
+      kind: text
+      notes: The text displayed above the collection title.
+      value: 
+        light: "View"
+        dark: "Visit"
+        coloured: "Collection"
+
+    - name: listings_layout
+      display_name: "Listing Layout"
+      group: listing_layout
+      kind: select
+      values:
+        - 1x2
+        - 2x1
+        - masonry
+      value:
+        light: "1x2"
+        dark: "2x1"
+        coloured: "masonry"
+
+    - name: listing_grid_size
+      group: listing_layout
+      display_name: Grid size
+      kind: text
+      notes: The size of the size between listing items.
+      value: 
+        light: "0"
+        dark: "4rem"
+        coloured: "10px"
+
+    - name: listing_frames
+      group: listing_frames
+      display_name: "Frame around listing"
+      kind: boolean
+      notes: Shows or hides the frame around collections.
+      value: 
+        light: true
+        dark: false
+        coloured: false
+
+    - name: listing_frames_color
+      group: listing_frames
+      display_name: "Use global color for all frames"
+      kind: boolean
+      notes: Use global color for all frames.
+      value: 
+        light: false
+        dark: false
+        coloured: true
+
+    - name: listing_frames_color_code
+      group: listing_frames
+      display_name: "Frame color"
+      kind: color
+      notes: The background color for your collection frames and hovers.
+      value:
+        light: "#ffffff"
+        dark: "#1a1a1a"
+        coloured: "#021A18"
+
+    - name: listing_frame_size
+      group: listing_frames
+      display_name: "Listing frame size"
+      kind: text
+      notes: The size for your collection frames.
+      value: 
+        light: "3rem"
+        dark: "4rem"
+        coloured: "10px"
 
   social:
 
