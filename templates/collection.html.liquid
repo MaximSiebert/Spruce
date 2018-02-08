@@ -15,7 +15,7 @@
                 {% endif %}
                         <div class="asset w-100">
                             {% capture dominantColor %}{% if asset.dominant_color %}{{ asset.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
-                            <a class="link relative db w-100 h-100 flex" href="{{ asset.link_url }}"{% if asset.open_in_new_window %} target="_blank"{% endif %} style="background: {{ asset.dominant_color }}">
+                            <a class="link relative db w-100 h-100 flex" href="{%if asset.linked_page_type == 'page' or asset.linked_page_type == 'gallery' or asset.linked_page_type == 'content' %}{% unless asset.is_title_page %}{{ page.url }}{% endunless %}{% endif %}{{ asset.link_url }}"{% if asset.open_in_new_window %} target="_blank"{% endif %} style="background: {{ asset.dominant_color }}">
                                 <div class="img-container flex items-center justify-center overflow-hidden relative w-100">
                                     {% assign ratioWidth = asset.image_dimensions_1600x1200[0] %}
                                     {% assign ratioHeight = asset.image_dimensions_1600x1200[1] %}
