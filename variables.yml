@@ -42,7 +42,11 @@ groups:
 
   - name: Title
     id: menu_title
-    notes: The title located inside your menu.
+    notes: The page title located beside your name or logo.
+
+  - name: Menu Text
+    id: menu_text
+    notes: The text beside the menu icon
 
   - name: Border
     id: menu_border
@@ -141,7 +145,7 @@ variables:
       kind: color
       notes: The background color of your site
       value:
-        light: "#ffffff"
+        light: "#eeeeee"
         dark: "#111111"
         coloured: "#022422"
 
@@ -172,16 +176,16 @@ variables:
         color:
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          coloured: "#ffffff"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Lydian Regular"
         hover:
           color:
             light: "#000000"
             dark: "#ffffff"
-            coloured: "#E6AB8B"
+            coloured: "#ffffff"
           text-decoration: 
             light: "none"
             dark: "none"
@@ -198,7 +202,7 @@ variables:
           dark: "#ffffff"
           coloured: "#C89379"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Roboto"
         font-size: 
@@ -219,10 +223,10 @@ variables:
           dark: "#ffffff"
           coloured: "#C89379"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Lydian Regular"
-        font-size: 16
+        font-size: 32
         font-weight: bold
 
     - name: link_typography
@@ -230,7 +234,7 @@ variables:
       kind: typography
       value:
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Lydian Regular"
         color:
@@ -270,7 +274,7 @@ variables:
           dark: "#ffffff"
           coloured: "#C89379"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Roboto"
 
@@ -279,7 +283,7 @@ variables:
       kind: typography
       value:
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Lydian Regular"
         color:
@@ -325,7 +329,7 @@ variables:
       kind: color
       notes: The background color of your footer.
       value:
-        light: "#ffffff"
+        light: "#eeeeee"
         dark: "#111111"
         coloured: "#022422"
 
@@ -342,7 +346,7 @@ variables:
           dark: "#999999"
           coloured: "#ffffff"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Roboto"
         text-decoration: none
@@ -381,6 +385,48 @@ variables:
           light: "#000000"
           dark: "#ffffff"
           coloured: "#ffffff"
+
+    - name: menu_text
+      group: menu_text
+      display_name: Text
+      kind: text
+      notes: The text displayed beside the menu icon.
+      value: 
+        light: "Menu"
+        dark: ""
+        coloured: ""
+
+    - name: menu_text_typography
+      group: menu_text
+      kind: typography
+      value:
+        color:
+          light: "#000000"
+          dark: "#999999"
+          coloured: "#E6AB8B"
+        font-family: 
+          light: "Helvetica Neue"
+          dark: "News Gothic Regular"
+          coloured: "Roboto"
+        text-decoration: none
+        hover:
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#ffffff"
+          text-decoration: 
+            light: "underline"
+            dark: "none"
+            coloured: "none"
+        selected:
+          color: 
+            light: "#000000"
+            dark: "#ffffff"
+            coloured: "#ffffff"
+          text-decoration: 
+            light: "underline"
+            dark: "none"
+            coloured: "none"
     
     - name: menu_border
       group: menu_border
@@ -408,7 +454,7 @@ variables:
       kind: color
       notes: The background color of your menu.
       value:
-        light: "#ffffff"
+        light: "#eeeeee"
         dark: "#111111"
         coloured: "#022422"
 
@@ -425,7 +471,7 @@ variables:
           dark: "#666666"
           coloured: "#184E3F"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Roboto"
         font-size: 14
@@ -440,7 +486,7 @@ variables:
           dark: "#ffffff"
           coloured: "#E6AB8B"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Roboto"
         font-style: normal
@@ -458,7 +504,7 @@ variables:
       kind: typography
       value:
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Lydian Regular"
         color:
@@ -477,16 +523,6 @@ variables:
             dark: "#ffffff"
             coloured: "#E6AB8B"
           text-decoration: none
-
-    - name: gallery_frames
-      group: gallery_frames
-      display_name: "Frame around gallery images"
-      kind: boolean
-      notes: Shows or hides the frame around gallery images.
-      value: 
-        light: true
-        dark: false
-        coloured: true
 
     - name: gallery_frames_color
       group: gallery_frames
@@ -521,12 +557,16 @@ variables:
     - name: gallery_frame_size
       group: gallery_frames
       display_name: "Gallery frame size"
-      kind: text
-      notes: The size of the frames around your images.
-      value: 
-        light: "3rem"
-        dark: "4rem"
-        coloured: "50px"
+      kind: select
+      values:
+        - None
+        - Small
+        - Medium
+        - Large
+      value:
+        light: "Large"
+        dark: "None"
+        coloured: "Large"
 
   listing:
 
@@ -541,7 +581,7 @@ variables:
           dark: "#ffffff"
           coloured: "#ffffff"
         font-family: 
-          light: "Nobile"
+          light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Lydian Regular"
         font-weight: 
@@ -570,7 +610,7 @@ variables:
       notes: Stops your listing page from spanning the full width of the browser.
       value: 
         light: true
-        dark: false
+        dark: true
         coloured: false
 
     - name: listings_layout
@@ -588,23 +628,17 @@ variables:
 
     - name: listing_grid_size
       group: listing_layout
-      display_name: Grid size
-      kind: text
-      notes: The size of the size between listing items.
-      value: 
-        light: "0"
-        dark: "4rem"
-        coloured: "10px"
-
-    - name: listing_frames
-      group: listing_frames
-      display_name: "Frame around listing"
-      kind: boolean
-      notes: Shows or hides the frame around collections.
-      value: 
-        light: true
-        dark: false
-        coloured: false
+      display_name: Grid gutter size
+      kind: select
+      values:
+        - None
+        - Small
+        - Medium
+        - Large
+      value:
+        light: "None"
+        dark: "Large"
+        coloured: "None"
 
     - name: listing_frames_color
       group: listing_frames
@@ -629,12 +663,16 @@ variables:
     - name: listing_frame_size
       group: listing_frames
       display_name: "Listing frame size"
-      kind: text
-      notes: The size for your collection frames.
-      value: 
-        light: "3rem"
-        dark: "4rem"
-        coloured: "10px"
+      kind: select
+      values:
+        - None
+        - Small
+        - Medium
+        - Large
+      value:
+        light: "Large"
+        dark: "None"
+        coloured: "None"
 
   social:
 
@@ -793,9 +831,9 @@ variables:
       group: blog_titles
       kind: typography
       value:
-        font-family: Nobile
+        font-family: Helvetica Neue
         color:
-          light: "#444444"
+          light: "#000000"
           dark: "#cccccc"
           coloured: "#cccccc"
         font-size: 36
@@ -812,19 +850,19 @@ variables:
       group: blog_body
       kind: typography
       value:
-        font-family: Nobile
+        font-family: Helvetica Neue
         color:
-          light: "#444444"
+          light: "#000000"
           dark: "#cccccc"
           coloured: "#cccccc"
         line-height: 1.7
-        font-size: 14
+        font-size: 22
 
     - name: blog_caption_typography
       group: blog_image_captions
       kind: typography
       value:
-        font-family: Nobile
+        font-family: Helvetica Neue
         font-size: 14
 
     - name: blog_images_slideshow_color

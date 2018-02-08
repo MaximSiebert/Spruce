@@ -5,7 +5,8 @@
         {% if page.type == "gallery" %}
             <div class="title-element mt6 mb5 w-90-ns center flex ph4">
         {% else %}
-            <div class="title-element mt5 w-90-ns center flex ph4">
+            {% capture layoutContainer %}{% if theme.listing_layout_container == false %}mb5{% endif %}{% endcapture %}
+            <div class="title-element pt5 w-90-ns center flex ph4 {{ layoutContainer }}">
         {% endif %}
             <div class="text f1-l f3-m f4 lh-title">{{ page.title.copy }}</div>
         </div>

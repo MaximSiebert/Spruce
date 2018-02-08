@@ -1,18 +1,18 @@
 {% if theme.menu_title %}
-    <div class="flex w-50-ns w-75">
-        <h2 class="ma0 fw4 pl4">
+    <div class="flex-ns w-50-ns dn">
+        <h2 class="ma0 fw4 pl4 page-title">
             {% if page.is_homepage != true %}
                 {{ page.name }}
             {% endif %}
         </h2>
-        {% comment %} <div class="tr pl4 mt1">
-            <a class="link" href="{{ paths.root }}">↩</a>
-            <button class="mobile-menu-toggle dn-ns">Menu</button>
-        </div> {% endcomment %}
     </div>
 {% endif %}
 <div class="pr4 left-auto mobile-menu-toggle flex items-center">
-    <button class="link bg-none bn pa0 input-reset button-reset">Menu</button>
+    {% if theme.menu_text != "" %}
+        <button class="link bg-none bn pa0 input-reset button-reset">
+            {{ theme.menu_text }}
+        </button>
+    {% endif %}
     <div class="hamburger ml3">
       <span class="line"></span>
       <span class="line"></span>
