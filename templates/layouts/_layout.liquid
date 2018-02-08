@@ -5,6 +5,7 @@
     {% if page.is_homepage %}
     <meta rel="canonical" href="{{ site.url }}" />
     {% endif %}
+    {% unless page.content_editable %}<script src="{% asset_pipeline theme_api/v2/turbolinks-2.5.3-format.js %}"></script>{% endunless %}
     {% format_header %}
     <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>

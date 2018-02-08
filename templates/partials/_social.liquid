@@ -3,7 +3,7 @@
         {% capture icon_name %}icon{{i}}{% endcapture %}
         {% capture icon_text %}icon{{i}}text{% endcapture %}
         {% unless theme[icon_name] == 'None' or theme[icon_text] == blank %}
-            <a href="{{ theme[icon_text] | strip_brs }}" class="social-link db mb2 link w-25-l w-50-ns w-100 pl4" target="_blank" title="{{ theme[icon_name] }}">
+            <a href="{{ theme[icon_text] | strip_brs }}" class="social-link db mb2 link w-50-ns w-100 pl4" target="_blank" title="{{ theme[icon_name] }}">
                 {{ theme[icon_name] }}
             </a>
         {% endunless %}
