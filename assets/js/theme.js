@@ -70,7 +70,7 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
 // Initialize menu show/hide toggle behaviour
 window.Theme.Menu = window.Theme.Menu || {
   toggle: function () {
-    Theme.$.menuToggle.on('click', function() {
+    $('.mobile-menu-toggle').on('click', function() {
       Theme.$.header.toggleClass('active');
       $('body').toggleClass('active');
     });
