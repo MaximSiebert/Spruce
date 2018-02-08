@@ -6,7 +6,8 @@
 
         {% theme_include 'partials/title' %}
 
-        <div class="asset-container w-90-ns center ph4 mv5">
+        {% capture layoutContainer %}{% if theme.listing_layout_container %}w-90-ns mb5 ph4{% endif %}{% endcapture %}
+        <div class="asset-container center mt5 {{ layoutContainer }}">
             {% for asset in page.assets %}
                 {% capture modulo %}{{ forloop.index | modulo: 3 }}{% endcapture %}
                 {% if modulo == '1' and theme.listings_layout != 'masonry' %}

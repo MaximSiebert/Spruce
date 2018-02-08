@@ -10,6 +10,14 @@ window.Theme = window.Theme || {
   init: function () {
     this.Menu.toggle();
     this.Turbolinks.init();
+    this.reload();
+  },
+  reload: function () {
+    this.initJSForPageType();
+    this.bindEvents();
+  },
+  bindEvents: function () {
+    $('.mobile-menu-toggle').on("click", this.Menu.toggle);
   },
   initJSForPageType: function () {
     var pageType = this.normalizedPageType();
@@ -42,7 +50,6 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
   },
   onPageLoad: function (e) {
     console.log('onPageLoad');
-    this.Menu.toggle();
   },
   onBeforeChange: function (e) {
     e.preventDefault();
@@ -52,6 +59,7 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
   },
   onUpdate: function (e) {
     console.log('onUpdate');
+    window.Theme.reload();
   },
   onRestore: function (e) {
     console.log('onRestore');
@@ -79,17 +87,48 @@ window.Theme.Gallery = window.Theme.Gallery || {
   }
 };
 
-// Initialize object on DOM load
-$(document).on('DOMContentLoaded', function () {
-  Theme.init();
-});
-
-$(window).on("load", function () {
-  Theme.Turbolinks.onPageLoad();
-});
-
 
 $(document).ready(function(){
+
+  // Hide Header on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 0;
+  var navbar = $('.header');
+  var navbarHeight = navbar.outerHeight();
+
+  $(window).scroll(function(event){
+      didScroll = true;
+  });
+
+  setInterval(function() {
+      if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+      }
+  }, 0);
+
+  function hasScrolled() {
+      var st = $(this).scrollTop();
+
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta)
+          return;
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && !navbar.hasClass('active') ){
+          // Scroll Down
+          navbar.removeClass('nav-down').addClass('nav-up');
+      } else {
+          // Scroll Up
+          if(st + $(window).height() < $(document).height()) {
+              navbar.removeClass('nav-up').addClass('nav-down');
+          }
+      }
+
+      lastScrollTop = st;
+  }
 
   // Dropdown menus
   var dropdownTrigger = $('.dropdown-trigger'),
@@ -120,9 +159,19 @@ $(document).ready(function(){
   var video = $('.video'),
       videoOverlay = $('.video-overlay');
 
-  video.click(function(e){
-    $(this).addClass('playing');
-    $(this).find("iframe")[0].src += "&autoplay=1";
+  videoOverlay.click(function(e){
     e.preventDefault();
+    $(this).parent().parent('.video').addClass('playing');
+    $(this).parent().parent('.video').find("iframe")[0].src += "&autoplay=1";
   });
+});
+
+
+$(window).on("load", function () {
+  Theme.Turbolinks.onPageLoad();
+});
+
+// Initialize object on DOM load
+$(document).on('DOMContentLoaded', function () {
+  Theme.init();
 });

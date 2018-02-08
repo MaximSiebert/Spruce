@@ -2759,6 +2759,15 @@ Header / Menu Styles
 
 .header {
   z-index: 1000;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  &.nav-up {
+    transform: translateY(-100%);
+    position: fixed;
+  }
+  &.nav-down {
+    transform: translateY(0);
+    position: fixed;
+  }
 }
 
 .bg-none {
@@ -2933,16 +2942,25 @@ body.gallery {
         transition: all .15s ease-in;
       }
       .video-overlay {
-        {% css_block theme.link_typography %};
+        p {
+          {% css_block theme.gallery_video_link_typography %};
+          text-decoration-skip: ink;
+          vertical-align: bottom;
+        }
         transition: opacity .6s cubic-bezier(0.19, 1, 0.22, 1);
         .play-icon {
+          color: {{ theme.gallery_video_link_typography.color }};
           transition: transform .15s ease-in;
+          margin-left: .3em;
+          margin-top: .4em;
+          text-decoration: none;
+          vertical-align: bottom;
         }
         &:hover {
           &:before {
             background: rgba(0,0,0,.5);
           }
-          {% css_block theme.link_typography.hover %};
+          {% css_block theme.gallery_video_link_typography.hover %};
           .play-icon {
             transform: translateX(.15rem);
           }

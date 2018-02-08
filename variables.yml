@@ -62,6 +62,10 @@ groups:
     id: gallery_caption_links
     notes: The links in the captions appearing below or beside gallery elements.
 
+  - name: Video Text
+    id: gallery_video_typography
+    notes: The play text on top of your videos.
+
   - name: Gallery Frames
     id: gallery_frames
     notes: The frames around your images on gallery pages.
@@ -449,6 +453,31 @@ variables:
             coloured: "#E6AB8B"
           text-decoration: none
 
+    - name: gallery_video_link_typography
+      group: gallery_video_typography
+      kind: typography
+      value:
+        font-family: 
+          light: "Nobile"
+          dark: "News Gothic Regular"
+          coloured: "Lydian Regular"
+        color:
+          light: "#ffffff"
+          dark: "#999999"
+          coloured: "#ffffff"
+        font-style: normal
+        font-weight: normal
+        text-decoration: 
+          light: "underline"
+          dark: "none"
+          coloured: "none"
+        hover:
+          color: 
+            light: "#ffffff"
+            dark: "#ffffff"
+            coloured: "#E6AB8B"
+          text-decoration: none
+
     - name: gallery_frames
       group: gallery_frames
       display_name: "Frame around gallery images"
@@ -533,6 +562,16 @@ variables:
         light: "View"
         dark: "Visit"
         coloured: "Collection"
+
+    - name: listing_layout_container
+      group: listing_layout
+      display_name: "Contain listings within the page container"
+      kind: boolean
+      notes: Stops your listing page from spanning the full width of the browser.
+      value: 
+        light: true
+        dark: false
+        coloured: false
 
     - name: listings_layout
       display_name: "Listing Layout"

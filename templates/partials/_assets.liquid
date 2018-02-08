@@ -23,12 +23,12 @@
           </div>
       {% when 'video' %}
           <div class="asset video w-50 pa5 relative">
-            <div class="relative">
+            <div class="relative z-1">
                 <div class="pointer absolute z-1 top-0 left-0 right-0 bottom-0 cover video-overlay flex items-center justify-center" style="background: url({{ asset.thumbnail_url_960x0 }}) no-repeat center center;">
-                    <p class="f3 z-1 relative link">
+                    <p class="f3 z-1 link relative">
                         Play
-                        <span class="f4 play-icon dib">▶</span>
                     </p>
+                    <span class="f4 play-icon relative">▶</span>
                 </div>
                 {{ asset.embed_dimensions }}
             </div>
