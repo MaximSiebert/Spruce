@@ -1,5 +1,5 @@
 ---
-name: theme2018
+name: blunt
 description: Format theme
 skins:
 - name: Light
@@ -14,8 +14,6 @@ using_position:
   bottom: 20
 preview_images:
 - path: preview_images/1.jpg
-- path: preview_images/2.jpg
-- path: preview_images/3.jpg
 background_images:
 - path: background_images/1.jpg
 preview_site_images:

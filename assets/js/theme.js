@@ -6,13 +6,13 @@ window.Theme = window.Theme || {
     header: $('.header'),
     menuToggle: $('.mobile-menu-toggle'),
   },
-  themeData: _4ORMAT_DATA,
   init: function () {
     this.Menu.toggle();
     this.Turbolinks.init();
     this.reload();
   },
   reload: function () {
+    Theme.themeData = _4ORMAT_DATA;
     this.initJSForPageType();
     this.bindEvents();
   },
@@ -70,7 +70,7 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
 // Initialize menu show/hide toggle behaviour
 window.Theme.Menu = window.Theme.Menu || {
   toggle: function () {
-    Theme.$.menuToggle.on('click', function() {
+    $('.mobile-menu-toggle').on('click', function() {
       Theme.$.header.toggleClass('active');
       $('body').toggleClass('active');
     });
@@ -83,7 +83,7 @@ window.Theme.Gallery = window.Theme.Gallery || {
     this.respVideo();
   },
   respVideo: function () {
-    Theme.$.container.fitVids();
+    $('main').fitVids();
   }
 };
 
