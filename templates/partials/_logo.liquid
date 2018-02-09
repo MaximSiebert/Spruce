@@ -1,5 +1,5 @@
 {% if theme.logo_image %}
-    <h1 class="logo fixed z-2"><a class="link" href="{{ paths.root }}"><img src="{{ theme.logo_image }}" alt="{{ site.name }}" /></a></h1>
+    <h1 class="logo fixed z-2"><a class="link db" href="{{ paths.root }}"><img src="{{ theme.logo_image }}" alt="{{ site.name }}" /></a></h1>
 {% elsif theme.logo_text %}
-    <h1 class="logo f3-l f4-m f5 z-2"><a class="link" href="{{ paths.root }}">{{ theme.logo_text | newline_to_br }}</a></h1>
+    <h1 class="logo z-2"><a class="link db" href="{{ paths.root }}">{{ theme.logo_text | newline_to_br }}</a></h1>
 {% endif %}

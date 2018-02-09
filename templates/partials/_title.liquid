@@ -3,12 +3,12 @@
         <img src='{{ page.title.image_url_1600x0 }}'>
     {% else if page.title.copy and page.title.copy_alignment != "none" %}
         {% if page.type == "gallery" %}
-            <div class="title-element mt6 mb5 w-90-ns center flex ph4">
+            <div class="title-element mv5 w-90-l center flex ph4">
         {% else %}
             {% capture layoutContainer %}{% if theme.listing_layout_container == false %}mb5{% endif %}{% endcapture %}
-            <div class="title-element pt5 w-90-ns center flex ph4 {{ layoutContainer }}">
+            <div class="title-element pt5 w-90-l center flex ph4 {{ layoutContainer }}">
         {% endif %}
-            <div class="text f1-l f3-m f4 lh-title">{{ page.title.copy }}</div>
+            <div class="text big-text lh-title">{{ page.title.copy }}</div>
         </div>
     {% endif %}
 {% endif %}

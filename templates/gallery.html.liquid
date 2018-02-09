@@ -2,24 +2,26 @@
 
   {% theme_include 'partials/header' %}
   
-  <main class="container">
+  <main class="container overflow-x-hidden">
     {% theme_include 'partials/title' %}
     <div class="flex flex-wrap asset-container">
       {% theme_include 'partials/assets' %}
     </div>
     {% if page.parent %}
-      {% if page.prev_nested_page %}
-        <a href="{{ page.parent.url }}{{ page.prev_nested_page.url }}">
-          <p>Previous:</p>
-          <h3>{{ page.prev_nested_page.name }}</h3>
-        </a>
-      {% endif %}
-      {% if page.next_nested_page %}
-        <a href="{{ page.parent.url }}{{ page.next_nested_page.url }}">
-          <p>Next:</p>
-          <h3>{{ page.next_nested_page.name }}</h3>
-        </a>
-      {% endif %}
+      <div class="w-90-l center pv6 pagination pl4">
+        {% comment %} {% if page.prev_nested_page %}
+          <a class="db pl4" href="{{ page.parent.url }}{{ page.prev_nested_page.url }}">
+            <p>Previous:</p>
+            <h3>{{ page.prev_nested_page.name }}</h3>
+          </a>
+        {% endif %} {% endcomment %}
+        {% if page.next_nested_page %}
+          <p>Next</p>
+          <a class="db big-text link" href="{{ page.parent.url }}{{ page.next_nested_page.url }}">
+            {{ page.next_nested_page.name }}
+          </a>
+        {% endif %}
+      </div>
     {% endif %}
   </main>
 

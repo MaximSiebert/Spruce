@@ -10,6 +10,10 @@ groups:
     id: headlines
     notes: Headlines that appear throughout your site in the content.
 
+  - name: Listing & Gallery Text
+    id: big_text
+    notes: The text appearing on Gallery and Listing pages.
+  
   - name: Text
     id: text
     notes: The text appearing in the body across your site, usually on non Gallery and Listing pages.
@@ -169,13 +173,17 @@ variables:
       group: logo
       kind: typography
       value:
+        font-size: 
+          light: 24
+          dark: 24
+          coloured: 24
         font-weight: 
           light: "bold"
           dark: "normal"
           coloured: "normal"
         color:
           light: "#000000"
-          dark: "#ffffff"
+          dark: "#999999"
           coloured: "#ffffff"
         font-family: 
           light: "Helvetica Neue"
@@ -192,6 +200,32 @@ variables:
             coloured: "none"
 
     # --- Typography ---
+
+    - name: big_text_typography
+      group: big_text
+      kind: typography
+      value:
+        color:
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#C89379"
+        font-family: 
+          light: "Helvetica Neue"
+          dark: "Big Caslon FB Roman"
+          coloured: "Roboto"
+
+    - name: big_text_typography_size
+      group: big_text
+      display_name: "Listing and Gallery text size"
+      kind: select
+      values:
+        - Small
+        - Medium
+        - Large
+      value:
+        light: "Large"
+        dark: "Medium"
+        coloured: "Large"
 
     - name: text_typography
       group: text
@@ -277,6 +311,10 @@ variables:
           light: "Helvetica Neue"
           dark: "Big Caslon FB Roman"
           coloured: "Roboto"
+        font-size: 
+          light: 22
+          dark: 22
+          coloured: 22
 
     - name: footer_link_typography
       group: footer_links
@@ -286,6 +324,10 @@ variables:
           light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Lydian Regular"
+        font-size: 
+          light: 24
+          dark: 24
+          coloured: 24
         color:
           light: "#000000"
           dark: "#999999"
@@ -310,7 +352,7 @@ variables:
       notes: Shows or hides the footer border.
       value: 
         light: true
-        dark: false
+        dark: true
         coloured: false
 
     - name: footer_border_color
@@ -320,7 +362,7 @@ variables:
       notes: The border color of your footer.
       value:
         light: "#000000"
-        dark: "#ffffff"
+        dark: "#222222"
         coloured: "#ffffff"
 
     - name: footer_background_color
@@ -349,6 +391,10 @@ variables:
           light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Roboto"
+        font-size: 
+          light: 42
+          dark: 42
+          coloured: 42
         text-decoration: none
         hover:
           color: 
@@ -373,7 +419,7 @@ variables:
       group: menu_title
       display_name: "Show Title"
       kind: boolean
-      notes: Shows or hides the menu title.
+      notes: Shows or hides the page title in the menu.
       value: true
 
     - name: menu_title_typography
@@ -381,6 +427,14 @@ variables:
       kind: typography
       value:
         font-weight: normal
+        font-size: 
+          light: 24
+          dark: 21
+          coloured: 24
+        font-family: 
+          light: "Helvetica Neue"
+          dark: "News Gothic Regular"
+          coloured: "Roboto"
         color:
           light: "#000000"
           dark: "#ffffff"
@@ -408,6 +462,10 @@ variables:
           light: "Helvetica Neue"
           dark: "News Gothic Regular"
           coloured: "Roboto"
+        font-size: 
+          light: 24
+          dark: 24
+          coloured: 24
         text-decoration: none
         hover:
           color: 
@@ -531,7 +589,7 @@ variables:
       notes: Use global color for all frames.
       value: 
         light: false
-        dark: false
+        dark: true
         coloured: true
 
     - name: gallery_frames_color_code
@@ -541,7 +599,7 @@ variables:
       notes: The background color for your gallery frames. This will also be seen in empty spaces.
       value:
         light: "#eeeeee"
-        dark: "#1a1a1a"
+        dark: "#111111"
         coloured: "#022422"
 
     - name: gallery_video_frames_color
@@ -585,13 +643,17 @@ variables:
           dark: "Big Caslon FB Roman"
           coloured: "Lydian Regular"
         font-weight: 
-          light: "bold"
+          light: "normal"
           dark: "normal"
           coloured: "normal"
         font-size: 
-          light: 24
+          light: 28
           dark: 36
           coloured: 36
+        text-decoration: 
+          light: underline
+          dark: none
+          coloured: none
 
     - name: listing_caption_text
       group: listing_link_titles

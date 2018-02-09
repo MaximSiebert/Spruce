@@ -25,10 +25,10 @@
           <div class="asset video w-50 pa5 relative">
             <div class="relative z-1">
                 <div class="pointer absolute z-1 top-0 left-0 right-0 bottom-0 cover video-overlay flex items-center justify-center" style="background: url({{ asset.thumbnail_url_960x0 }}) no-repeat center center;">
-                    <p class="f3 z-1 link relative">
+                    <p class="f3 z-1 relative">
                         Play
                     </p>
-                    <span class="f4 play-icon relative">▶</span>
+                    <span class="f4 z-1 play-icon relative">▶</span>
                 </div>
                 {{ asset.embed_dimensions }}
             </div>
@@ -41,8 +41,8 @@
             {% endif %}
           </div>
       {% when 'text' %}
-          <div class="asset text f1-l f3-m f4 ph4">
-            <div class="w-90-ns center mv5">
+          <div class="asset text big-text ph4">
+            <div class="w-90-l center mv5">
                 {{ asset.copy }}
             </div>
           </div>

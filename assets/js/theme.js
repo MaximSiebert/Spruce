@@ -45,24 +45,19 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
     $(window).on("page:restore", this.onRestore.bind(this));
   },
   onBeforeUnload: function (e) {
-    $("body").removeClass("is-changing");
-    console.log('onBeforeUnload');
   },
   onPageLoad: function (e) {
-    console.log('onPageLoad');
   },
   onBeforeChange: function (e) {
     e.preventDefault();
     $("body").addClass("is-changing");
     Turbolinks.visit(e.originalEvent.data.url);
-    console.log('onBeforeChange');
   },
   onUpdate: function (e) {
-    console.log('onUpdate');
     window.Theme.reload();
+    $("body").removeClass("is-changing");
   },
   onRestore: function (e) {
-    console.log('onRestore');
     window.Theme.bindEvents();
   }
 }

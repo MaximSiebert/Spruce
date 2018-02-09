@@ -2719,8 +2719,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 1;
+}
+
+.is-changing main {
+  opacity: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
+  color: {{ theme.headline_typography.color }};
+  font-weight: {{ theme.headline_typography.font-weight }};
+  font-family: {{ theme.headline_typography.font-family }};
 }
 
 h2 {
@@ -2746,6 +2758,38 @@ a {
 
 .container {
   margin-top: 69px;
+}
+
+.big-text {
+  {% css_block theme.big_text_typography %}
+  {% if theme.big_text_typography_size == 'Small' %}
+    font-size: 28px;
+  {% elsif theme.big_text_typography_size == 'Medium' %}
+    font-size: 38px;
+    {% elsif theme.big_text_typography_size == 'Large' %}
+    font-size: 48px;
+  {% endif %};
+}
+
+.pagination .big-text {
+  {% css_block theme.big_text_typography %}
+  {% if theme.big_text_typography_size == 'Small' %}
+    font-size: 36px;
+  {% elsif theme.big_text_typography_size == 'Medium' %}
+    font-size: 40px;
+    {% elsif theme.big_text_typography_size == 'Large' %}
+    font-size: 56px;
+  {% endif %};
+}
+
+.pagination {
+  {% if theme.big_text_typography_size == 'Small' %}
+    font-size: 14px;
+  {% elsif theme.big_text_typography_size == 'Medium' %}
+    font-size: 16px;
+  {% elsif theme.big_text_typography_size == 'Large' %}
+    font-size: 22px;
+  {% endif %};
 }
 
 /*
@@ -2809,11 +2853,16 @@ Header / Menu Styles
   {% css_block theme.menu_title_typography %};
 }
 
-.menu li a {
-  {% css_block theme.menu_typography %};
-  text-decoration-skip: ink;
-  &:hover {
-    {% css_block theme.menu_typography.hover %};
+.menu li {
+  a {
+    {% css_block theme.menu_typography %};
+    text-decoration-skip: ink;
+    &:hover {
+      {% css_block theme.menu_typography.hover %};
+    }
+  }
+  ul li a {
+    font-size: {{ theme.menu_typography.font-size | divided_by: 1.5 | append:'px' }};
   }
 }
 
@@ -2847,7 +2896,7 @@ Header / Menu Styles
 }
 
 .hamburger .line {
-  width: 30px;
+  width: 20px;
   height: 3px;
   background-color: {{ theme.menu_text_typography.color }};
   display: block;
@@ -2961,6 +3010,7 @@ body.gallery {
           {% css_block theme.gallery_video_link_typography %};
           text-decoration-skip: ink;
           vertical-align: bottom;
+          transition: transform .15s ease-in;
         }
         transition: opacity .6s cubic-bezier(0.19, 1, 0.22, 1);
         .play-icon {
@@ -2975,9 +3025,12 @@ body.gallery {
           &:before {
             background: rgba(0,0,0,.5);
           }
-          {% css_block theme.gallery_video_link_typography.hover %};
+          p {
+            {% css_block theme.gallery_video_link_typography.hover %};
+          }
           .play-icon {
             transform: translateX(.15rem);
+            color: {{ theme.gallery_video_link_typography.hover.color }};
           }
         }
       }
@@ -3128,7 +3181,16 @@ Collection loop
     {% endif %}
 
     .title {
-      {% css_block theme.listing_caption_typography %};
+      p {
+        {% css_block theme.listing_caption_typography %};
+        text-decoration-skip: ink;
+      }
+      span {
+        {% css_block theme.listing_caption_typography %};
+        font-weight: Normal;
+        text-decoration: none;
+        font-size: {{ theme.listing_caption_typography.font-size | divided_by: 1.5 | append:'px'  }};
+      }
     }
   }
   .inner-asset-container {
@@ -3165,7 +3227,7 @@ Collection loop
           grid-column-start: 1;
           grid-row-start: 1;
           grid-row-end: 5;
-          .title {
+          .title p {
             font-size: {{ theme.listing_caption_typography.font-size | times: 1.5 | append:'px' }};
           }
         }
@@ -3217,7 +3279,7 @@ Collection loop
           grid-column-start: 1;
           grid-row-start: 3;
           grid-row-end: 5;
-          .title {
+          .title p {
             font-size: {{ theme.listing_caption_typography.font-size | times: 1.5 | append:'px' }};
           }
         }
@@ -3246,7 +3308,7 @@ Collection loop
   {% endif %}
 }
 
-.asset.text, .title-element {
+.asset.text, .title-element, .pagination {
   a {
     {% css_block theme.link_typography %};
     text-decoration-skip: ink;
