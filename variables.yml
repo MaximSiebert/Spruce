@@ -179,7 +179,7 @@ variables:
           coloured: 24
         font-weight: 
           light: "bold"
-          dark: "normal"
+          dark: "bold"
           coloured: "normal"
         color:
           light: "#000000"
@@ -187,7 +187,7 @@ variables:
           coloured: "#ffffff"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "Bagnad"
           coloured: "Lydian Regular"
         hover:
           color:
@@ -211,7 +211,7 @@ variables:
           coloured: "#C89379"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "Bagnad"
           coloured: "Roboto"
 
     - name: big_text_typography_size
@@ -237,7 +237,7 @@ variables:
           coloured: "#C89379"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "Bagnad"
           coloured: "Roboto"
         font-size: 
           light: 22
@@ -258,7 +258,7 @@ variables:
           coloured: "#C89379"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "Bagnad"
           coloured: "Lydian Regular"
         font-size: 32
         font-weight: bold
@@ -309,7 +309,7 @@ variables:
           coloured: "#C89379"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "Bagnad"
           coloured: "Roboto"
         font-size: 
           light: 22
@@ -392,9 +392,9 @@ variables:
           dark: "News Gothic Regular"
           coloured: "Roboto"
         font-size: 
-          light: 42
-          dark: 42
-          coloured: 42
+          light: 32
+          dark: 20
+          coloured: 32
         text-decoration: none
         hover:
           color: 
@@ -414,6 +414,19 @@ variables:
             light: "underline"
             dark: "none"
             coloured: "none"
+
+    - name: menu_layout
+      group: menu_items
+      display_name: "Menu item columns"
+      kind: select
+      notes: Makes the menu 4 or 2 columns
+      values:
+        - 2 Columns
+        - 4 Columns
+      value:
+        light: "2 Columns"
+        dark: "4 Columns"
+        coloured: "2 Columns"
 
     - name: menu_title
       group: menu_title
@@ -526,7 +539,7 @@ variables:
       value:
         color: 
           light: "#ffffff"
-          dark: "#666666"
+          dark: "#ffffff"
           coloured: "#184E3F"
         font-family: 
           light: "Helvetica Neue"
@@ -589,7 +602,7 @@ variables:
       notes: Use global color for all frames.
       value: 
         light: false
-        dark: true
+        dark: false
         coloured: true
 
     - name: gallery_frames_color_code
@@ -598,7 +611,7 @@ variables:
       kind: color
       notes: The background color for your gallery frames. This will also be seen in empty spaces.
       value:
-        light: "#eeeeee"
+        light: "#ffffff"
         dark: "#111111"
         coloured: "#022422"
 
@@ -640,7 +653,7 @@ variables:
           coloured: "#ffffff"
         font-family: 
           light: "Helvetica Neue"
-          dark: "Big Caslon FB Roman"
+          dark: "News Gothic Regular"
           coloured: "Lydian Regular"
         font-weight: 
           light: "normal"
@@ -651,7 +664,7 @@ variables:
           dark: 36
           coloured: 36
         text-decoration: 
-          light: underline
+          light: none
           dark: none
           coloured: none
 
@@ -664,6 +677,15 @@ variables:
         light: "View"
         dark: "Visit"
         coloured: "Collection"
+
+    - name: listing_caption_text_font
+      group: listing_link_titles
+      kind: typography
+      value:
+        font-family: 
+          light: "Helvetica Neue"
+          dark: "Bagnad"
+          coloured: "Roboto"
 
     - name: listing_layout_container
       group: listing_layout

@@ -43,19 +43,27 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
     $(window).on("page:load", this.onPageLoad.bind(this));
     $(window).on("page:before-unload", this.onBeforeUnload.bind(this));
     $(window).on("page:restore", this.onRestore.bind(this));
-  },
-  onBeforeUnload: function (e) {
-  },
-  onPageLoad: function (e) {
+    $(window).on("page:change", this.onChange.bind(this));
   },
   onBeforeChange: function (e) {
     e.preventDefault();
-    $("body").addClass("is-changing");
+    if ($('body').hasClass('active')) {
+      $('body').removeClass('active');
+    }
+    if ($('.header').hasClass('nav-up')) {
+      $('.header').removeClass('nav-up');
+      $('.header').addClass('nav-down');
+    }
+    $("html").addClass("is-changing");
     Turbolinks.visit(e.originalEvent.data.url);
   },
   onUpdate: function (e) {
     window.Theme.reload();
-    $("body").removeClass("is-changing");
+  },
+  onPageLoad: function (e) {
+    setTimeout(() => {
+      $("html").removeClass("is-changing");
+    }, 500);
   },
   onRestore: function (e) {
     window.Theme.bindEvents();
@@ -124,6 +132,9 @@ $(document).ready(function(){
 
       lastScrollTop = st;
   }
+
+  //Adjust top padding to nav height
+  $('body').css('padding-top', navbarHeight);
 
   // Dropdown menus
   var dropdownTrigger = $('.dropdown-trigger'),

@@ -1,4 +1,4 @@
-<header class="header f3-l f4-m f5 absolute w-100 top-0">
+<header class="header f3-l f4-m f5 fixed w-100 top-0">
     <div class="nav-container relative z-3">
         <div class="flex pv3 w-90-l center items-center lh-solid">
             <div class="pl4">
@@ -9,11 +9,12 @@
     </div>
     <nav class="menu fixed pb3 w-100 z-2 left-0">
         <div class="w-90-l center pt1">
+            {% capture menuLayout %}{% if theme.menu_layout == "2 Columns" %}w-50-ns w-100{% else %}w-25-l w-50-ns w-100{% endif %}{% endcapture %}
             <ul class="ma0 pa0 list flex flex-wrap w-100-ns w-50 left-auto">
                 {% for item in menu_items %}
                 {% case item.type %}
                     {% when 'category' %}
-                        <li class="category {% if item.id == page.category_id %} selected{% endif %} pl4-ns mb2 w-50-ns w-100">
+                        <li class="category {% if item.id == page.category_id %} selected{% endif %} pl4-ns mb2 {{ menuLayout }}">
                             <a class="pointer dropdown-trigger link db">{{ item.name }} ⌄</a>
                             <ul class="list pa0 mt1 mb3 dropdown w-100">
                                 {% for nested in item.pages %}
@@ -26,7 +27,7 @@
                             </ul>
                         </li>
                     {% else %}
-                        <li class="item item{% if item.id == page.id %} selected{% endif %} pl4-ns mb2 w-50-ns w-100">
+                        <li class="item item{% if item.id == page.id %} selected{% endif %} pl4-ns mb2 {{ menuLayout }}">
                             <a class="link db" href="{{ item.href }}" {% if item.type == 'link' and item.open_in_new_window %} target="_blank"{% endif %}>{{ item.name }}</a>
                         </li>
                 {% endcase %}

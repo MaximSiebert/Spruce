@@ -2719,13 +2719,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
+main, .page-title, .footer {
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   opacity: 1;
 }
 
-.is-changing main {
-  opacity: 0;
+.is-changing {
+  main, .page-title, .footer {
+    opacity: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2756,10 +2758,6 @@ a {
   transition: color .15s ease-in;
 }
 
-.container {
-  margin-top: 69px;
-}
-
 .big-text {
   {% css_block theme.big_text_typography %}
   {% if theme.big_text_typography_size == 'Small' %}
@@ -2772,21 +2770,23 @@ a {
 }
 
 .pagination .big-text {
-  {% css_block theme.big_text_typography %}
+  {% css_block theme.link_typography %}
   {% if theme.big_text_typography_size == 'Small' %}
     font-size: 36px;
   {% elsif theme.big_text_typography_size == 'Medium' %}
-    font-size: 40px;
+    font-size: 48px;
     {% elsif theme.big_text_typography_size == 'Large' %}
     font-size: 56px;
   {% endif %};
+  
 }
 
 .pagination {
+  background-color: {{ theme.background_color }}; 
   {% if theme.big_text_typography_size == 'Small' %}
     font-size: 14px;
   {% elsif theme.big_text_typography_size == 'Medium' %}
-    font-size: 16px;
+    font-size: 22px;
   {% elsif theme.big_text_typography_size == 'Large' %}
     font-size: 22px;
   {% endif %};
@@ -2810,12 +2810,14 @@ Header / Menu Styles
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   &.nav-up {
     transform: translateY(-100%);
-    position: fixed;
   }
   &.nav-down {
     transform: translateY(0);
-    position: fixed;
   }
+}
+
+.active .header.nav-up {
+  transform: translateY(0);
 }
 
 .bg-none {
@@ -3062,6 +3064,9 @@ body.gallery {
         margin-top: 0;
       }
     }
+    &.text + .pagination > div{
+      padding-top: 3rem;
+    }
     &.text {
       background-color: {{ theme.background_color }}; 
       p:not(:last-child) {
@@ -3085,6 +3090,9 @@ body.gallery {
     }
     &.portrait {
       padding: {% if theme.gallery_frame_size == 'Small' %}10px{% elsif theme.gallery_frame_size == 'Medium' %}2rem{% elsif theme.gallery_frame_size == 'Large' %}4rem{% else %}0{% endif %};;
+      .caption {
+        padding-left: 0;
+      }
     }
     &.video .video-overlay {
       p {
@@ -3187,9 +3195,10 @@ Collection loop
       }
       span {
         {% css_block theme.listing_caption_typography %};
+        font-family: {{ theme.listing_caption_text_font.font-family }};
         font-weight: Normal;
         text-decoration: none;
-        font-size: {{ theme.listing_caption_typography.font-size | divided_by: 1.5 | append:'px'  }};
+        font-size: {{ theme.listing_caption_typography.font-size | divided_by: 2 | append:'px'  }};
       }
     }
   }
