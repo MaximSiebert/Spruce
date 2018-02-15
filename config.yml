@@ -16,6 +16,6 @@ support:
   client_access: 1
   sales: 1
   parent_page: 1
-  # base_vars: 1
+  base_vars: 1
 
 can_automatically_upgrade_to_versions: [1]
