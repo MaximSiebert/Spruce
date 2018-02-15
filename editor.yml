@@ -4,31 +4,152 @@ drawers:
       - id: basic
       - id: advanced
         variables:
+          - gallery_fit_images
+          - post_text
 
   - id: website_logo
     tabs:
       - id: website_logo
         custom_editor: logo_editor
+        variables:
+          - logo_image
+          - logo_trim
+          - logo_text
+          - logo_typography
 
   - id: colors
     tabs:
       - id: basic
         base_variables:
+          - base_background_color
+          - base_text_color
+          - base_accent_color
       - id: advanced
         variables:
+          - menu_typography
+          - menu_category_typography
+          - headline_typography
+          - footer_typography
+          - background_color
+          - gallery_caption_typography
+          - listing_caption_typography
+          - blog_title_typography
+          - blog_body_typography
+          - blog_images_slideshow_color
+          - social_links_typography
 
   - id: typography
     tabs:
       - id: basic
         base_variables:
+          - base_heading_font
+          - base_body_font
+          - base_font_size
       - id: advanced
         variables:
+          - menu_typography
+          - menu_category_typography
+          - footer_typography
+          - text_typography
+          - link_typography
+          - gallery_caption_typography
+          - listing_caption_typography
+          - blog_title_typography
+          - blog_body_typography
+          - blog_caption_typography
+          - social_links_typography
 
   - id: social
     tabs:
       - id: basic
         variables:
+          - icon1
+          - icon1text
+          - icon2
+          - icon2text
+          - icon3
+          - icon3text
+          - icon4
+          - icon4text
+          - icon5
+          - icon5text
+          - social_links_style
+          - show_social_sharing
 
   - id: code_editor
 
 groups:
+  - id: site_menu
+    variables:
+      - menu_typography
+      - menu_category_typography
+
+  - id: heading
+    variables:
+      - headline_typography
+
+  - id: body
+    variables:
+      - text_typography
+
+  - id: text_links
+    variables:
+      - link_typography
+
+  - id: footer
+    variables:
+      - post_text
+      - footer_typography
+
+  - id: gallery
+    variables:
+      - gallery_caption_typography
+      - gallery_fit_images
+
+  - id: collection
+    variables:
+      - listing_caption_typography
+
+  - id: blog
+    variables:
+      - blog_title_typography
+      - blog_body_typography
+      - blog_caption_typography
+      - blog_images_slideshow_color
+
+  - id: social
+    variables:
+      - social_links_typography
+      - social_links_style
+      - show_social_sharing
+
+  - id: website_background
+    label: Website Background
+    notes:
+    variables:
+      - background_color
+
+  - id: icon1
+    variables:
+      - icon1
+      - icon1text
+
+  - id: icon2
+    variables:
+      - icon2
+      - icon2text
+
+  - id: icon3
+    variables:
+      - icon3
+      - icon3text
+
+  - id: icon4
+    variables:
+      - icon4
+      - icon4text
+
+  - id: icon5
+    variables:
+      - icon5
+      - icon5text

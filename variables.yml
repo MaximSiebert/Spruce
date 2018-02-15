@@ -1,975 +1,834 @@
-groups:
+base_variables:
 
-  # ----- General -----
+  - id: base_background_color
+    kind: color
+    value:
+      light: "#ffffff"
+      dark: "#111111"
+    affected_variables:
+      - background_color
 
-  - name: Logo
-    id: logo
-    notes: The logo image or the name of your website.
+  - id: base_accent_color
+    kind: color
+    value:
+      light: "#444444"
+      dark: "#ffffff"
+    affected_variables:
+      - link_typography
+      - link_typography.hover.color
+      - menu_typography.hover.color
 
-  - name: Headlines
-    id: headlines
-    notes: Headlines that appear throughout your site in the content.
+  - id: base_text_color
+    kind: color
+    value:
+      light: "#111111"
+      dark: "#ffffff"
+    affected_variables:
+      - text_typography
+      - menu_typography
 
-  - name: Listing & Gallery Text
-    id: big_text
-    notes: The text appearing on Gallery and Listing pages.
-  
-  - name: Text
-    id: text
-    notes: The text appearing in the body across your site, usually on non Gallery and Listing pages.
+  - id: base_heading_font
+    kind: typography
+    value:
+      font-family: Aften Screen Bold
+      font-weight: normal
+    affected_variables:
+      - headline_typography
+      - blog_title_typography
 
-  - name: Links
-    id: links
-    notes: The links displayed in the body text across your site.
+  - id: base_body_font
+    kind: typography
+    value:
+      font-family: Aften Screen Regular
+    affected_variables:
+      - text_typography
+      - menu_typography
+      - menu_category_typography
 
-  - name: Footer
-    id: footer
-    notes: The text located at the bottom of your website. Used for copyrights, credits, or similar text.
-
-  - name: Footer Links
-    id: footer_links
-    notes: The links located in the footer of your website.
-
-  - name: Footer Border
-    id: footer_border
-    notes: The border located at the top of your footer.
-
-  - name: Footer Background
-    id: footer_background
-    notes: The background of your footer.
-
-  # ----- Menu -----
-
-  - name: Items
-    id: menu_items
-    notes: The links to different pages located in the menu of your website.
-
-  - name: Title
-    id: menu_title
-    notes: The page title located beside your name or logo.
-
-  - name: Menu Text
-    id: menu_text
-    notes: The text beside the menu icon
-
-  - name: Border
-    id: menu_border
-    notes: The border at the bottom of the menu
-
-  - name: Background
-    id: menu_background
-    notes: The background color of the menu
-
-  # ----- Gallery Page -----
-  
-  - name: Layout
-    id: gallery_layout
-    notes: The layout your gallery items appear in.
-
-  - name: Captions
-    id: gallery_captions
-    notes: The captions appearing below or beside gallery elements.
-
-  - name: Caption Links
-    id: gallery_caption_links
-    notes: The links in the captions appearing below or beside gallery elements.
-
-  - name: Video Text
-    id: gallery_video_typography
-    notes: The play text on top of your videos.
-
-  - name: Gallery Frames
-    id: gallery_frames
-    notes: The frames around your images on gallery pages.
-
-  # ----- Listing Page -----
-
-  - name: Thumbnail Titles
-    id: listing_link_titles
-    notes: The titles for thumbnail links on Listing Pages.
-
-  - name: Listing Layout
-    id: listing_layout
-    notes: The different layout options for your listing pages.
-
-  - name: Listing Frames
-    id: listing_frames
-    notes: Showing or hiding the frames around a collection listing.
-
-  # ---- Blog ----
-
-  - name: Titles
-    id: blog_titles
-    notes: Titles of posts in your blog.
-
-  - name: Body Text
-    id: blog_body
-    notes: The basic text style in your blog posts.
-
-  - name: Image Captions
-    id: blog_image_captions
-    notes: Caption text style for images in your post.
-
-  # ---- Social -----
-
-  - name: Social Network Links
-    id: social_links
-    notes: The icon links of your social networks located at the top of your website.
-
-  - name: Social Share
-    id: social_share
-    notes: The button appearing beside social network links which allows users to share your website.
-
-  - name: Icon 1
-    id: icon1
-    notes: First Social Icon
-
-  - name: Icon 2
-    id: icon2
-    notes: Second Social Icon
-
-  - name: Icon 3
-    id: icon3
-    notes: Third Social Icon
-
-  - name: Icon 4
-    id: icon4
-    notes: Fourth Social Icon
-
-  - name: Icon 5
-    id: icon5
-    notes: Fifth Social Icon
+  - id: base_font_size
+    kind: relative_font_size
+    notes: Proportionally adjust the size of all your fonts
+    affected_variables:
+      - text_typography
+      - headline_typography
+      - menu_typography
 
 # ----------------- Variables -----------------
 
 variables:
 
-  general:
+  # ----------------- General -----------------
 
-    # ----------------- General -----------------
+  - name: background_color
+    label: "Background Color"
+    kind: color
+    notes: The background color of your site
+    value:
+      light: "#eeeeee"
+      dark: "#000000"
+      coloured: "#022422"
 
-    - name: background_color
-      display_name: "Background Color"
-      kind: color
-      notes: The background color of your site
-      value:
-        light: "#eeeeee"
-        dark: "#000000"
-        coloured: "#022422"
+  # --- Logo ---
 
-    # --- Logo ---
+  - id: logo_type_toggle
+    label: "Logo Type"
+    skip_drawer_check: true
+    kind: logo_toggle
+    notes: "This determines if the logo image should be used, if present"
+    value: text
+    values:
+      - text
+      - image
 
-    - name: logo_image
-      display_name: Logo Image
-      kind: image
-      group: logo
-      notes: The logo image displayed on your menu.
-      value:
+  - id: logo_image
+    label: Logo Image
+    kind: image
+    notes: The logo image displayed on your menu.
+    value:
 
-    - name: logo_text
-      display_name: Text
-      kind: text
-      group: logo
-      notes: The text displayed if there is no logo image.
-      value: Ellen Smith
+  - id: logo_text
+    label: Text
+    kind: text
+    notes: The text displayed if there is no logo image.
+    value: Ellen Smith
 
-    - name: logo_typography
-      group: logo
-      kind: typography
-      value:
-        font-size: 
-          light: 24
-          dark: 24
-          coloured: 24
-        font-weight: 
-          light: "bold"
-          dark: "bold"
-          coloured: "normal"
-        color:
-          light: "#000000"
-          dark: "#999999"
-          coloured: "#ffffff"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Lydian Regular"
-        hover:
-          color:
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#ffffff"
-          text-decoration: 
-            light: "none"
-            dark: "none"
-            coloured: "none"
+  - id: logo_trim
+    label: Trim Logo Background
+    kind: boolean
+    notes: Removes the extra space around your logo.
+    value: false
 
-    # --- Typography ---
-
-    - name: big_text_typography
-      group: big_text
-      kind: typography
-      value:
-        color:
-          light: "#000000"
-          dark: "#ffffff"
-          coloured: "#C89379"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Roboto"
-
-    - name: big_text_typography_size
-      group: big_text
-      display_name: "Listing and Gallery text size"
-      kind: select
-      values:
-        - Small
-        - Medium
-        - Large
-      value:
-        light: "Large"
-        dark: "Medium"
-        coloured: "Small"
-
-    - name: text_typography
-      group: text
-      kind: typography
-      value:
-        color:
-          light: "#000000"
-          dark: "#ffffff"
-          coloured: "#C89379"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Roboto"
-        font-size: 
-          light: 22
-          dark: 28
-          coloured: 18
-        line-height: 
-          light: '1.5'
-          dark: '1.4'
-          coloured: '1.4'
-
-    - name: headline_typography
-      group: headlines
-      kind: typography
-      value:
-        color:
-          light: "#000000"
-          dark: "#ffffff"
-          coloured: "#C89379"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Lydian Regular"
-        font-size: 32
-        font-weight: bold
-
-    - name: link_typography
-      group: links
-      kind: typography
-      value:
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Lydian Regular"
-        color:
-          light: "#000000"
-          dark: "#999999"
-          coloured: "#ffffff"
-        font-style: normal
-        font-weight: normal
-        text-decoration: 
-          light: "underline"
-          dark: "none"
-          coloured: "none"
-        hover:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: none
-
-  footer:
-
-    # ----------------- Footer -----------------
-
-    - name: footer_text
-      group: footer
-      display_name: "Text"
-      kind: text
-      notes: This text is displayed in your footer at the bottom of a page.
-      value: Copyright &copy;
-
-    - name: footer_typography
-      group: footer
-      kind: typography
-      value:
-        color:
-          light: "#000000"
-          dark: "#ffffff"
-          coloured: "#C89379"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Roboto"
-        font-size: 
-          light: 22
-          dark: 22
-          coloured: 22
-
-    - name: footer_link_typography
-      group: footer_links
-      kind: typography
-      value:
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Lydian Regular"
-        font-size: 
-          light: 24
-          dark: 32
-          coloured: 24
-        color:
-          light: "#000000"
-          dark: "#999999"
-          coloured: "#ffffff"
-        font-style: normal
-        font-weight: normal
-        text-decoration: 
-          light: "underline"
-          dark: "none"
-          coloured: "none"
-        hover:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: none
-
-    - name: footer_border
-      group: footer_border
-      display_name: "Border"
-      kind: boolean
-      notes: Shows or hides the footer border.
-      value: 
-        light: true
-        dark: true
-        coloured: false
-
-    - name: footer_border_color
-      group: footer_border
-      display_name: "Border Color"
-      kind: color
-      notes: The border color of your footer.
-      value:
+  - name: logo_typography
+    kind: typography
+    value:
+      font-size: 
+        light: 24
+        dark: 24
+        coloured: 24
+      font-weight: 
+        light: "bold"
+        dark: "bold"
+        coloured: "normal"
+      color:
         light: "#000000"
-        dark: "#222222"
+        dark: "#999999"
         coloured: "#ffffff"
-
-    - name: footer_background_color
-      group: footer_background
-      display_name: "Background Color"
-      kind: color
-      notes: The background color of your footer.
-      value:
-        light: "#eeeeee"
-        dark: "#000000"
-        coloured: "#022422"
-
-  menu:
-
-    # ----------------- Menu -----------------
-
-    - name: menu_typography
-      group: menu_items
-      kind: typography
-      value:
-        color:
-          light: "#000000"
-          dark: "#999999"
-          coloured: "#ffffff"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Roboto"
-        font-size: 
-          light: 32
-          dark: 20
-          coloured: 32
-        text-decoration: none
-        hover:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: 
-            light: "underline"
-            dark: "none"
-            coloured: "none"
-        selected:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: 
-            light: "underline"
-            dark: "none"
-            coloured: "none"
-
-    - name: menu_layout
-      group: menu_items
-      display_name: "Menu item columns"
-      kind: select
-      notes: Makes the menu 4 or 2 columns
-      values:
-        - 2 Columns
-        - 4 Columns
-      value:
-        light: "2 Columns"
-        dark: "4 Columns"
-        coloured: "2 Columns"
-
-    - name: menu_title
-      group: menu_title
-      display_name: "Show Title"
-      kind: boolean
-      notes: Shows or hides the page title in the menu.
-      value: true
-
-    - name: menu_title_typography
-      group: menu_title
-      kind: typography
-      value:
-        font-weight: normal
-        font-size: 
-          light: 24
-          dark: 21
-          coloured: 24
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Roboto"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Lydian Regular"
+      hover:
         color:
           light: "#000000"
           dark: "#ffffff"
           coloured: "#ffffff"
+        text-decoration: 
+          light: "none"
+          dark: "none"
+          coloured: "none"
 
-    - name: menu_text
-      group: menu_text
-      display_name: Text
-      kind: text
-      notes: The text displayed beside the menu icon.
-      value: 
-        light: "Menu"
-        dark: ""
-        coloured: "Menu"
+  # --- Typography ---
 
-    - name: menu_text_typography
-      group: menu_text
-      kind: typography
-      value:
-        color:
+  - name: big_text_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Roboto"
+
+  - name: big_text_typography_size
+    label: "Listing and Gallery text size"
+    kind: select
+    values:
+      - Small
+      - Medium
+      - Large
+    value:
+      light: "Large"
+      dark: "Medium"
+      coloured: "Small"
+
+  - name: text_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Roboto"
+      font-size: 
+        light: 22
+        dark: 28
+        coloured: 18
+      line-height: 
+        light: '1.5'
+        dark: '1.4'
+        coloured: '1.4'
+
+  - name: headline_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Lydian Regular"
+      font-size: 32
+      font-weight: bold
+
+  - name: link_typography
+    kind: typography
+    value:
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Lydian Regular"
+      color:
+        light: "#000000"
+        dark: "#999999"
+        coloured: "#ffffff"
+      font-style: normal
+      font-weight: normal
+      text-decoration: 
+        light: "underline"
+        dark: "none"
+        coloured: "none"
+      hover:
+        color: 
           light: "#000000"
-          dark: "#999999"
+          dark: "#ffffff"
           coloured: "#E6AB8B"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Roboto"
-        font-size: 
-          light: 24
-          dark: 24
-          coloured: 24
         text-decoration: none
-        hover:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#ffffff"
-          text-decoration: 
-            light: "underline"
-            dark: "none"
-            coloured: "none"
-        selected:
-          color: 
-            light: "#000000"
-            dark: "#ffffff"
-            coloured: "#ffffff"
-          text-decoration: 
-            light: "underline"
-            dark: "none"
-            coloured: "none"
 
-    - name: menu_text_button
-      group: menu_text
-      display_name: "Show Menu Button"
-      kind: boolean
-      notes: Shows or hides menu button.
-      value: 
-        light: false
-        dark: true
-        coloured: true
-    
-    - name: menu_border
-      group: menu_border
-      display_name: "Border"
-      kind: boolean
-      notes: Shows or hides the menu border.
-      value: 
-        light: true
-        dark: false
-        coloured: false
+  # ----------------- Footer -----------------
 
-    - name: menu_border_color
-      group: menu_border
-      display_name: "Border Color"
-      kind: color
-      notes: The border color of your menu.
-      value:
+  - name: footer_text
+    label: "Text"
+    kind: text
+    notes: This text is displayed in your footer at the bottom of a page.
+    value: Copyright &copy;
+
+  - name: footer_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        coloured: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Roboto"
+      font-size: 
+        light: 22
+        dark: 22
+        coloured: 22
+
+  - name: footer_link_typography
+    kind: typography
+    value:
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Lydian Regular"
+      font-size: 
+        light: 24
+        dark: 32
+        coloured: 24
+      color:
+        light: "#000000"
+        dark: "#999999"
+        coloured: "#ffffff"
+      font-style: normal
+      font-weight: normal
+      text-decoration: 
+        light: "underline"
+        dark: "none"
+        coloured: "none"
+      hover:
+        color: 
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        text-decoration: none
+
+  - name: footer_border
+    label: "Border"
+    kind: boolean
+    notes: Shows or hides the footer border.
+    value: 
+      light: true
+      dark: true
+      coloured: false
+
+  - name: footer_border_color
+    label: "Border Color"
+    kind: color
+    notes: The border color of your footer.
+    value:
+      light: "#000000"
+      dark: "#222222"
+      coloured: "#ffffff"
+
+  - name: footer_background_color
+    label: "Background Color"
+    kind: color
+    notes: The background color of your footer.
+    value:
+      light: "#eeeeee"
+      dark: "#000000"
+      coloured: "#022422"
+
+  # ----------------- Menu -----------------
+
+  - name: menu_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#999999"
+        coloured: "#ffffff"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Roboto"
+      font-size: 
+        light: 32
+        dark: 20
+        coloured: 32
+      text-decoration: none
+      hover:
+        color: 
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        text-decoration: 
+          light: "underline"
+          dark: "none"
+          coloured: "none"
+      selected:
+        color: 
+          light: "#000000"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        text-decoration: 
+          light: "underline"
+          dark: "none"
+          coloured: "none"
+
+  - name: menu_layout
+    label: "Menu item columns"
+    kind: select
+    notes: Makes the menu 4 or 2 columns
+    values:
+      - 2 Columns
+      - 4 Columns
+    value:
+      light: "2 Columns"
+      dark: "4 Columns"
+      coloured: "2 Columns"
+
+  - name: menu_title
+    label: "Show Title"
+    kind: boolean
+    notes: Shows or hides the page title in the menu.
+    value: true
+
+  - name: menu_title_typography
+    kind: typography
+    value:
+      font-weight: normal
+      font-size: 
+        light: 24
+        dark: 21
+        coloured: 24
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Roboto"
+      color:
         light: "#000000"
         dark: "#ffffff"
         coloured: "#ffffff"
 
-    - name: menu_background_color
-      group: menu_background
-      display_name: "Background Color"
-      kind: color
-      notes: The background color of your menu.
-      value:
-        light: "#eeeeee"
-        dark: "#000000"
-        coloured: "#022422"
+  - name: menu_text
+    label: Text
+    kind: text
+    notes: The text displayed beside the menu icon.
+    value: 
+      light: "Menu"
+      dark: ""
+      coloured: "Menu"
 
-  gallery:
-
-    # ----------------- Gallery -----------------
-
-    - name: gallery_layout
-      group: gallery_layout
-      display_name: "Gallery Layout"
-      kind: select
-      notes: Changes the layout of the gallery pages
-      values:
-        - 2 Columns
-        - 1 then 2 Columns
-      value:
-        light: "1 then 2 Columns"
-        dark: "1 then 2 Columns"
-        coloured: "1 then 2 Columns"
-
-    - name: gallery_caption_typography
-      group: gallery_captions
-      kind: typography
-      value:
+  - name: menu_text_typography
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#999999"
+        coloured: "#E6AB8B"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Roboto"
+      font-size: 
+        light: 24
+        dark: 24
+        coloured: 24
+      text-decoration: none
+      hover:
         color: 
-          light: "#ffffff"
+          light: "#000000"
           dark: "#ffffff"
-          coloured: "#184E3F"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Roboto"
-        font-size: 14
-        line-height: 1.4
-
-    - name: gallery_caption_link_typography
-      group: gallery_caption_links
-      kind: typography
-      value:
-        color: 
-          light: "#ffffff"
-          dark: "#ffffff"
-          coloured: "#E6AB8B"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Roboto"
-        font-style: normal
-        font-weight: normal
-        text-decoration: underline
-        hover:
-          color: 
-            light: "#ffffff"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: none
-
-    - name: gallery_video_link_typography
-      group: gallery_video_typography
-      kind: typography
-      value:
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Lydian Regular"
-        color:
-          light: "#ffffff"
-          dark: "#999999"
           coloured: "#ffffff"
-        font-style: normal
-        font-weight: normal
         text-decoration: 
           light: "underline"
           dark: "none"
           coloured: "none"
-        hover:
-          color: 
-            light: "#ffffff"
-            dark: "#ffffff"
-            coloured: "#E6AB8B"
-          text-decoration: none
-
-    - name: gallery_frames_color
-      group: gallery_frames
-      display_name: "Use global color for all frames"
-      kind: boolean
-      notes: Use global color for all frames.
-      value: 
-        light: false
-        dark: false
-        coloured: true
-
-    - name: gallery_frames_color_code
-      group: gallery_frames
-      display_name: "Frame color"
-      kind: color
-      notes: The background color for your gallery frames. This will also be seen in empty spaces.
-      value:
-        light: "#ffffff"
-        dark: "#111111"
-        coloured: "#022422"
-
-    - name: gallery_video_frames_color
-      group: gallery_frames
-      display_name: "Video frame color"
-      kind: color
-      notes: The background color for your video frames. Seen when a video has a caption.
-      value:
-        light: "#000000"
-        dark: "#000000"
-        coloured: "#022422"
-
-    - name: gallery_frame_size
-      group: gallery_frames
-      display_name: "Gallery frame size"
-      kind: select
-      values:
-        - None
-        - Small
-        - Medium
-        - Large
-      value:
-        light: "Large"
-        dark: "None"
-        coloured: "Large"
-
-  listing:
-
-    # ----------------- Listing -----------------
-
-    - name: listing_caption_typography
-      group: listing_link_titles
-      kind: typography
-      value:
-        color:
-          light: "#ffffff"
+      selected:
+        color: 
+          light: "#000000"
           dark: "#ffffff"
           coloured: "#ffffff"
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "News Gothic Regular"
-          coloured: "Lydian Regular"
-        font-weight: 
-          light: "normal"
-          dark: "normal"
-          coloured: "normal"
-        font-size: 
-          light: 28
-          dark: 36
-          coloured: 36
         text-decoration: 
-          light: none
-          dark: none
-          coloured: none
+          light: "underline"
+          dark: "none"
+          coloured: "none"
 
-    - name: listing_caption_text
-      group: listing_link_titles
-      display_name: Text
-      kind: text
-      notes: The text displayed above the collection title.
-      value: 
-        light: "View"
-        dark: "Visit"
-        coloured: "Collection"
+  - name: menu_text_button
+    label: "Show Menu Button"
+    kind: boolean
+    notes: Shows or hides menu button.
+    value: 
+      light: false
+      dark: true
+      coloured: true
+  
+  - name: menu_border
+    label: "Border"
+    kind: boolean
+    notes: Shows or hides the menu border.
+    value: 
+      light: true
+      dark: false
+      coloured: false
 
-    - name: listing_caption_text_font
-      group: listing_link_titles
-      kind: typography
-      value:
-        font-family: 
-          light: "Helvetica Neue"
-          dark: "Bagnad"
-          coloured: "Roboto"
+  - name: menu_border_color
+    label: "Border Color"
+    kind: color
+    notes: The border color of your menu.
+    value:
+      light: "#000000"
+      dark: "#ffffff"
+      coloured: "#ffffff"
 
-    - name: listing_layout_container
-      group: listing_layout
-      display_name: "Contain listings within the page container"
-      kind: boolean
-      notes: Stops your listing page from spanning the full width of the browser.
-      value: 
-        light: true
-        dark: true
-        coloured: false
+  - name: menu_background_color
+    label: "Background Color"
+    kind: color
+    notes: The background color of your menu.
+    value:
+      light: "#eeeeee"
+      dark: "#000000"
+      coloured: "#022422"
 
-    - name: listings_layout
-      display_name: "Listing Layout"
-      group: listing_layout
-      kind: select
-      values:
-        - 1x2
-        - 2x1
-        - masonry
-      value:
-        light: "1x2"
-        dark: "2x1"
-        coloured: "masonry"
+  # ----------------- Gallery -----------------
 
-    - name: listing_grid_size
-      group: listing_layout
-      display_name: Grid gutter size
-      kind: select
-      values:
-        - None
-        - Small
-        - Medium
-        - Large
-      value:
-        light: "None"
-        dark: "Large"
-        coloured: "None"
+  - name: gallery_layout
+    label: "Gallery Layout"
+    kind: select
+    notes: Changes the layout of the gallery pages
+    values:
+      - 2 Columns
+      - 1 then 2 Columns
+    value:
+      light: "1 then 2 Columns"
+      dark: "1 then 2 Columns"
+      coloured: "1 then 2 Columns"
 
-    - name: listing_frames_color
-      group: listing_frames
-      display_name: "Use global color for all frames"
-      kind: boolean
-      notes: Use global color for all frames.
-      value: 
-        light: false
-        dark: false
-        coloured: true
-
-    - name: listing_frames_color_code
-      group: listing_frames
-      display_name: "Frame color"
-      kind: color
-      notes: The background color for your collection frames and hovers.
-      value:
+  - name: gallery_caption_typography
+    kind: typography
+    value:
+      color: 
         light: "#ffffff"
-        dark: "#1a1a1a"
-        coloured: "#021A18"
+        dark: "#ffffff"
+        coloured: "#184E3F"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Roboto"
+      font-size: 14
+      line-height: 1.4
 
-    - name: listing_frame_size
-      group: listing_frames
-      display_name: "Listing frame size"
-      kind: select
-      values:
-        - None
-        - Small
-        - Medium
-        - Large
-      value:
-        light: "Large"
-        dark: "None"
-        coloured: "None"
+  - name: gallery_caption_link_typography
+    kind: typography
+    value:
+      color: 
+        light: "#ffffff"
+        dark: "#ffffff"
+        coloured: "#E6AB8B"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Roboto"
+      font-style: normal
+      font-weight: normal
+      text-decoration: underline
+      hover:
+        color: 
+          light: "#ffffff"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        text-decoration: none
 
-  social:
+  - name: gallery_video_link_typography
+    kind: typography
+    value:
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Lydian Regular"
+      color:
+        light: "#ffffff"
+        dark: "#999999"
+        coloured: "#ffffff"
+      font-style: normal
+      font-weight: normal
+      text-decoration: 
+        light: "underline"
+        dark: "none"
+        coloured: "none"
+      hover:
+        color: 
+          light: "#ffffff"
+          dark: "#ffffff"
+          coloured: "#E6AB8B"
+        text-decoration: none
 
-    # ----------------- Social -----------------
+  - name: gallery_frames_color
+    label: "Use global color for all frames"
+    kind: boolean
+    notes: Use global color for all frames.
+    value: 
+      light: false
+      dark: false
+      coloured: true
 
-    - name: social_links_style
-      display_name: "Link Style"
-      group: social_links
-      kind: select
-      values:
-        - Icon
-        - Text
-      value: 
-        light: Text
-        dark: Icon
-        coloured: Text
+  - name: gallery_frames_color_code
+    label: "Frame color"
+    kind: color
+    notes: The background color for your gallery frames. This will also be seen in empty spaces.
+    value:
+      light: "#ffffff"
+      dark: "#111111"
+      coloured: "#022422"
 
-    - name: icon1
-      kind: select
-      group: icon1
-      display_name: "Social Network"
-      values:
-        - None
-        - Twitter
-        - Facebook
-        - LinkedIn
-        - Google+
-        - Instagram
-        - Pinterest
-        - Tumblr
-        - Flickr
-      value: Twitter
+  - name: gallery_video_frames_color
+    label: "Video frame color"
+    kind: color
+    notes: The background color for your video frames. Seen when a video has a caption.
+    value:
+      light: "#000000"
+      dark: "#000000"
+      coloured: "#022422"
 
-    - name: icon1text
-      display_name: "Link"
-      group: icon1
-      kind: string
-      notes: "Paste the entire URL here including 'http://'"
-      value: http://twitter.com/useformat
+  - name: gallery_frame_size
+    label: "Gallery frame size"
+    kind: select
+    values:
+      - None
+      - Small
+      - Medium
+      - Large
+    value:
+      light: "Large"
+      dark: "None"
+      coloured: "Large"
 
-    - name: icon2
-      kind: select
-      group: icon2
-      display_name: "Social Network"
-      values:
-        - None
-        - Twitter
-        - Facebook
-        - LinkedIn
-        - Google+
-        - Instagram
-        - Pinterest
-        - Tumblr
-        - Flickr
-      value: Facebook
+  # ----------------- Listing -----------------
 
-    - name: icon2text
-      display_name: "Link"
-      group: icon2
-      kind: string
-      notes: "Paste the entire URL here including 'http://'"
-      value: http://facebook.com/useformat
+  - name: listing_caption_typography
+    kind: typography
+    value:
+      color:
+        light: "#ffffff"
+        dark: "#ffffff"
+        coloured: "#ffffff"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "News Gothic Regular"
+        coloured: "Lydian Regular"
+      font-weight: 
+        light: "normal"
+        dark: "normal"
+        coloured: "normal"
+      font-size: 
+        light: 28
+        dark: 36
+        coloured: 36
+      text-decoration: 
+        light: none
+        dark: none
+        coloured: none
 
-    - name: icon3
-      kind: select
-      group: icon3
-      display_name: "Social Network"
-      values:
-        - None
-        - Twitter
-        - Facebook
-        - LinkedIn
-        - Google+
-        - Instagram
-        - Pinterest
-        - Tumblr
-        - Flickr
-      value: LinkedIn
+  - name: listing_caption_text
+    label: Text
+    kind: text
+    notes: The text displayed above the collection title.
+    value: 
+      light: "View"
+      dark: "Visit"
+      coloured: "Collection"
 
-    - name: icon3text
-      display_name: "Link"
-      group: icon3
-      kind: string
-      notes: "Paste the entire URL here including 'http://'"
-      value: http://linkedin.com/in/useformat
+  - name: listing_caption_text_font
+    kind: typography
+    value:
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Roboto"
 
-    - name: icon4
-      kind: select
-      group: icon4
-      display_name: "Social Network"
-      values:
-        - None
-        - Twitter
-        - Facebook
-        - LinkedIn
-        - Google+
-        - Instagram
-        - Pinterest
-        - Tumblr
-        - Flickr
-      value: None
+  - name: listing_layout_container
+    label: "Contain listings within the page container"
+    kind: boolean
+    notes: Stops your listing page from spanning the full width of the browser.
+    value: 
+      light: true
+      dark: true
+      coloured: false
 
-    - name: icon4text
-      display_name: "Link"
-      group: icon4
-      kind: string
-      notes: "Paste the entire URL here including 'http://'"
+  - name: listings_layout
+    label: "Listing Layout"
+    kind: select
+    values:
+      - 1x2
+      - 2x1
+      - masonry
+    value:
+      light: "1x2"
+      dark: "2x1"
+      coloured: "masonry"
 
-    - name: icon5
-      kind: select
-      group: icon5
-      display_name: "Social Network"
-      values:
-        - None
-        - Twitter
-        - Facebook
-        - LinkedIn
-        - Google+
-        - Instagram
-        - Pinterest
-        - Tumblr
-        - Flickr
-      value: None
+  - name: listing_grid_size
+    label: Grid gutter size
+    kind: select
+    values:
+      - None
+      - Small
+      - Medium
+      - Large
+    value:
+      light: "None"
+      dark: "Large"
+      coloured: "None"
 
-    - name: icon5text
-      display_name: "Link"
-      group: icon5
-      kind: string
-      notes: "Paste the entire URL here including 'http://'"
+  - name: listing_frames_color
+    label: "Use global color for all frames"
+    kind: boolean
+    notes: Use global color for all frames.
+    value: 
+      light: false
+      dark: false
+      coloured: true
 
-    - name: show_social_sharing
-      group: Social Share
-      display_name: "Button"
-      kind: boolean
-      notes: Shows or hides the Share Button.
-      value: true
+  - name: listing_frames_color_code
+    label: "Frame color"
+    kind: color
+    notes: The background color for your collection frames and hovers.
+    value:
+      light: "#ffffff"
+      dark: "#1a1a1a"
+      coloured: "#021A18"
 
-  blog:
+  - name: listing_frame_size
+    label: "Listing frame size"
+    kind: select
+    values:
+      - None
+      - Small
+      - Medium
+      - Large
+    value:
+      light: "Large"
+      dark: "None"
+      coloured: "None"
 
-    # ----------------- Blog -----------------
+  # ----------------- Social -----------------
 
-    - name: blog_title_typography
-      group: blog_titles
-      kind: typography
-      value:
-        font-family: Helvetica Neue
+  - name: social_links_style
+    label: "Link Style"
+    kind: select
+    values:
+      - Icon
+      - Text
+    value: 
+      light: Text
+      dark: Icon
+      coloured: Text
+
+  - name: icon1
+    kind: select
+    label: "Social Network"
+    values:
+      - None
+      - Twitter
+      - Facebook
+      - LinkedIn
+      - Google+
+      - Instagram
+      - Pinterest
+      - Tumblr
+      - Flickr
+    value: Twitter
+
+  - name: icon1text
+    label: "Link"
+    kind: string
+    notes: "Paste the entire URL here including 'http://'"
+    value: http://twitter.com/useformat
+
+  - name: icon2
+    kind: select
+    label: "Social Network"
+    values:
+      - None
+      - Twitter
+      - Facebook
+      - LinkedIn
+      - Google+
+      - Instagram
+      - Pinterest
+      - Tumblr
+      - Flickr
+    value: Facebook
+
+  - name: icon2text
+    label: "Link"
+    kind: string
+    notes: "Paste the entire URL here including 'http://'"
+    value: http://facebook.com/useformat
+
+  - name: icon3
+    kind: select
+    label: "Social Network"
+    values:
+      - None
+      - Twitter
+      - Facebook
+      - LinkedIn
+      - Google+
+      - Instagram
+      - Pinterest
+      - Tumblr
+      - Flickr
+    value: LinkedIn
+
+  - name: icon3text
+    label: "Link"
+    kind: string
+    notes: "Paste the entire URL here including 'http://'"
+    value: http://linkedin.com/in/useformat
+
+  - name: icon4
+    kind: select
+    label: "Social Network"
+    values:
+      - None
+      - Twitter
+      - Facebook
+      - LinkedIn
+      - Google+
+      - Instagram
+      - Pinterest
+      - Tumblr
+      - Flickr
+    value: None
+
+  - name: icon4text
+    label: "Link"
+    kind: string
+    notes: "Paste the entire URL here including 'http://'"
+
+  - name: icon5
+    kind: select
+    label: "Social Network"
+    values:
+      - None
+      - Twitter
+      - Facebook
+      - LinkedIn
+      - Google+
+      - Instagram
+      - Pinterest
+      - Tumblr
+      - Flickr
+    value: None
+
+  - name: icon5text
+    label: "Link"
+    kind: string
+    notes: "Paste the entire URL here including 'http://'"
+
+  - name: show_social_sharing
+    label: "Button"
+    kind: boolean
+    notes: Shows or hides the Share Button.
+    value: true
+
+  # ----------------- Blog -----------------
+
+  - name: blog_title_typography
+    kind: typography
+    value:
+      font-family: Helvetica Neue
+      color:
+        light: "#000000"
+        dark: "#cccccc"
+        coloured: "#cccccc"
+      font-size: 36
+      font-style: normal
+      font-weight: bold
+      hover:
+        text-decoration: none
         color:
-          light: "#000000"
-          dark: "#cccccc"
-          coloured: "#cccccc"
-        font-size: 36
-        font-style: normal
-        font-weight: bold
-        hover:
-          text-decoration: none
-          color:
-            light: "#222222"
-            dark: "#eeeeee"
-            coloured: "#eeeeee"
+          light: "#222222"
+          dark: "#eeeeee"
+          coloured: "#eeeeee"
 
-    - name: blog_body_typography
-      group: blog_body
-      kind: typography
-      value:
-        font-family: Helvetica Neue
-        color:
-          light: "#000000"
-          dark: "#cccccc"
-          coloured: "#cccccc"
-        line-height: 1.7
-        font-size: 22
+  - name: blog_body_typography
+    kind: typography
+    value:
+      font-family: Helvetica Neue
+      color:
+        light: "#000000"
+        dark: "#cccccc"
+        coloured: "#cccccc"
+      line-height: 1.7
+      font-size: 22
 
-    - name: blog_caption_typography
-      group: blog_image_captions
-      kind: typography
-      value:
-        font-family: Helvetica Neue
-        font-size: 14
+  - name: blog_caption_typography
+    kind: typography
+    value:
+      font-family: Helvetica Neue
+      font-size: 14
 
-    - name: blog_images_slideshow_color
-      display_name: Blog Slideshow Background Color
-      kind: select
-      values:
-        - Dark
-        - Light
-      value:
-        light: Light
-        dark: Dark
-        coloured: Dark
+  - name: blog_images_slideshow_color
+    label: Blog Slideshow Background Color
+    kind: select
+    values:
+      - Dark
+      - Light
+    value:
+      light: Light
+      dark: Dark
+      coloured: Dark
