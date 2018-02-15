@@ -61,6 +61,10 @@ groups:
     notes: The background color of the menu
 
   # ----- Gallery Page -----
+  
+  - name: Layout
+    id: gallery_layout
+    notes: The layout your gallery items appear in.
 
   - name: Captions
     id: gallery_captions
@@ -150,7 +154,7 @@ variables:
       notes: The background color of your site
       value:
         light: "#eeeeee"
-        dark: "#111111"
+        dark: "#000000"
         coloured: "#022422"
 
     # --- Logo ---
@@ -225,7 +229,7 @@ variables:
       value:
         light: "Large"
         dark: "Medium"
-        coloured: "Large"
+        coloured: "Small"
 
     - name: text_typography
       group: text
@@ -326,7 +330,7 @@ variables:
           coloured: "Lydian Regular"
         font-size: 
           light: 24
-          dark: 24
+          dark: 32
           coloured: 24
         color:
           light: "#000000"
@@ -372,7 +376,7 @@ variables:
       notes: The background color of your footer.
       value:
         light: "#eeeeee"
-        dark: "#111111"
+        dark: "#000000"
         coloured: "#022422"
 
   menu:
@@ -461,7 +465,7 @@ variables:
       value: 
         light: "Menu"
         dark: ""
-        coloured: ""
+        coloured: "Menu"
 
     - name: menu_text_typography
       group: menu_text
@@ -498,6 +502,16 @@ variables:
             light: "underline"
             dark: "none"
             coloured: "none"
+
+    - name: menu_text_button
+      group: menu_text
+      display_name: "Show Menu Button"
+      kind: boolean
+      notes: Shows or hides menu button.
+      value: 
+        light: false
+        dark: true
+        coloured: true
     
     - name: menu_border
       group: menu_border
@@ -526,12 +540,25 @@ variables:
       notes: The background color of your menu.
       value:
         light: "#eeeeee"
-        dark: "#111111"
+        dark: "#000000"
         coloured: "#022422"
 
   gallery:
 
     # ----------------- Gallery -----------------
+
+    - name: gallery_layout
+      group: gallery_layout
+      display_name: "Gallery Layout"
+      kind: select
+      notes: Changes the layout of the gallery pages
+      values:
+        - 2 Columns
+        - 1 then 2 Columns
+      value:
+        light: "1 then 2 Columns"
+        dark: "1 then 2 Columns"
+        coloured: "1 then 2 Columns"
 
     - name: gallery_caption_typography
       group: gallery_captions
@@ -622,7 +649,7 @@ variables:
       notes: The background color for your video frames. Seen when a video has a caption.
       value:
         light: "#000000"
-        dark: "#111111"
+        dark: "#000000"
         coloured: "#022422"
 
     - name: gallery_frame_size
@@ -762,22 +789,6 @@ variables:
 
     # ----------------- Social -----------------
 
-    - name: social_links_typography
-      kind: typography
-      group: social_links
-      value:
-        color:
-          light: "#888888"
-          dark: "#999999"
-          coloured: "#999999"
-        font-size: 11
-        font-weight: normal
-        hover:
-          color:
-            light: "#555555"
-            dark: "#cccccc"
-            coloured: "#cccccc"
-
     - name: social_links_style
       display_name: "Link Style"
       group: social_links
@@ -785,7 +796,10 @@ variables:
       values:
         - Icon
         - Text
-      value: Icon
+      value: 
+        light: Text
+        dark: Icon
+        coloured: Text
 
     - name: icon1
       kind: select

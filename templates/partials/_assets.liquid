@@ -8,8 +8,8 @@
         {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
           <div class="asset {{ orientation }} image w-50-l w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
             <div class="img-container relative">
-                <a class="db" href="{{ asset.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
-                    <img class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" src="{{ asset.image_url_1600x1200 }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
+                <a class="db" data-fancybox="images" data-caption="{{ asset.copy | strip_html }}" href="{{ asset.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
+                    <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
                 </a>
                 <canvas class="{{ orientation }} image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
                 {% if asset.copy %}
@@ -22,7 +22,7 @@
             </div>
           </div>
       {% when 'video' %}
-          <div class="asset video w-50 pa5 relative">
+          <div class="asset video w-50 relative">
             <div class="relative z-1">
                 <div class="pointer absolute z-1 top-0 left-0 right-0 bottom-0 cover video-overlay flex items-center justify-center" style="background: url({{ asset.thumbnail_url_960x0 }}) no-repeat center center;">
                     <p class="f3 z-1 relative">
@@ -42,8 +42,11 @@
           </div>
       {% when 'text' %}
           <div class="asset text big-text ph4 w-100">
-            <div class="w-90-l center mv5">
-                {{ asset.copy }}
+          {% capture small %}{% if theme.big_text_typography_size == 'Small' %}mw9{% endif %}{% endcapture %}
+            <div class="w-90-l center mv5-ns mv4">
+                <div class="{{ small }}">
+                    {{ asset.copy }}
+                </div>
             </div>
           </div>
   {% endcase %}

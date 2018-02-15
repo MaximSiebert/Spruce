@@ -13,9 +13,11 @@
             {{ theme.menu_text }}
         </button>
     {% endif %}
-    <div class="hamburger ml3">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </div>
+    {% if theme.menu_text_button %}
+        <div class="hamburger ml3">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    {% endif %}
 </div>

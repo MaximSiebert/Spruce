@@ -6,7 +6,7 @@
 
         {% theme_include 'partials/title' %}
 
-        {% capture layoutContainer %}{% if theme.listing_layout_container %}w-90-l pv5 ph4{% endif %}{% endcapture %}
+        {% capture layoutContainer %}{% if theme.listing_layout_container %}w-90-l pv5-ns pv4 ph4{% endif %}{% endcapture %}
         <div class="asset-container center {{ layoutContainer }}">
             {% for asset in page.assets %}
                 {% capture modulo %}{{ forloop.index | modulo: 3 }}{% endcapture %}
@@ -22,9 +22,9 @@
                                     {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
                                     <img class="z-2 lazyload {{ orientation }} mw-none" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
                                 </div>
-                                <div class="overlay absolute left-0 top-0 w-100 h-100 z-1 pa4 flex items-center">
+                                <div class="overlay absolute left-0 top-0 w-100 h-100 z-1 flex items-center">
                                     {% if asset.copy %}
-                                        <div class="title lh-title mw6 ph4">
+                                        <div class="title lh-title mw7">
                                             {% if theme.listing_caption_text != "" %}
                                                 <span class="db mb1 o-60">{{ theme.listing_caption_text | newline_to_br }}</span>
                                             {% endif %}

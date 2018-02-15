@@ -17,7 +17,6 @@ window.Theme = window.Theme || {
     this.bindEvents();
   },
   bindEvents: function () {
-    $('.mobile-menu-toggle').on("click", this.Menu.toggle);
   },
   initJSForPageType: function () {
     var pageType = this.normalizedPageType();
@@ -41,14 +40,13 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
     $(window).on("page:update", this.onUpdate.bind(this));
     $(window).on("page:before-change", this.onBeforeChange.bind(this));
     $(window).on("page:load", this.onPageLoad.bind(this));
-    $(window).on("page:before-unload", this.onBeforeUnload.bind(this));
     $(window).on("page:restore", this.onRestore.bind(this));
-    $(window).on("page:change", this.onChange.bind(this));
   },
   onBeforeChange: function (e) {
     e.preventDefault();
     if ($('body').hasClass('active')) {
       $('body').removeClass('active');
+      $('.mobile-menu-toggle button').html(Theme.themeData.theme.menu_text);
     }
     if ($('.header').hasClass('nav-up')) {
       $('.header').removeClass('nav-up');
@@ -73,9 +71,16 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
 // Initialize menu show/hide toggle behaviour
 window.Theme.Menu = window.Theme.Menu || {
   toggle: function () {
-    $('.mobile-menu-toggle').on('click', function() {
-      Theme.$.header.toggleClass('active');
-      $('body').toggleClass('active');
+    $("html").delegate( ".mobile-menu-toggle", "click", function() {
+      if ($('body').hasClass('active')) {
+        Theme.$.header.removeClass('active');
+        $('body').removeClass('active');
+        $('.mobile-menu-toggle button').html(Theme.themeData.theme.menu_text);
+      } else {
+        Theme.$.header.addClass('active');
+        $('body').addClass('active');
+        $('.mobile-menu-toggle button').html('Close');
+      }
     });
   }
 };
@@ -144,21 +149,124 @@ $(document).ready(function(){
     if ($(this).hasClass('open')) {
       $(this).removeClass('open');
       $(this).siblings(dropdown).removeClass('open');
+      $(this).children('.plus').html('+');
     } else {
       $(this).addClass('open');
       $(this).siblings(dropdown).addClass('open');
+      $(this).children('.plus').html('–');
     }
   });
 
 
   // Lightbox
-  $('a[rel="lightbox"]').fluidbox();
+  // $('a[rel="lightbox"]').fluidbox();
 
-  $('a[rel="lightbox"]').click(function(e) {
-    e.preventDefault();
-    var color = $(this).data('color');
-    $('.fluidbox__overlay').css('background-color', color);
+  // $('a[rel="lightbox"]').click(function(e) {
+  //   e.preventDefault();
+  //   var color = $(this).data('color');
+  //   $('.fluidbox__overlay').css('background-color', color);
+  // });
+  
+  $("a[rel='lightbox']").fancybox({
+    beforeShow: function (instance, slide) {
+      $('.fancybox-bg').css('background-color', slide.opts.color);
+    },
+
+    // Enable infinite gallery navigation
+    loop : false,
+
+    // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
+    margin : [50, 0],
+
+    // Horizontal space between slides
+    gutter : 50,
+
+    // Enable keyboard navigation
+    keyboard : true,
+
+    // Should display navigation arrows at the screen edges
+    arrows : true,
+
+    // Should display infobar (counter and arrows at the top)
+    infobar : true,
+
+    // Should display toolbar (buttons at the top)
+    toolbar : true,
+
+    // What buttons should appear in the top right corner.
+    // Buttons will be created using templates from `btnTpl` option
+    // and they will be placed into toolbar (class="fancybox-toolbar"` element)
+    buttons : [
+        'close'
+    ],
+
+    // Default content type if cannot be detected automatically
+    defaultType : 'image',
+
+    // Open/close animation type
+    // Possible values:
+    //   false            - disable
+    //   "zoom"           - zoom images from/to thumbnail
+    //   "fade"
+    //   "zoom-in-out"
+    //
+    animationEffect : "zoom",
+
+    // Duration in ms for open/close animation
+    animationDuration : 600,
+
+    // Transition effect between slides
+    //
+    // Possible values:
+    //   false            - disable
+    //   "fade'
+    //   "slide'
+    //   "circular'
+    //   "tube'
+    //   "zoom-in-out'
+    //   "rotate'
+    //
+    transitionEffect : "fade",
+
+    // Duration in ms for transition animation
+    transitionDuration : 600,
+
+    btnTpl : {
+        // Arrows
+        arrowLeft : '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+                        '<svg viewBox="0 0 40 40">' +
+                          '<path d="M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"></path>' +
+                        '</svg>' +
+                      '</button>',
+
+        arrowRight : '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
+                      '<svg viewBox="0 0 40 40">' +
+                        '<path d="M30,20 L10,20 L30,20 L22,28 L30,20 L22,12 L30,20"></path>' +
+                      '</svg>' +
+                    '</button>'
+    },
+
+
+    // Interaction
+    // ===========
+
+    // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
+    // each option can be string or method that returns value.
+    //
+    // Possible values:
+    //   "close"           - close instance
+    //   "next"            - move to next gallery item
+    //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
+    //   "toggleControls"  - show/hide controls
+    //   "zoom"            - zoom image (if loaded)
+    //   false             - do nothing
+
+    // Clicked on the content
+    clickContent : function( current, event ) {
+      return current.type === 'image' ? 'next' : false;
+    },
   });
+  
 
 
   // Video overlays
