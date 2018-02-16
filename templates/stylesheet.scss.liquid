@@ -3113,7 +3113,7 @@ body.gallery {
       {% elsif theme.gallery_frame_size == 'Medium' %}
         padding: 1rem;
         @media #{$breakpoint-large}{
-          padding: 2rem;
+          padding: 3rem;
         }
       {% elsif theme.gallery_frame_size == 'Large' %}
         padding: 2rem;
@@ -3177,7 +3177,7 @@ body.gallery {
         {% elsif theme.gallery_frame_size == 'Medium' %}
           padding: 1rem;
           @media #{$breakpoint-large}{
-            padding: 2rem;
+            padding: 3rem;
           }
         {% elsif theme.gallery_frame_size == 'Large' %}
           padding: 2rem;
@@ -3296,7 +3296,7 @@ Collection loop
         {% elsif theme.listing_frame_size == 'Medium' %}
           margin: 1rem;
           @media #{$breakpoint-large}{
-            margin: 2rem;
+            margin: 3rem;
           }
         {% elsif theme.listing_frame_size == 'Large' %}
           margin: 2rem;
@@ -3354,14 +3354,14 @@ Collection loop
     }
   }
   .inner-asset-container {
-    grid-column-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}2rem{% elsif theme.listing_grid_size == 'Large' %}4rem{% else %}0{% endif %};
-    grid-row-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}2rem{% elsif theme.listing_grid_size == 'Large' %}4rem{% else %}0{% endif %};
+    grid-column-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
+    grid-row-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
     {% if theme.listing_grid_size == 'Small' %}
       margin-bottom: 2px;
     {% elsif theme.listing_grid_size == 'Medium' %}
       margin-bottom: 1rem;
       @media #{$breakpoint-large}{
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
       }
     {% elsif theme.listing_grid_size == 'Large' %}
       margin-bottom: 2rem;
@@ -3475,7 +3475,7 @@ Collection loop
     .asset-container {
       @media #{$breakpoint-large}{
         column-count: 2;
-        column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}2rem{% elsif theme.listing_grid_size == 'Large' %}4rem{% else %}0{% endif %};
+        column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
       }
       .asset {
         {% if theme.listing_grid_size == 'Small' %}
@@ -3483,12 +3483,12 @@ Collection loop
         {% elsif theme.listing_grid_size == 'Medium' %}
           margin-bottom: 1rem;
           @media #{$breakpoint-large}{
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
           }
         {% elsif theme.listing_grid_size == 'Large' %}
           margin-bottom: 2rem;
           @media #{$breakpoint-large}{
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
           }
         {% else %}
           margin-bottom: 0;
