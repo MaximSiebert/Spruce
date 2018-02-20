@@ -4,31 +4,188 @@ drawers:
       - id: basic
       - id: advanced
         variables:
+          - gallery_fit_images
+          - post_text
 
   - id: website_logo
     tabs:
       - id: website_logo
         custom_editor: logo_editor
+        variables:
+          - logo_image
+          - logo_trim
+          - logo_text
+          - logo_typography
 
   - id: colors
     tabs:
       - id: basic
         base_variables:
+          - base_background_color
+          - base_text_color
+          - base_accent_color
       - id: advanced
         variables:
+          - menu_typography
+          - menu_title_typography
+          - menu_text_typography
+          - headline_typography
+          - footer_typography
+          - footer_link_typography
+          - background_color
+          - gallery_caption_typography
+          - gallery_caption_link_typography
+          - gallery_video_link_typography
+          - listing_caption_typography
+          - blog_title_typography
+          - blog_body_typography
+          - blog_images_slideshow_color
 
   - id: typography
     tabs:
       - id: basic
         base_variables:
+          - base_heading_font
+          - base_body_font
+          - base_font_size
       - id: advanced
         variables:
+          - menu_typography
+          - menu_title_typography
+          - menu_text_typography
+          - footer_typography
+          - footer_link_typography
+          - text_typography
+          - link_typography
+          - gallery_caption_typography
+          - gallery_caption_link_typography
+          - gallery_video_link_typography
+          - listing_caption_typography
+          - blog_title_typography
+          - blog_body_typography
+          - blog_caption_typography
 
   - id: social
     tabs:
       - id: basic
         variables:
+          - icon1
+          - icon1text
+          - icon2
+          - icon2text
+          - icon3
+          - icon3text
+          - icon4
+          - icon4text
+          - icon5
+          - icon5text
+          - social_links_style
+          - show_social_sharing
 
   - id: code_editor
 
 groups:
+  - id: site_menu
+    variables:
+      - menu_typography
+      - menu_layout
+      - menu_title
+      - menu_title_typography
+      - menu_text
+      - menu_text_typography
+      - menu_text_button
+      - menu_border
+      - menu_border_color
+      - menu_background_color
+
+  - id: heading
+    variables:
+      - headline_typography
+
+  - id: body
+    variables:
+      - text_typography
+
+  - id: text_links
+    variables:
+      - link_typography
+
+  - id: listing_and_gallery_text
+    variables:
+      - big_text_typography
+      - big_text_typography_size
+    
+  - id: footer
+    variables:
+      - footer_text
+      - footer_typography
+      - footer_link_typography
+      - footer_border
+      - footer_border_color
+      - footer_background_color
+
+  - id: gallery
+    variables:
+      - gallery_layout
+      - gallery_caption_typography
+      - gallery_caption_link_typography
+      - gallery_video_link_typography
+      - gallery_frames_color
+      - gallery_frames_color_code
+      - gallery_video_frames_color
+      - gallery_frame_size
+
+  - id: collection
+    variables:
+      - listing_caption_typography
+      - listing_caption_text
+      - listing_caption_text_font
+      - listing_layout_container
+      - listings_layout
+      - listing_grid_size
+      - listing_frames_color
+      - listing_frames_color_code
+      - listing_frame_size
+
+  - id: blog
+    variables:
+      - blog_title_typography
+      - blog_body_typography
+      - blog_caption_typography
+      - blog_images_slideshow_color
+
+  - id: social
+    variables:
+      - social_links_style
+      - show_social_sharing
+
+  - id: website_background
+    label: Website Background
+    notes:
+    variables:
+      - background_color
+
+  - id: icon1
+    variables:
+      - icon1
+      - icon1text
+
+  - id: icon2
+    variables:
+      - icon2
+      - icon2text
+
+  - id: icon3
+    variables:
+      - icon3
+      - icon3text
+
+  - id: icon4
+    variables:
+      - icon4
+      - icon4text
+
+  - id: icon5
+    variables:
+      - icon5
+      - icon5text
