@@ -4,15 +4,19 @@ base_variables:
     kind: color
     value:
       light: "#ffffff"
-      dark: "#111111"
+      dark: "#000000"
+      coloured: "#022422"
     affected_variables:
       - background_color
+      - menu_background_color
+      - footer_background_color
 
   - id: base_accent_color
     kind: color
     value:
-      light: "#444444"
+      light: "#000000"
       dark: "#ffffff"
+      coloured: "#C89379"
     affected_variables:
       - link_typography
       - link_typography.hover.color
@@ -23,14 +27,22 @@ base_variables:
     value:
       light: "#111111"
       dark: "#ffffff"
+      coloured: "#ffffff"
     affected_variables:
       - text_typography
+      - big_text_typography
       - menu_typography
+      - footer_typography
+      - menu_border_color
+      - footer_border_color
 
   - id: base_heading_font
     kind: typography
     value:
-      font-family: Aften Screen Bold
+      font-family:
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Lydian Regular"
       font-weight: normal
     affected_variables:
       - headline_typography
@@ -39,8 +51,12 @@ base_variables:
   - id: base_body_font
     kind: typography
     value:
-      font-family: Aften Screen Regular
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        coloured: "Lydian Regular"
     affected_variables:
+      - big_text_typography
       - text_typography
       - menu_typography
       - menu_category_typography
@@ -59,7 +75,7 @@ variables:
 
   # ----------------- General -----------------
 
-  - name: background_color
+  - id: background_color
     label: "Background Color"
     kind: color
     notes: The background color of your site
@@ -98,7 +114,7 @@ variables:
     notes: Removes the extra space around your logo.
     value: false
 
-  - name: logo_typography
+  - id: logo_typography
     kind: typography
     value:
       font-size: 
@@ -129,7 +145,7 @@ variables:
 
   # --- Typography ---
 
-  - name: big_text_typography
+  - id: big_text_typography
     kind: typography
     value:
       color:
@@ -141,7 +157,7 @@ variables:
         dark: "Bagnad"
         coloured: "Roboto"
 
-  - name: big_text_typography_size
+  - id: big_text_typography_size
     label: "Listing and Gallery text size"
     kind: select
     values:
@@ -153,7 +169,7 @@ variables:
       dark: "Medium"
       coloured: "Small"
 
-  - name: text_typography
+  - id: text_typography
     kind: typography
     value:
       color:
@@ -173,7 +189,7 @@ variables:
         dark: '1.4'
         coloured: '1.4'
 
-  - name: headline_typography
+  - id: headline_typography
     kind: typography
     value:
       color:
@@ -187,7 +203,7 @@ variables:
       font-size: 32
       font-weight: bold
 
-  - name: link_typography
+  - id: link_typography
     kind: typography
     value:
       font-family: 
@@ -213,13 +229,13 @@ variables:
 
   # ----------------- Footer -----------------
 
-  - name: footer_text
+  - id: footer_text
     label: "Text"
     kind: text
     notes: This text is displayed in your footer at the bottom of a page.
     value: Copyright &copy;
 
-  - name: footer_typography
+  - id: footer_typography
     kind: typography
     value:
       color:
@@ -235,7 +251,7 @@ variables:
         dark: 22
         coloured: 22
 
-  - name: footer_link_typography
+  - id: footer_link_typography
     kind: typography
     value:
       font-family: 
@@ -263,7 +279,7 @@ variables:
           coloured: "#E6AB8B"
         text-decoration: none
 
-  - name: footer_border
+  - id: footer_border
     label: "Border"
     kind: boolean
     notes: Shows or hides the footer border.
@@ -272,7 +288,7 @@ variables:
       dark: true
       coloured: false
 
-  - name: footer_border_color
+  - id: footer_border_color
     label: "Border Color"
     kind: color
     notes: The border color of your footer.
@@ -281,7 +297,7 @@ variables:
       dark: "#222222"
       coloured: "#ffffff"
 
-  - name: footer_background_color
+  - id: footer_background_color
     label: "Background Color"
     kind: color
     notes: The background color of your footer.
@@ -292,7 +308,7 @@ variables:
 
   # ----------------- Menu -----------------
 
-  - name: menu_typography
+  - id: menu_typography
     kind: typography
     value:
       color:
@@ -327,7 +343,7 @@ variables:
           dark: "none"
           coloured: "none"
 
-  - name: menu_layout
+  - id: menu_layout
     label: "Menu item columns"
     kind: select
     notes: Makes the menu 4 or 2 columns
@@ -339,13 +355,13 @@ variables:
       dark: "4 Columns"
       coloured: "2 Columns"
 
-  - name: menu_title
+  - id: menu_title
     label: "Show Title"
     kind: boolean
     notes: Shows or hides the page title in the menu.
     value: true
 
-  - name: menu_title_typography
+  - id: menu_title_typography
     kind: typography
     value:
       font-weight: normal
@@ -362,7 +378,7 @@ variables:
         dark: "#ffffff"
         coloured: "#ffffff"
 
-  - name: menu_text
+  - id: menu_text
     label: Text
     kind: text
     notes: The text displayed beside the menu icon.
@@ -371,7 +387,7 @@ variables:
       dark: ""
       coloured: "Menu"
 
-  - name: menu_text_typography
+  - id: menu_text_typography
     kind: typography
     value:
       color:
@@ -406,7 +422,7 @@ variables:
           dark: "none"
           coloured: "none"
 
-  - name: menu_text_button
+  - id: menu_text_button
     label: "Show Menu Button"
     kind: boolean
     notes: Shows or hides menu button.
@@ -415,7 +431,7 @@ variables:
       dark: true
       coloured: true
   
-  - name: menu_border
+  - id: menu_border
     label: "Border"
     kind: boolean
     notes: Shows or hides the menu border.
@@ -424,7 +440,7 @@ variables:
       dark: false
       coloured: false
 
-  - name: menu_border_color
+  - id: menu_border_color
     label: "Border Color"
     kind: color
     notes: The border color of your menu.
@@ -433,7 +449,7 @@ variables:
       dark: "#ffffff"
       coloured: "#ffffff"
 
-  - name: menu_background_color
+  - id: menu_background_color
     label: "Background Color"
     kind: color
     notes: The background color of your menu.
@@ -444,7 +460,7 @@ variables:
 
   # ----------------- Gallery -----------------
 
-  - name: gallery_layout
+  - id: gallery_layout
     label: "Gallery Layout"
     kind: select
     notes: Changes the layout of the gallery pages
@@ -456,7 +472,7 @@ variables:
       dark: "1 then 2 Columns"
       coloured: "1 then 2 Columns"
 
-  - name: gallery_caption_typography
+  - id: gallery_caption_typography
     kind: typography
     value:
       color: 
@@ -470,7 +486,7 @@ variables:
       font-size: 14
       line-height: 1.4
 
-  - name: gallery_caption_link_typography
+  - id: gallery_caption_link_typography
     kind: typography
     value:
       color: 
@@ -491,7 +507,7 @@ variables:
           coloured: "#E6AB8B"
         text-decoration: none
 
-  - name: gallery_video_link_typography
+  - id: gallery_video_link_typography
     kind: typography
     value:
       font-family: 
@@ -515,7 +531,7 @@ variables:
           coloured: "#E6AB8B"
         text-decoration: none
 
-  - name: gallery_frames_color
+  - id: gallery_frames_color
     label: "Use global color for all frames"
     kind: boolean
     notes: Use global color for all frames.
@@ -524,7 +540,7 @@ variables:
       dark: false
       coloured: true
 
-  - name: gallery_frames_color_code
+  - id: gallery_frames_color_code
     label: "Frame color"
     kind: color
     notes: The background color for your gallery frames. This will also be seen in empty spaces.
@@ -533,7 +549,7 @@ variables:
       dark: "#111111"
       coloured: "#022422"
 
-  - name: gallery_video_frames_color
+  - id: gallery_video_frames_color
     label: "Video frame color"
     kind: color
     notes: The background color for your video frames. Seen when a video has a caption.
@@ -542,7 +558,7 @@ variables:
       dark: "#000000"
       coloured: "#022422"
 
-  - name: gallery_frame_size
+  - id: gallery_frame_size
     label: "Gallery frame size"
     kind: select
     values:
@@ -557,7 +573,7 @@ variables:
 
   # ----------------- Listing -----------------
 
-  - name: listing_caption_typography
+  - id: listing_caption_typography
     kind: typography
     value:
       color:
@@ -581,7 +597,7 @@ variables:
         dark: none
         coloured: none
 
-  - name: listing_caption_text
+  - id: listing_caption_text
     label: Text
     kind: text
     notes: The text displayed above the collection title.
@@ -590,7 +606,7 @@ variables:
       dark: "Visit"
       coloured: "Collection"
 
-  - name: listing_caption_text_font
+  - id: listing_caption_text_font
     kind: typography
     value:
       font-family: 
@@ -598,7 +614,7 @@ variables:
         dark: "Bagnad"
         coloured: "Roboto"
 
-  - name: listing_layout_container
+  - id: listing_layout_container
     label: "Contain listings within the page container"
     kind: boolean
     notes: Stops your listing page from spanning the full width of the browser.
@@ -607,7 +623,7 @@ variables:
       dark: true
       coloured: false
 
-  - name: listings_layout
+  - id: listings_layout
     label: "Listing Layout"
     kind: select
     values:
@@ -619,7 +635,7 @@ variables:
       dark: "2x1"
       coloured: "masonry"
 
-  - name: listing_grid_size
+  - id: listing_grid_size
     label: Grid gutter size
     kind: select
     values:
@@ -632,7 +648,7 @@ variables:
       dark: "Large"
       coloured: "None"
 
-  - name: listing_frames_color
+  - id: listing_frames_color
     label: "Use global color for all frames"
     kind: boolean
     notes: Use global color for all frames.
@@ -641,7 +657,7 @@ variables:
       dark: false
       coloured: true
 
-  - name: listing_frames_color_code
+  - id: listing_frames_color_code
     label: "Frame color"
     kind: color
     notes: The background color for your collection frames and hovers.
@@ -650,7 +666,7 @@ variables:
       dark: "#1a1a1a"
       coloured: "#021A18"
 
-  - name: listing_frame_size
+  - id: listing_frame_size
     label: "Listing frame size"
     kind: select
     values:
@@ -665,7 +681,7 @@ variables:
 
   # ----------------- Social -----------------
 
-  - name: social_links_style
+  - id: social_links_style
     label: "Link Style"
     kind: select
     values:
@@ -676,7 +692,7 @@ variables:
       dark: Icon
       coloured: Text
 
-  - name: icon1
+  - id: icon1
     kind: select
     label: "Social Network"
     values:
@@ -691,13 +707,13 @@ variables:
       - Flickr
     value: Twitter
 
-  - name: icon1text
+  - id: icon1text
     label: "Link"
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://twitter.com/useformat
 
-  - name: icon2
+  - id: icon2
     kind: select
     label: "Social Network"
     values:
@@ -712,13 +728,13 @@ variables:
       - Flickr
     value: Facebook
 
-  - name: icon2text
+  - id: icon2text
     label: "Link"
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://facebook.com/useformat
 
-  - name: icon3
+  - id: icon3
     kind: select
     label: "Social Network"
     values:
@@ -733,13 +749,13 @@ variables:
       - Flickr
     value: LinkedIn
 
-  - name: icon3text
+  - id: icon3text
     label: "Link"
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://linkedin.com/in/useformat
 
-  - name: icon4
+  - id: icon4
     kind: select
     label: "Social Network"
     values:
@@ -754,12 +770,12 @@ variables:
       - Flickr
     value: None
 
-  - name: icon4text
+  - id: icon4text
     label: "Link"
     kind: string
     notes: "Paste the entire URL here including 'http://'"
 
-  - name: icon5
+  - id: icon5
     kind: select
     label: "Social Network"
     values:
@@ -774,12 +790,12 @@ variables:
       - Flickr
     value: None
 
-  - name: icon5text
+  - id: icon5text
     label: "Link"
     kind: string
     notes: "Paste the entire URL here including 'http://'"
 
-  - name: show_social_sharing
+  - id: show_social_sharing
     label: "Button"
     kind: boolean
     notes: Shows or hides the Share Button.
@@ -787,7 +803,7 @@ variables:
 
   # ----------------- Blog -----------------
 
-  - name: blog_title_typography
+  - id: blog_title_typography
     kind: typography
     value:
       font-family: Helvetica Neue
@@ -805,7 +821,7 @@ variables:
           dark: "#eeeeee"
           coloured: "#eeeeee"
 
-  - name: blog_body_typography
+  - id: blog_body_typography
     kind: typography
     value:
       font-family: Helvetica Neue
@@ -816,13 +832,13 @@ variables:
       line-height: 1.7
       font-size: 22
 
-  - name: blog_caption_typography
+  - id: blog_caption_typography
     kind: typography
     value:
       font-family: Helvetica Neue
       font-size: 14
 
-  - name: blog_images_slideshow_color
+  - id: blog_images_slideshow_color
     label: Blog Slideshow Background Color
     kind: select
     values:

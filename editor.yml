@@ -27,16 +27,19 @@ drawers:
       - id: advanced
         variables:
           - menu_typography
-          - menu_category_typography
+          - menu_title_typography
+          - menu_text_typography
           - headline_typography
           - footer_typography
+          - footer_link_typography
           - background_color
           - gallery_caption_typography
+          - gallery_caption_link_typography
+          - gallery_video_link_typography
           - listing_caption_typography
           - blog_title_typography
           - blog_body_typography
           - blog_images_slideshow_color
-          - social_links_typography
 
   - id: typography
     tabs:
@@ -48,16 +51,19 @@ drawers:
       - id: advanced
         variables:
           - menu_typography
-          - menu_category_typography
+          - menu_title_typography
+          - menu_text_typography
           - footer_typography
+          - footer_link_typography
           - text_typography
           - link_typography
           - gallery_caption_typography
+          - gallery_caption_link_typography
+          - gallery_video_link_typography
           - listing_caption_typography
           - blog_title_typography
           - blog_body_typography
           - blog_caption_typography
-          - social_links_typography
 
   - id: social
     tabs:
@@ -82,7 +88,15 @@ groups:
   - id: site_menu
     variables:
       - menu_typography
-      - menu_category_typography
+      - menu_layout
+      - menu_title
+      - menu_title_typography
+      - menu_text
+      - menu_text_typography
+      - menu_text_button
+      - menu_border
+      - menu_border_color
+      - menu_background_color
 
   - id: heading
     variables:
@@ -96,19 +110,42 @@ groups:
     variables:
       - link_typography
 
+  - id: listing_and_gallery_text
+    variables:
+      - big_text_typography
+      - big_text_typography_size
+    
   - id: footer
     variables:
-      - post_text
+      - footer_text
       - footer_typography
+      - footer_link_typography
+      - footer_border
+      - footer_border_color
+      - footer_background_color
 
   - id: gallery
     variables:
+      - gallery_layout
       - gallery_caption_typography
-      - gallery_fit_images
+      - gallery_caption_link_typography
+      - gallery_video_link_typography
+      - gallery_frames_color
+      - gallery_frames_color_code
+      - gallery_video_frames_color
+      - gallery_frame_size
 
   - id: collection
     variables:
       - listing_caption_typography
+      - listing_caption_text
+      - listing_caption_text_font
+      - listing_layout_container
+      - listings_layout
+      - listing_grid_size
+      - listing_frames_color
+      - listing_frames_color_code
+      - listing_frame_size
 
   - id: blog
     variables:
@@ -119,7 +156,6 @@ groups:
 
   - id: social
     variables:
-      - social_links_typography
       - social_links_style
       - show_social_sharing
 
