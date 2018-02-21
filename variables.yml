@@ -227,9 +227,9 @@ variables:
         dark: 28
         coloured: 18
       line-height: 
-        light: '1.5'
-        dark: '1.4'
-        coloured: '1.4'
+        light: 1.5
+        dark: 1.4
+        coloured: 1.4
 
   - id: headline_typography
     kind: typography
