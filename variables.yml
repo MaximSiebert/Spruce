@@ -841,7 +841,7 @@ variables:
     notes: "Paste the entire URL here including 'http://'"
 
   - id: show_social_sharing
-    label: "Button"
+    label: "Show Share Button"
     kind: boolean
     notes: Shows or hides the Share Button.
     value: true
