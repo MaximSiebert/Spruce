@@ -25,10 +25,10 @@
           <div class="asset video w-50 relative">
             <div class="relative z-1">
                 <div class="pointer absolute z-1 top-0 left-0 right-0 bottom-0 cover video-overlay flex items-center justify-center" style="background: url({{ asset.thumbnail_url_960x0 }}) no-repeat center center;">
-                    <p class="f3 z-1 relative">
+                    <p class="z-1 relative">
                         Play
                     </p>
-                    <span class="f4 z-1 play-icon relative">▶</span>
+                    <span class="z-1 play-icon relative">▶</span>
                 </div>
                 {{ asset.embed_dimensions }}
             </div>
@@ -42,7 +42,7 @@
           </div>
       {% when 'text' %}
           <div class="asset text big-text ph4 w-100">
-          {% capture small %}{% if theme.big_text_typography_size == 'Small' %}mw9{% endif %}{% endcapture %}
+          {% capture small %}{% if theme.big_text_typography_size == 'Small' %}w-80-ns{% endif %}{% endcapture %}
             <div class="w-90-l center mv5-ns mv4">
                 <div class="{{ small }}">
                     {{ asset.copy }}

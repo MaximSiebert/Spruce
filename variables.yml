@@ -19,8 +19,11 @@ base_variables:
       coloured: "#C89379"
     affected_variables:
       - link_typography
-      - link_typography.hover.color
-      - menu_typography.hover.color
+      - menu_text_typography
+      - menu_typography
+      - footer_link_typography
+      - gallery_video_link_typography
+      - gallery_caption_link_typography
 
   - id: base_text_color
     kind: color
@@ -30,11 +33,20 @@ base_variables:
       coloured: "#ffffff"
     affected_variables:
       - text_typography
-      - big_text_typography
-      - menu_typography
-      - footer_typography
       - menu_border_color
       - footer_border_color
+      - logo_typography
+      - menu_title_typography
+      - link_typography.hover.color
+      - menu_text_typography.hover.color
+      - menu_text_typography.hover.color
+      - headline_typography
+      - big_text_typography
+      - footer_typography
+      - footer_border_color
+      - blog_title_typography
+      - blog_body_typography
+      - blog_images_slideshow_color
 
   - id: base_heading_font
     kind: typography
@@ -47,6 +59,9 @@ base_variables:
     affected_variables:
       - headline_typography
       - blog_title_typography
+      - listing_caption_typography
+      - link_typography
+      - footer_link_typography
 
   - id: base_body_font
     kind: typography
@@ -56,18 +71,39 @@ base_variables:
         dark: "Bagnad"
         coloured: "Lydian Regular"
     affected_variables:
-      - big_text_typography
-      - text_typography
+      - logo_typography
       - menu_typography
-      - menu_category_typography
+      - menu_title_typography
+      - menu_text_typography
+      - footer_typography
+      - text_typography
+      - big_text_typography
+      - gallery_caption_typography
+      - gallery_caption_link_typography
+      - gallery_video_link_typography
+      - listing_caption_text_font
+      - blog_body_typography
+      - blog_caption_typography
 
   - id: base_font_size
     kind: relative_font_size
     notes: Proportionally adjust the size of all your fonts
     affected_variables:
-      - text_typography
-      - headline_typography
+      - logo_typography
       - menu_typography
+      - menu_title_typography
+      - menu_text_typography
+      - footer_typography
+      - headline_typography
+      - text_typography
+      - gallery_caption_typography
+      - gallery_video_link_typography
+      - blog_body_typography
+      - blog_caption_typography
+      - blog_title_typography
+      - listing_caption_typography
+      - link_typography
+      - footer_link_typography
 
 # ----------------- Variables -----------------
 
@@ -113,6 +149,12 @@ variables:
     kind: boolean
     notes: Removes the extra space around your logo.
     value: false
+  
+  - name: logo_size
+    display_name: Logo Image Size
+    group: website_logo
+    kind: percent_slider
+    value: 50
 
   - id: logo_typography
     kind: typography
@@ -518,6 +560,10 @@ variables:
         light: "#ffffff"
         dark: "#999999"
         coloured: "#ffffff"
+      font-size: 
+        light: 28
+        dark: 36
+        coloured: 36
       font-style: normal
       font-weight: normal
       text-decoration: 

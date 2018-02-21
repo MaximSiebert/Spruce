@@ -4,8 +4,26 @@ drawers:
       - id: basic
       - id: advanced
         variables:
-          - gallery_fit_images
-          - post_text
+          - footer_text
+          - footer_border
+          - menu_border
+          - menu_text
+          - menu_title
+          - menu_text_button
+          - menu_layout
+          - gallery_layout
+          - gallery_frame_size
+          - gallery_frames_color
+          - gallery_frames_color
+          - gallery_frames_color_code
+          - gallery_video_frames_color
+          - listing_caption_text
+          - listing_layout_container
+          - listings_layout
+          - listing_grid_size
+          - listing_frames_color
+          - listing_frames_color_code
+          - listing_frame_size
 
   - id: website_logo
     tabs:
@@ -26,17 +44,24 @@ drawers:
           - base_accent_color
       - id: advanced
         variables:
+          - text_typography
+          - logo_typography
           - menu_typography
           - menu_title_typography
           - menu_text_typography
           - headline_typography
+          - big_text_typography
+          - big_text_typography_size
           - footer_typography
           - footer_link_typography
+          - footer_border_color
+          - footer_background_color
           - background_color
           - gallery_caption_typography
           - gallery_caption_link_typography
           - gallery_video_link_typography
           - listing_caption_typography
+          - listing_caption_text_font
           - blog_title_typography
           - blog_body_typography
           - blog_images_slideshow_color
@@ -50,17 +75,21 @@ drawers:
           - base_font_size
       - id: advanced
         variables:
+          - logo_typography
           - menu_typography
           - menu_title_typography
           - menu_text_typography
           - footer_typography
           - footer_link_typography
           - text_typography
+          - big_text_typography
+          - headline_typography
           - link_typography
           - gallery_caption_typography
           - gallery_caption_link_typography
           - gallery_video_link_typography
           - listing_caption_typography
+          - listing_caption_text_font
           - blog_title_typography
           - blog_body_typography
           - blog_caption_typography
@@ -91,7 +120,6 @@ groups:
       - menu_layout
       - menu_title
       - menu_title_typography
-      - menu_text
       - menu_text_typography
       - menu_text_button
       - menu_border
