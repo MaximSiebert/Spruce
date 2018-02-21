@@ -32,6 +32,7 @@ drawers:
         variables:
           - logo_image
           - logo_trim
+          - logo_size
           - logo_text
           - logo_typography
 
@@ -49,6 +50,8 @@ drawers:
           - menu_typography
           - menu_title_typography
           - menu_text_typography
+          - menu_border_color
+          - menu_background_color
           - headline_typography
           - big_text_typography
           - big_text_typography_size
