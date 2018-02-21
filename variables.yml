@@ -150,9 +150,8 @@ variables:
     notes: Removes the extra space around your logo.
     value: false
   
-  - name: logo_size
-    display_name: Logo Image Size
-    group: website_logo
+  - id: logo_size
+    label: Logo Image Size
     kind: percent_slider
     value: 50
 
