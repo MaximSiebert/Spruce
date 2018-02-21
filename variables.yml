@@ -750,6 +750,13 @@ variables:
       - Pinterest
       - Tumblr
       - Flickr
+      - YouTube
+      - Vimeo
+      - IMDb
+      - SoundCloud
+      - Behance
+      - Dribbble
+      - 500px
     value: Twitter
 
   - id: icon1text
@@ -771,6 +778,13 @@ variables:
       - Pinterest
       - Tumblr
       - Flickr
+      - YouTube
+      - Vimeo
+      - IMDb
+      - SoundCloud
+      - Behance
+      - Dribbble
+      - 500px
     value: Facebook
 
   - id: icon2text
@@ -792,6 +806,13 @@ variables:
       - Pinterest
       - Tumblr
       - Flickr
+      - YouTube
+      - Vimeo
+      - IMDb
+      - SoundCloud
+      - Behance
+      - Dribbble
+      - 500px
     value: LinkedIn
 
   - id: icon3text
@@ -813,6 +834,13 @@ variables:
       - Pinterest
       - Tumblr
       - Flickr
+      - YouTube
+      - Vimeo
+      - IMDb
+      - SoundCloud
+      - Behance
+      - Dribbble
+      - 500px
     value: None
 
   - id: icon4text
@@ -833,6 +861,13 @@ variables:
       - Pinterest
       - Tumblr
       - Flickr
+      - YouTube
+      - Vimeo
+      - IMDb
+      - SoundCloud
+      - Behance
+      - Dribbble
+      - 500px
     value: None
 
   - id: icon5text
