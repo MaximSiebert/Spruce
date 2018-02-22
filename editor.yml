@@ -14,7 +14,6 @@ drawers:
           - gallery_layout
           - gallery_frame_size
           - gallery_frames_color
-          - gallery_frames_color
           - gallery_frames_color_code
           - gallery_video_frames_color
           - listing_caption_text
@@ -123,6 +122,7 @@ groups:
       - menu_layout
       - menu_title
       - menu_title_typography
+      - menu_text
       - menu_text_typography
       - menu_text_button
       - menu_border
