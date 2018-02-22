@@ -136,15 +136,12 @@ groups:
   - id: body
     variables:
       - text_typography
+      - big_text_typography
+      - big_text_typography_size
 
   - id: text_links
     variables:
       - link_typography
-
-  - id: listing_and_gallery_text
-    variables:
-      - big_text_typography
-      - big_text_typography_size
     
   - id: footer
     variables:
