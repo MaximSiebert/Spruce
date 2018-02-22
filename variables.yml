@@ -123,7 +123,7 @@ variables:
   # --- Logo ---
 
   - id: logo_type_toggle
-    label: "Logo Type"
+    label: Logo Type
     skip_drawer_check: true
     kind: logo_toggle
     notes: "This determines if the logo image should be used, if present"
@@ -139,7 +139,7 @@ variables:
     value:
 
   - id: logo_text
-    label: Text
+    label: Logo Text
     kind: text
     notes: The text displayed if there is no logo image.
     value: Ellen Smith
@@ -151,11 +151,12 @@ variables:
     value: false
   
   - id: logo_size
-    label: Logo Image Size
+    label: Logo Size
     kind: percent_slider
     value: 50
 
   - id: logo_typography
+    label: Logo Font
     kind: typography
     value:
       font-size: 
@@ -187,6 +188,7 @@ variables:
   # --- Typography ---
 
   - id: big_text_typography
+    label: Listing and Gallery Text
     kind: typography
     value:
       color:
@@ -199,7 +201,7 @@ variables:
         coloured: "Roboto"
 
   - id: big_text_typography_size
-    label: "Listing and Gallery text size"
+    label: Listing and Gallery Text Size
     kind: select
     values:
       - Small
@@ -211,6 +213,7 @@ variables:
       coloured: "Small"
 
   - id: text_typography
+    label: Body Text
     kind: typography
     value:
       color:
@@ -231,6 +234,7 @@ variables:
         coloured: 1.4
 
   - id: headline_typography
+    label: Heading Text
     kind: typography
     value:
       color:
@@ -245,6 +249,7 @@ variables:
       font-weight: bold
 
   - id: link_typography
+    label: Link
     kind: typography
     value:
       font-family: 
@@ -271,12 +276,13 @@ variables:
   # ----------------- Footer -----------------
 
   - id: footer_text
-    label: "Text"
+    label: Footer Text
     kind: text
     notes: This text is displayed in your footer at the bottom of a page.
     value: Copyright &copy;
 
   - id: footer_typography
+    label: Footer Text
     kind: typography
     value:
       color:
@@ -293,6 +299,7 @@ variables:
         coloured: 22
 
   - id: footer_link_typography
+    label: Footer Link
     kind: typography
     value:
       font-family: 
@@ -321,7 +328,7 @@ variables:
         text-decoration: none
 
   - id: footer_border
-    label: "Border"
+    label: Show Footer Border
     kind: boolean
     notes: Shows or hides the footer border.
     value: 
@@ -330,7 +337,7 @@ variables:
       coloured: false
 
   - id: footer_border_color
-    label: "Border Color"
+    label: Footer Border
     kind: color
     notes: The border color of your footer.
     value:
@@ -339,7 +346,7 @@ variables:
       coloured: "#ffffff"
 
   - id: footer_background_color
-    label: "Background Color"
+    label: Footer Background
     kind: color
     notes: The background color of your footer.
     value:
@@ -350,6 +357,7 @@ variables:
   # ----------------- Menu -----------------
 
   - id: menu_typography
+    label: Site Menu Link
     kind: typography
     value:
       color:
@@ -385,7 +393,7 @@ variables:
           coloured: "none"
 
   - id: menu_layout
-    label: "Menu item columns"
+    label: Menu Item Columns
     kind: select
     notes: Makes the menu 4 or 2 columns
     values:
@@ -397,12 +405,13 @@ variables:
       coloured: "2 Columns"
 
   - id: menu_title
-    label: "Show Title"
+    label: Show Menu Title
     kind: boolean
     notes: Shows or hides the page title in the menu.
     value: true
 
   - id: menu_title_typography
+    label: Site Menu Page Title
     kind: typography
     value:
       font-weight: normal
@@ -420,6 +429,7 @@ variables:
         coloured: "#ffffff"
 
   - id: menu_text
+    label: Site Menu Button Text
     label: Text
     kind: text
     notes: The text displayed beside the menu icon.
@@ -429,6 +439,7 @@ variables:
       coloured: "Menu"
 
   - id: menu_text_typography
+    label: Site Menu Button Text
     kind: typography
     value:
       color:
@@ -464,7 +475,7 @@ variables:
           coloured: "none"
 
   - id: menu_text_button
-    label: "Show Menu Button"
+    label: Show Menu Button
     kind: boolean
     notes: Shows or hides menu button.
     value: 
@@ -473,7 +484,7 @@ variables:
       coloured: true
   
   - id: menu_border
-    label: "Border"
+    label: Show Menu Border
     kind: boolean
     notes: Shows or hides the menu border.
     value: 
@@ -482,7 +493,7 @@ variables:
       coloured: false
 
   - id: menu_border_color
-    label: "Border Color"
+    label: Menu Border Color
     kind: color
     notes: The border color of your menu.
     value:
@@ -491,7 +502,7 @@ variables:
       coloured: "#ffffff"
 
   - id: menu_background_color
-    label: "Background Color"
+    label: Menu Background
     kind: color
     notes: The background color of your menu.
     value:
@@ -502,7 +513,7 @@ variables:
   # ----------------- Gallery -----------------
 
   - id: gallery_layout
-    label: "Gallery Layout"
+    label: Gallery Layout
     kind: select
     notes: Changes the layout of the gallery pages
     values:
@@ -514,6 +525,7 @@ variables:
       coloured: "1 then 2 Columns"
 
   - id: gallery_caption_typography
+    label: Gallery Captions
     kind: typography
     value:
       color: 
@@ -528,6 +540,7 @@ variables:
       line-height: 1.4
 
   - id: gallery_caption_link_typography
+    label: Gallery Captions Link
     kind: typography
     value:
       color: 
@@ -549,6 +562,7 @@ variables:
         text-decoration: none
 
   - id: gallery_video_link_typography
+    label: Gallery Video Link
     kind: typography
     value:
       font-family: 
@@ -577,7 +591,7 @@ variables:
         text-decoration: none
 
   - id: gallery_frames_color
-    label: "Use global color for all frames"
+    label: Use global color for all frames
     kind: boolean
     notes: Use global color for all frames.
     value: 
@@ -586,7 +600,7 @@ variables:
       coloured: true
 
   - id: gallery_frames_color_code
-    label: "Frame color"
+    label: Gallery Frame Background
     kind: color
     notes: The background color for your gallery frames. This will also be seen in empty spaces.
     value:
@@ -595,7 +609,7 @@ variables:
       coloured: "#022422"
 
   - id: gallery_video_frames_color
-    label: "Video frame color"
+    label: Gallery Video Frame Background
     kind: color
     notes: The background color for your video frames. Seen when a video has a caption.
     value:
@@ -604,7 +618,7 @@ variables:
       coloured: "#022422"
 
   - id: gallery_frame_size
-    label: "Gallery frame size"
+    label: Gallery Frame Size
     kind: select
     values:
       - None
@@ -619,6 +633,7 @@ variables:
   # ----------------- Listing -----------------
 
   - id: listing_caption_typography
+    label: Collection Captions
     kind: typography
     value:
       color:
@@ -643,7 +658,7 @@ variables:
         coloured: none
 
   - id: listing_caption_text
-    label: Text
+    label: Collection Captions Text
     kind: text
     notes: The text displayed above the collection title.
     value: 
@@ -652,6 +667,7 @@ variables:
       coloured: "Collection"
 
   - id: listing_caption_text_font
+    label: Collection Captions Text
     kind: typography
     value:
       font-family: 
@@ -660,7 +676,7 @@ variables:
         coloured: "Roboto"
 
   - id: listing_layout_container
-    label: "Contain listings within the page container"
+    label: Contain listings within the page container
     kind: boolean
     notes: Stops your listing page from spanning the full width of the browser.
     value: 
@@ -669,7 +685,7 @@ variables:
       coloured: false
 
   - id: listings_layout
-    label: "Listing Layout"
+    label: Collection Layout
     kind: select
     values:
       - 1x2
@@ -681,7 +697,7 @@ variables:
       coloured: "masonry"
 
   - id: listing_grid_size
-    label: Grid gutter size
+    label: Collection Grid Gutter Size
     kind: select
     values:
       - None
@@ -694,7 +710,7 @@ variables:
       coloured: "None"
 
   - id: listing_frames_color
-    label: "Use global color for all frames"
+    label: Use global color for all frames
     kind: boolean
     notes: Use global color for all frames.
     value: 
@@ -703,7 +719,7 @@ variables:
       coloured: true
 
   - id: listing_frames_color_code
-    label: "Frame color"
+    label: Collection Frame Background
     kind: color
     notes: The background color for your collection frames and hovers.
     value:
@@ -712,7 +728,7 @@ variables:
       coloured: "#021A18"
 
   - id: listing_frame_size
-    label: "Listing frame size"
+    label: Collection Frame Size
     kind: select
     values:
       - None
@@ -727,7 +743,7 @@ variables:
   # ----------------- Social -----------------
 
   - id: social_links_style
-    label: "Link Style"
+    label: Style
     kind: select
     values:
       - Icon
@@ -739,7 +755,7 @@ variables:
 
   - id: icon1
     kind: select
-    label: "Social Network"
+    label: Social Network
     values:
       - None
       - Twitter
@@ -760,14 +776,14 @@ variables:
     value: Twitter
 
   - id: icon1text
-    label: "Link"
+    label: Link
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://twitter.com/useformat
 
   - id: icon2
     kind: select
-    label: "Social Network"
+    label: Social Network
     values:
       - None
       - Twitter
@@ -788,14 +804,14 @@ variables:
     value: Facebook
 
   - id: icon2text
-    label: "Link"
+    label: Link
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://facebook.com/useformat
 
   - id: icon3
     kind: select
-    label: "Social Network"
+    label: Social Network
     values:
       - None
       - Twitter
@@ -816,14 +832,14 @@ variables:
     value: LinkedIn
 
   - id: icon3text
-    label: "Link"
+    label: Link
     kind: string
     notes: "Paste the entire URL here including 'http://'"
     value: http://linkedin.com/in/useformat
 
   - id: icon4
     kind: select
-    label: "Social Network"
+    label: Social Network
     values:
       - None
       - Twitter
@@ -844,13 +860,13 @@ variables:
     value: None
 
   - id: icon4text
-    label: "Link"
+    label: Link
     kind: string
     notes: "Paste the entire URL here including 'http://'"
 
   - id: icon5
     kind: select
-    label: "Social Network"
+    label: Social Network
     values:
       - None
       - Twitter
@@ -871,12 +887,12 @@ variables:
     value: None
 
   - id: icon5text
-    label: "Link"
+    label: Link
     kind: string
     notes: "Paste the entire URL here including 'http://'"
 
   - id: show_social_sharing
-    label: "Show Share Button"
+    label: Show Share Button
     kind: boolean
     notes: Shows or hides the Share Button.
     value: true
@@ -884,6 +900,7 @@ variables:
   # ----------------- Blog -----------------
 
   - id: blog_title_typography
+    label: Post Title
     kind: typography
     value:
       font-family: Helvetica Neue
@@ -902,6 +919,7 @@ variables:
           coloured: "#eeeeee"
 
   - id: blog_body_typography
+    label: Post Body Text
     kind: typography
     value:
       font-family: Helvetica Neue
@@ -913,13 +931,14 @@ variables:
       font-size: 22
 
   - id: blog_caption_typography
+    label: Image Caption
     kind: typography
     value:
       font-family: Helvetica Neue
       font-size: 14
 
   - id: blog_images_slideshow_color
-    label: Blog Slideshow Background Color
+    label: Slideshow Background Color
     kind: select
     values:
       - Dark
