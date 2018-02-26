@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Spruce theme frontend', theme: 'spruce', type: :feature, shared_session: true do
-  # it_behaves_like 'has logo support', image_max_height: 200, selector: '.logo'
+  it_behaves_like 'has logo support', image_max_height: 100, selector: '.logo'
   it_behaves_like 'page with social links', selector: '.social-link'
   it_behaves_like 'has menu', dropdown_categories: true, open_mode: :click,
                   menu_item_selector: 'nav.menu .item',
