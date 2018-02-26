@@ -11,6 +11,7 @@ drawers:
           - menu_title
           - menu_text_button
           - menu_layout
+          - big_text_typography_size
           - gallery_layout
           - gallery_frame_size
           - gallery_frames_color
@@ -53,7 +54,6 @@ drawers:
           - menu_background_color
           - headline_typography
           - big_text_typography
-          - big_text_typography_size
           - footer_typography
           - footer_link_typography
           - footer_border_color
