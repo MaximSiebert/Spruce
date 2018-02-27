@@ -5,7 +5,7 @@
         {% assign ratioHeight = page.title.image_dimensions_1600x1200[1] %}
         {% capture dominantColor %}{% if page.title.dominant_color %}{{ page.title.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
         {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
-        <div class="asset {{ orientation }} title-image image w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
+        <div class="asset {{ orientation }} title-element title-image image w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
           <div class="img-container relative">
               {% if page.type == "gallery" %}
                 <a class="db" data-fancybox="images" href="{{ page.title.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
