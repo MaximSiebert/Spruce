@@ -5,7 +5,7 @@ base_variables:
     value:
       light: "#ffffff"
       dark: "#000000"
-      coloured: "#022422"
+      colored: "#022422"
     affected_variables:
       - background_color
       - menu_background_color
@@ -16,7 +16,7 @@ base_variables:
     value:
       light: "#000000"
       dark: "#ffffff"
-      coloured: "#C89379"
+      colored: "#C89379"
     affected_variables:
       - link_typography
       - menu_text_typography
@@ -30,7 +30,7 @@ base_variables:
     value:
       light: "#111111"
       dark: "#ffffff"
-      coloured: "#ffffff"
+      colored: "#ffffff"
     affected_variables:
       - text_typography
       - menu_border_color
@@ -54,7 +54,7 @@ base_variables:
       font-family:
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       font-weight: normal
     affected_variables:
       - headline_typography
@@ -69,7 +69,7 @@ base_variables:
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
     affected_variables:
       - logo_typography
       - menu_typography
@@ -118,7 +118,7 @@ variables:
     value:
       light: "#eeeeee"
       dark: "#000000"
-      coloured: "#022422"
+      colored: "#022422"
 
   # --- Logo ---
 
@@ -127,7 +127,7 @@ variables:
     skip_drawer_check: true
     kind: logo_toggle
     notes: "This determines if the logo image should be used, if present"
-    value: text
+    value: image
     values:
       - text
       - image
@@ -162,28 +162,28 @@ variables:
       font-size: 
         light: 24
         dark: 24
-        coloured: 24
+        colored: 24
       font-weight: 
         light: "bold"
         dark: "bold"
-        coloured: "normal"
+        colored: "normal"
       color:
         light: "#000000"
         dark: "#999999"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       hover:
         color:
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#ffffff"
+          colored: "#ffffff"
         text-decoration: 
           light: "none"
           dark: "none"
-          coloured: "none"
+          colored: "none"
 
   # --- Typography ---
 
@@ -194,11 +194,11 @@ variables:
       color:
         light: "#000000"
         dark: "#ffffff"
-        coloured: "#C89379"
+        colored: "#C89379"
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Roboto"
+        colored: "Roboto"
 
   - id: big_text_typography_size
     label: Listing and Gallery Text Size
@@ -210,7 +210,7 @@ variables:
     value:
       light: "Large"
       dark: "Medium"
-      coloured: "Small"
+      colored: "Small"
 
   - id: text_typography
     label: Body Text
@@ -219,19 +219,19 @@ variables:
       color:
         light: "#000000"
         dark: "#ffffff"
-        coloured: "#C89379"
+        colored: "#C89379"
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-size: 
         light: 22
         dark: 28
-        coloured: 18
+        colored: 18
       line-height: 
         light: 1.5
         dark: 1.4
-        coloured: 1.4
+        colored: 1.4
 
   - id: headline_typography
     label: Heading Text
@@ -240,11 +240,11 @@ variables:
       color:
         light: "#000000"
         dark: "#ffffff"
-        coloured: "#C89379"
+        colored: "#C89379"
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       font-size: 32
       font-weight: bold
 
@@ -255,22 +255,22 @@ variables:
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       color:
         light: "#000000"
         dark: "#999999"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-style: normal
       font-weight: normal
       text-decoration: 
         light: "underline"
         dark: "none"
-        coloured: "none"
+        colored: "none"
       hover:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: none
 
   # ----------------- Footer -----------------
@@ -288,15 +288,15 @@ variables:
       color:
         light: "#000000"
         dark: "#ffffff"
-        coloured: "#C89379"
+        colored: "#C89379"
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-size: 
         light: 22
         dark: 22
-        coloured: 22
+        colored: 22
 
   - id: footer_link_typography
     label: Footer Link
@@ -305,26 +305,26 @@ variables:
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       font-size: 
         light: 24
         dark: 32
-        coloured: 24
+        colored: 24
       color:
         light: "#000000"
         dark: "#999999"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-style: normal
       font-weight: normal
       text-decoration: 
         light: "underline"
         dark: "none"
-        coloured: "none"
+        colored: "none"
       hover:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: none
 
   - id: footer_border
@@ -334,7 +334,7 @@ variables:
     value: 
       light: true
       dark: true
-      coloured: false
+      colored: false
 
   - id: footer_border_color
     label: Footer Border
@@ -343,7 +343,7 @@ variables:
     value:
       light: "#000000"
       dark: "#222222"
-      coloured: "#ffffff"
+      colored: "#ffffff"
 
   - id: footer_background_color
     label: Footer Background
@@ -352,7 +352,7 @@ variables:
     value:
       light: "#eeeeee"
       dark: "#000000"
-      coloured: "#022422"
+      colored: "#022422"
 
   # ----------------- Menu -----------------
 
@@ -363,34 +363,34 @@ variables:
       color:
         light: "#000000"
         dark: "#999999"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-size: 
         light: 32
         dark: 20
-        coloured: 32
+        colored: 32
       text-decoration: none
       hover:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: 
           light: "underline"
           dark: "none"
-          coloured: "none"
+          colored: "none"
       selected:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: 
           light: "underline"
           dark: "none"
-          coloured: "none"
+          colored: "none"
 
   - id: menu_layout
     label: Menu Item Columns
@@ -402,7 +402,7 @@ variables:
     value:
       light: "2 Columns"
       dark: "4 Columns"
-      coloured: "2 Columns"
+      colored: "2 Columns"
 
   - id: menu_title
     label: Show Menu Title
@@ -418,15 +418,15 @@ variables:
       font-size: 
         light: 24
         dark: 21
-        coloured: 24
+        colored: 24
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Roboto"
+        colored: "Roboto"
       color:
         light: "#000000"
         dark: "#ffffff"
-        coloured: "#ffffff"
+        colored: "#ffffff"
 
   - id: menu_text
     label: Site Menu Button Text
@@ -436,7 +436,7 @@ variables:
     value: 
       light: "Menu"
       dark: ""
-      coloured: "Menu"
+      colored: "Menu"
 
   - id: menu_text_typography
     label: Site Menu Button Text
@@ -445,34 +445,34 @@ variables:
       color:
         light: "#000000"
         dark: "#999999"
-        coloured: "#E6AB8B"
+        colored: "#E6AB8B"
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-size: 
         light: 24
         dark: 24
-        coloured: 24
+        colored: 24
       text-decoration: none
       hover:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#ffffff"
+          colored: "#ffffff"
         text-decoration: 
           light: "underline"
           dark: "none"
-          coloured: "none"
+          colored: "none"
       selected:
         color: 
           light: "#000000"
           dark: "#ffffff"
-          coloured: "#ffffff"
+          colored: "#ffffff"
         text-decoration: 
           light: "underline"
           dark: "none"
-          coloured: "none"
+          colored: "none"
 
   - id: menu_text_button
     label: Show Menu Button
@@ -481,7 +481,7 @@ variables:
     value: 
       light: false
       dark: true
-      coloured: true
+      colored: true
   
   - id: menu_border
     label: Show Menu Border
@@ -490,7 +490,7 @@ variables:
     value: 
       light: true
       dark: false
-      coloured: false
+      colored: false
 
   - id: menu_border_color
     label: Menu Border Color
@@ -499,7 +499,7 @@ variables:
     value:
       light: "#000000"
       dark: "#ffffff"
-      coloured: "#ffffff"
+      colored: "#ffffff"
 
   - id: menu_background_color
     label: Menu Background
@@ -508,7 +508,7 @@ variables:
     value:
       light: "#eeeeee"
       dark: "#000000"
-      coloured: "#022422"
+      colored: "#022422"
 
   # ----------------- Gallery -----------------
 
@@ -522,7 +522,7 @@ variables:
     value:
       light: "1 then 2 Columns"
       dark: "1 then 2 Columns"
-      coloured: "1 then 2 Columns"
+      colored: "1 then 2 Columns"
 
   - id: gallery_caption_typography
     label: Gallery Captions
@@ -531,11 +531,11 @@ variables:
       color: 
         light: "#ffffff"
         dark: "#ffffff"
-        coloured: "#184E3F"
+        colored: "#184E3F"
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-size: 14
       line-height: 1.4
 
@@ -546,11 +546,11 @@ variables:
       color: 
         light: "#ffffff"
         dark: "#ffffff"
-        coloured: "#E6AB8B"
+        colored: "#E6AB8B"
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Roboto"
+        colored: "Roboto"
       font-style: normal
       font-weight: normal
       text-decoration: underline
@@ -558,7 +558,7 @@ variables:
         color: 
           light: "#ffffff"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: none
 
   - id: gallery_video_link_typography
@@ -568,26 +568,26 @@ variables:
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       color:
         light: "#ffffff"
         dark: "#999999"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-size: 
         light: 28
         dark: 36
-        coloured: 36
+        colored: 36
       font-style: normal
       font-weight: normal
       text-decoration: 
         light: "underline"
         dark: "none"
-        coloured: "none"
+        colored: "none"
       hover:
         color: 
           light: "#ffffff"
           dark: "#ffffff"
-          coloured: "#E6AB8B"
+          colored: "#E6AB8B"
         text-decoration: none
 
   - id: gallery_frames_color
@@ -597,7 +597,7 @@ variables:
     value: 
       light: false
       dark: false
-      coloured: true
+      colored: true
 
   - id: gallery_frames_color_code
     label: Gallery Frame Background
@@ -606,7 +606,7 @@ variables:
     value:
       light: "#ffffff"
       dark: "#111111"
-      coloured: "#022422"
+      colored: "#022422"
 
   - id: gallery_video_frames_color
     label: Gallery Video Frame Background
@@ -615,7 +615,7 @@ variables:
     value:
       light: "#000000"
       dark: "#000000"
-      coloured: "#022422"
+      colored: "#022422"
 
   - id: gallery_frame_size
     label: Gallery Frame Size
@@ -628,7 +628,7 @@ variables:
     value:
       light: "Large"
       dark: "None"
-      coloured: "Large"
+      colored: "Large"
 
   # ----------------- Listing -----------------
 
@@ -639,23 +639,23 @@ variables:
       color:
         light: "#ffffff"
         dark: "#ffffff"
-        coloured: "#ffffff"
+        colored: "#ffffff"
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
-        coloured: "Lydian Regular"
+        colored: "Lydian Regular"
       font-weight: 
         light: "normal"
         dark: "normal"
-        coloured: "normal"
+        colored: "normal"
       font-size: 
         light: 28
         dark: 36
-        coloured: 36
+        colored: 36
       text-decoration: 
         light: none
         dark: none
-        coloured: none
+        colored: none
 
   - id: listing_caption_text
     label: Collection Captions Text
@@ -664,7 +664,7 @@ variables:
     value: 
       light: "View"
       dark: "Visit"
-      coloured: "Collection"
+      colored: "Collection"
 
   - id: listing_caption_text_font
     label: Collection Captions Text
@@ -673,7 +673,7 @@ variables:
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
-        coloured: "Roboto"
+        colored: "Roboto"
 
   - id: listing_layout_container
     label: Contain listings within the page container
@@ -682,7 +682,7 @@ variables:
     value: 
       light: true
       dark: true
-      coloured: false
+      colored: false
 
   - id: listings_layout
     label: Collection Layout
@@ -694,7 +694,7 @@ variables:
     value:
       light: "1x2"
       dark: "2x1"
-      coloured: "masonry"
+      colored: "masonry"
 
   - id: listing_grid_size
     label: Collection Grid Gutter Size
@@ -707,7 +707,7 @@ variables:
     value:
       light: "None"
       dark: "Large"
-      coloured: "None"
+      colored: "None"
 
   - id: listing_frames_color
     label: Use global color for all frames
@@ -716,7 +716,7 @@ variables:
     value: 
       light: false
       dark: false
-      coloured: true
+      colored: true
 
   - id: listing_frames_color_code
     label: Collection Frame Background
@@ -725,7 +725,7 @@ variables:
     value:
       light: "#ffffff"
       dark: "#1a1a1a"
-      coloured: "#021A18"
+      colored: "#021A18"
 
   - id: listing_frame_size
     label: Collection Frame Size
@@ -738,7 +738,7 @@ variables:
     value:
       light: "Large"
       dark: "None"
-      coloured: "None"
+      colored: "None"
 
   # ----------------- Social -----------------
 
@@ -751,7 +751,7 @@ variables:
     value: 
       light: Text
       dark: Icon
-      coloured: Text
+      colored: Text
 
   - id: icon1
     kind: select
@@ -907,7 +907,7 @@ variables:
       color:
         light: "#000000"
         dark: "#cccccc"
-        coloured: "#cccccc"
+        colored: "#cccccc"
       font-size: 36
       font-style: normal
       font-weight: bold
@@ -916,7 +916,7 @@ variables:
         color:
           light: "#222222"
           dark: "#eeeeee"
-          coloured: "#eeeeee"
+          colored: "#eeeeee"
 
   - id: blog_body_typography
     label: Post Body Text
@@ -926,7 +926,7 @@ variables:
       color:
         light: "#000000"
         dark: "#cccccc"
-        coloured: "#cccccc"
+        colored: "#cccccc"
       line-height: 1.7
       font-size: 22
 
@@ -946,4 +946,4 @@ variables:
     value:
       light: Light
       dark: Dark
-      coloured: Dark
+      colored: Dark

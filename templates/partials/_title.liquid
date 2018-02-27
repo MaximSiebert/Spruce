@@ -5,11 +5,15 @@
         {% assign ratioHeight = page.title.image_dimensions_1600x1200[1] %}
         {% capture dominantColor %}{% if page.title.dominant_color %}{{ page.title.dominant_color }}{% else %}#eeeeee{% endif %}{% endcapture %}
         {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
-        <div class="asset {{ orientation }} image w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
+        <div class="asset {{ orientation }} title-image image w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
           <div class="img-container relative">
-              <a class="db" data-fancybox="images" href="{{ page.title.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
-                  <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" src='{{ page.title.image_url_1600x0 }}' data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ page.title.image_url_1600x1200 }}" alt="{{ page.title.copy | strip_html }}" data-parent-fit="contain">
-              </a>
+              {% if page.type == "gallery" %}
+                <a class="db" data-fancybox="images" href="{{ page.title.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
+                    <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" src='{{ page.title.image_url_1600x0 }}' data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ page.title.image_url_1600x1200 }}" alt="{{ page.title.copy | strip_html }}" data-parent-fit="contain">
+                </a>
+              {% else %}
+                    <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" src='{{ page.title.image_url_1600x0 }}' data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ page.title.image_url_1600x1200 }}" alt="{{ page.title.copy | strip_html }}" data-parent-fit="contain">
+              {% endif %}
               <canvas class="{{ orientation }} image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
           </div>
         </div>

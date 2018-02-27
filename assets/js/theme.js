@@ -140,7 +140,7 @@ $(document).ready(function(){
 
   //Adjust top padding to nav height
   $('body').css('padding-top', navbarHeight);
-
+  
   // Dropdown menus
   var dropdownTrigger = $('.dropdown-trigger'),
       dropdown = $('.dropdown');
@@ -159,113 +159,110 @@ $(document).ready(function(){
 
 
   // Lightbox
-  // $('a[rel="lightbox"]').fluidbox();
-
-  // $('a[rel="lightbox"]').click(function(e) {
-  //   e.preventDefault();
-  //   var color = $(this).data('color');
-  //   $('.fluidbox__overlay').css('background-color', color);
-  // });
   
-  $("a[rel='lightbox']").fancybox({
-    beforeShow: function (instance, slide) {
-      $('.fancybox-bg').css('background-color', slide.opts.color);
-    },
 
-    // Enable infinite gallery navigation
-    loop : false,
+  if (!($('body').hasClass('blog'))) {
+    $("a[rel='lightbox']").fancybox({
+      beforeShow: function (instance, slide) {
+        $('.fancybox-bg').css('background-color', slide.opts.color);
+      },
 
-    // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
-    margin : [50, 0],
+      // Enable infinite gallery navigation
+      loop : false,
 
-    // Horizontal space between slides
-    gutter : 50,
+      // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
+      margin : [50, 0],
 
-    // Enable keyboard navigation
-    keyboard : true,
+      // Horizontal space between slides
+      gutter : 50,
 
-    // Should display navigation arrows at the screen edges
-    arrows : true,
+      // Enable keyboard navigation
+      keyboard : true,
 
-    // Should display infobar (counter and arrows at the top)
-    infobar : true,
+      // Should display navigation arrows at the screen edges
+      arrows : true,
 
-    // Should display toolbar (buttons at the top)
-    toolbar : true,
+      // Should display infobar (counter and arrows at the top)
+      infobar : true,
 
-    // What buttons should appear in the top right corner.
-    // Buttons will be created using templates from `btnTpl` option
-    // and they will be placed into toolbar (class="fancybox-toolbar"` element)
-    buttons : [
-        'close'
-    ],
+      // Should display toolbar (buttons at the top)
+      toolbar : true,
 
-    // Default content type if cannot be detected automatically
-    defaultType : 'image',
+      // What buttons should appear in the top right corner.
+      // Buttons will be created using templates from `btnTpl` option
+      // and they will be placed into toolbar (class="fancybox-toolbar"` element)
+      buttons : [
+          'close'
+      ],
 
-    // Open/close animation type
-    // Possible values:
-    //   false            - disable
-    //   "zoom"           - zoom images from/to thumbnail
-    //   "fade"
-    //   "zoom-in-out"
-    //
-    animationEffect : "zoom",
+      // Default content type if cannot be detected automatically
+      defaultType : 'image',
 
-    // Duration in ms for open/close animation
-    animationDuration : 600,
+      // Open/close animation type
+      // Possible values:
+      //   false            - disable
+      //   "zoom"           - zoom images from/to thumbnail
+      //   "fade"
+      //   "zoom-in-out"
+      //
+      animationEffect : "zoom",
 
-    // Transition effect between slides
-    //
-    // Possible values:
-    //   false            - disable
-    //   "fade'
-    //   "slide'
-    //   "circular'
-    //   "tube'
-    //   "zoom-in-out'
-    //   "rotate'
-    //
-    transitionEffect : "fade",
+      // Duration in ms for open/close animation
+      animationDuration : 600,
 
-    // Duration in ms for transition animation
-    transitionDuration : 600,
+      // Transition effect between slides
+      //
+      // Possible values:
+      //   false            - disable
+      //   "fade'
+      //   "slide'
+      //   "circular'
+      //   "tube'
+      //   "zoom-in-out'
+      //   "rotate'
+      //
+      transitionEffect : "fade",
 
-    btnTpl : {
-        // Arrows
-        arrowLeft : '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+      // Duration in ms for transition animation
+      transitionDuration : 600,
+
+      btnTpl : {
+          // Arrows
+          arrowLeft : '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+                          '<svg viewBox="0 0 40 40">' +
+                            '<path d="M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"></path>' +
+                          '</svg>' +
+                        '</button>',
+
+          arrowRight : '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
                         '<svg viewBox="0 0 40 40">' +
-                          '<path d="M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"></path>' +
+                          '<path d="M30,20 L10,20 L30,20 L22,28 L30,20 L22,12 L30,20"></path>' +
                         '</svg>' +
-                      '</button>',
-
-        arrowRight : '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
-                      '<svg viewBox="0 0 40 40">' +
-                        '<path d="M30,20 L10,20 L30,20 L22,28 L30,20 L22,12 L30,20"></path>' +
-                      '</svg>' +
-                    '</button>'
-    },
+                      '</button>'
+      },
 
 
-    // Interaction
-    // ===========
+      // Interaction
+      // ===========
 
-    // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
-    // each option can be string or method that returns value.
-    //
-    // Possible values:
-    //   "close"           - close instance
-    //   "next"            - move to next gallery item
-    //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
-    //   "toggleControls"  - show/hide controls
-    //   "zoom"            - zoom image (if loaded)
-    //   false             - do nothing
+      // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
+      // each option can be string or method that returns value.
+      //
+      // Possible values:
+      //   "close"           - close instance
+      //   "next"            - move to next gallery item
+      //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
+      //   "toggleControls"  - show/hide controls
+      //   "zoom"            - zoom image (if loaded)
+      //   false             - do nothing
 
-    // Clicked on the content
-    clickContent : function( current, event ) {
-      return current.type === 'image' ? 'next' : false;
-    },
-  });
+      // Clicked on the content
+      clickContent : function( current, event ) {
+        return current.type === 'image' ? 'next' : false;
+      },
+    });
+  }
+  
   
 
 
