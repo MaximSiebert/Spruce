@@ -3,7 +3,7 @@
 history:
   1: Initial version.
 
-hidden: false
+hidden: true
 version: 1
 api_version: 2
 support:
