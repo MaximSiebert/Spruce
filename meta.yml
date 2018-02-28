@@ -1,6 +1,7 @@
 ---
 name: Spruce
 description: Format theme
+
 skins:
 - name: Light
   id: light
@@ -9,14 +10,19 @@ skins:
 - name: Colored
   id: colored
 default_skin: light
+
 using_position:
   right: 20
   bottom: 20
+
 preview_images:
 - path: preview_images/1.jpg
-background_images:
-- path: background_images/1.jpg
+
+mobile_preview_images:
+  - path: preview_images/1-mobile.jpg
+
 preview_site_images:
 - preview_site_images/
+
 filter_attributes:
 - vertical
