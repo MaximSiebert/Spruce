@@ -71,7 +71,7 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
 // Initialize menu show/hide toggle behaviour
 window.Theme.Menu = window.Theme.Menu || {
   toggle: function () {
-    $("html").delegate( ".mobile-menu-toggle", "click", function() {
+    $("html").on( "click", ".mobile-menu-toggle", function() {
       if ($('body').hasClass('active')) {
         Theme.$.header.removeClass('active');
         $('body').removeClass('active');
