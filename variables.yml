@@ -430,7 +430,6 @@ variables:
 
   - id: menu_text
     label: Menu Button Label
-    label: Text
     kind: text
     notes: The text displayed beside the menu icon.
     value: 
