@@ -3159,7 +3159,7 @@ body.gallery {
       }
     }
   }
-  {% if theme.gallery_layout == '1 then 2 Columns' %}
+  {% if theme.gallery_layout == 'Mixed Sizes' %}
     .asset:not(.text):nth-child(3n + 1) {
       width: 100%;
       padding: 0;
@@ -3403,7 +3403,7 @@ Collection loop
       }
     }
   }
-  {% if theme.listings_layout == '1x2' %}
+  {% if theme.listings_layout == 'Mixed' %}
     .inner-asset-container {
       @media #{$breakpoint-large}{
           display: grid;
@@ -3440,7 +3440,7 @@ Collection loop
         }
       }
     }
-  {% elsif theme.listings_layout == '2x1' %}
+  {% elsif theme.listings_layout == 'Rows' %}
     .inner-asset-container {
       @media #{$breakpoint-large}{
           height: 200vh;
@@ -3473,7 +3473,7 @@ Collection loop
         }
       }
     }
-  {% elsif theme.listings_layout == 'masonry' %}
+  {% elsif theme.listings_layout == 'Columns' %}
     .asset-container {
       @media #{$breakpoint-large}{
         column-count: 2;

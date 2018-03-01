@@ -397,15 +397,15 @@ variables:
     kind: select
     notes: Makes the menu 4 or 2 columns
     values:
-      - 2 Columns
-      - 4 Columns
+      - 2 Column
+      - 4 Column
     value:
-      light: "2 Columns"
-      dark: "4 Columns"
-      colored: "2 Columns"
+      light: "2 Column"
+      dark: "4 Column"
+      colored: "2 Column"
 
   - id: menu_title
-    label: Show Menu Title
+    label: Show Current Page Title
     kind: boolean
     notes: Shows or hides the page title in the menu.
     value: true
@@ -429,7 +429,7 @@ variables:
         colored: "#ffffff"
 
   - id: menu_text
-    label: Site Menu Button Text
+    label: Menu Button Label
     label: Text
     kind: text
     notes: The text displayed beside the menu icon.
@@ -439,7 +439,7 @@ variables:
       colored: "Menu"
 
   - id: menu_text_typography
-    label: Site Menu Button Text
+    label: Menu Button Label Font
     kind: typography
     value:
       color:
@@ -517,12 +517,12 @@ variables:
     kind: select
     notes: Changes the layout of the gallery pages
     values:
-      - 2 Columns
-      - 1 then 2 Columns
+      - Grid
+      - Mixed Sizes
     value:
-      light: "1 then 2 Columns"
-      dark: "1 then 2 Columns"
-      colored: "1 then 2 Columns"
+      light: "Mixed Sizes"
+      dark: "Mixed Sizes"
+      colored: "Mixed Sizes"
 
   - id: gallery_caption_typography
     label: Gallery Captions
@@ -633,7 +633,7 @@ variables:
   # ----------------- Listing -----------------
 
   - id: listing_caption_typography
-    label: Collection Captions
+    label: Page Link
     kind: typography
     value:
       color:
@@ -658,7 +658,7 @@ variables:
         colored: none
 
   - id: listing_caption_text
-    label: Collection Captions Text
+    label: Page Link Label
     kind: text
     notes: The text displayed above the collection title.
     value: 
@@ -667,7 +667,7 @@ variables:
       colored: "Collection"
 
   - id: listing_caption_text_font
-    label: Collection Captions Text
+    label: Page Link Label Font
     kind: typography
     value:
       font-family: 
@@ -688,13 +688,13 @@ variables:
     label: Collection Layout
     kind: select
     values:
-      - 1x2
-      - 2x1
-      - masonry
+      - Mixed
+      - Rows
+      - Columns
     value:
-      light: "1x2"
-      dark: "2x1"
-      colored: "masonry"
+      light: "Mixed"
+      dark: "Rows"
+      colored: "Columns"
 
   - id: listing_grid_size
     label: Collection Grid Gutter Size
