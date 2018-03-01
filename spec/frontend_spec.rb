@@ -7,8 +7,8 @@ describe 'Spruce theme frontend', theme: 'spruce', type: :feature, shared_sessio
                   menu_item_selector: 'nav.menu .item',
                   category_item_selector: 'nav.menu .category',
                   wait_callback: proc {
-                    if page.has_css?('.mobile-menu-toggle button')
-                      find('.mobile-menu-toggle button').click
+                    if page.has_css?('.mobile-menu-toggle')
+                      find('.mobile-menu-toggle').click
                     end
                   }
   it_behaves_like 'has gallery support', lazy_load: true
