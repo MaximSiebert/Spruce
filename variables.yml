@@ -405,7 +405,7 @@ variables:
       colored: "2 Column"
 
   - id: menu_title
-    label: Show Current Page Title
+    label: Show Current Page Title in Menu
     kind: boolean
     notes: Shows or hides the page title in the menu.
     value: true
