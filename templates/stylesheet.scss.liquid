@@ -2717,6 +2717,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+    color: {{ theme.background_color }}; 
+    background: {{ theme.text_typography.color }};
+}
+
 main, .page-title, .footer {
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   opacity: 1;
@@ -2918,7 +2923,7 @@ body {
   {% css_block theme.menu_typography %};
   a {
     {% css_block theme.menu_typography %};
-    text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
     &:hover {
       {% css_block theme.menu_typography.hover %};
     }
@@ -2930,7 +2935,7 @@ body {
 
 .mobile-menu-toggle button {
   {% css_block theme.menu_text_typography %};
-  text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
 }
 
 .mobile-menu-toggle:hover button {
@@ -3076,7 +3081,7 @@ body.gallery {
       .video-overlay {
         p {
           {% css_block theme.gallery_video_link_typography %};
-          text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
           vertical-align: bottom;
           transition: all .15s ease-in;
         }
@@ -3344,7 +3349,7 @@ Collection loop
     .title {
       p {
         {% css_block theme.listing_caption_typography %};
-        text-decoration-skip: ink;
+        text-decoration-skip-ink: auto;
       }
       span {
         {% css_block theme.listing_caption_typography %};
@@ -3515,7 +3520,7 @@ Collection loop
 .asset.text, .title-element, .pagination {
   a {
     {% css_block theme.link_typography %};
-    text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
     &:hover {
       {% css_block theme.link_typography.hover %};
     }
