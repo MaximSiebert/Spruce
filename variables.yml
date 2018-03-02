@@ -3,7 +3,7 @@ base_variables:
   - id: base_background_color
     kind: color
     value:
-      light: "#ffffff"
+      light: "#eeeeee"
       dark: "#000000"
       colored: "#022422"
     affected_variables:
