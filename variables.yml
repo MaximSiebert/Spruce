@@ -35,7 +35,6 @@ base_variables:
       - text_typography
       - menu_border_color
       - footer_border_color
-      - logo_typography
       - menu_title_typography
       - link_typography.hover.color
       - menu_text_typography.hover.color
@@ -70,7 +69,6 @@ base_variables:
         dark: "Bagnad"
         colored: "Lydian Regular"
     affected_variables:
-      - logo_typography
       - menu_typography
       - menu_title_typography
       - menu_text_typography
@@ -89,7 +87,6 @@ base_variables:
     kind: relative_font_size
     notes: Proportionally adjust the size of all your fonts
     affected_variables:
-      - logo_typography
       - menu_typography
       - menu_title_typography
       - menu_text_typography
