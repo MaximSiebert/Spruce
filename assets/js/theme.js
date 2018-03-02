@@ -125,7 +125,7 @@ $(document).ready(function(){
 
       // If they scrolled down and are past the navbar, add class .nav-up.
       // This is necessary so you never see what is "behind" the navbar.
-      if (st > lastScrollTop && !navbar.hasClass('active') ){
+      if (st > lastScrollTop && !navbar.hasClass('active') && st > 0 ){
           // Scroll Down
           navbar.removeClass('nav-down').addClass('nav-up');
       } else {
