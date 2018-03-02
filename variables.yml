@@ -387,8 +387,8 @@ variables:
           light: "#000000"
           dark: "#ffffff"
           colored: "#E6AB8B"
-        text-decoration: 
-          light: "underline"
+        text-decoration:
+          light: "none"
           dark: "none"
           colored: "none"
 
