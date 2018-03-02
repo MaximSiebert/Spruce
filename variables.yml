@@ -119,11 +119,10 @@ variables:
   # --- Logo ---
 
   - id: logo_type_toggle
-    label: Logo Type
     skip_drawer_check: true
     kind: logo_toggle
     notes: "This determines if the logo image should be used, if present"
-    value: image
+    value: text
     values:
       - text
       - image
