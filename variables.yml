@@ -463,15 +463,6 @@ variables:
           light: "underline"
           dark: "none"
           colored: "none"
-      selected:
-        color: 
-          light: "#000000"
-          dark: "#ffffff"
-          colored: "#ffffff"
-        text-decoration: 
-          light: "underline"
-          dark: "none"
-          colored: "none"
 
   - id: menu_text_button
     label: Show Menu Button
