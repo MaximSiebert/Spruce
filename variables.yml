@@ -387,8 +387,8 @@ variables:
           light: "#000000"
           dark: "#ffffff"
           colored: "#E6AB8B"
-        text-decoration: 
-          light: "underline"
+        text-decoration:
+          light: "none"
           dark: "none"
           colored: "none"
 
@@ -455,15 +455,6 @@ variables:
         colored: 24
       text-decoration: none
       hover:
-        color: 
-          light: "#000000"
-          dark: "#ffffff"
-          colored: "#ffffff"
-        text-decoration: 
-          light: "underline"
-          dark: "none"
-          colored: "none"
-      selected:
         color: 
           light: "#000000"
           dark: "#ffffff"

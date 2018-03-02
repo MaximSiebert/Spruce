@@ -2751,7 +2751,7 @@ p {
   margin-bottom: 0;
 }
 
-img {
+.gallery img, .gallery img {
   width: 100%;
   display: block; 
   height: auto;
@@ -2926,6 +2926,11 @@ body {
     text-decoration-skip-ink: auto;
     &:hover {
       {% css_block theme.menu_typography.hover %};
+    }
+  }
+  &.selected {
+    a {
+      {% css_block theme.menu_typography.selected %};
     }
   }
   ul li a {
@@ -3542,9 +3547,6 @@ Format Pages
   }
   .product-list {
     margin: 0 .4rem 0 .4rem !important;
-  }
-  img {
-    width: 100% !important;
   }
   p {
     {% css_block theme.text_typography %};
