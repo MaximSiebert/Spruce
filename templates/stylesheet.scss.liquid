@@ -2879,6 +2879,16 @@ body {
   }
 }
 
+body.active {
+  overflow: hidden;
+}
+
+@media #{$breakpoint-large}{
+  body.active {
+    overflow: auto;
+  }
+}
+
 .active .header.nav-up {
   transform: translateY(0);
 }
@@ -2912,6 +2922,8 @@ body {
   background-color: {{ theme.menu_background_color }};
   transform: translateY(-100%);
   opacity: 0;
+  max-height: 80vh;
+  overflow-y: auto;
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -3540,7 +3552,6 @@ Format Pages
 */
 
 #content_page_wrapper {
-  // max-width: none !important;
   margin: 0 auto;
   h1, h2 {
     {% css_block theme.headline_typography %}
