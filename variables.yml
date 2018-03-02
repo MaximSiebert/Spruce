@@ -102,7 +102,6 @@ base_variables:
       - blog_caption_typography
       - blog_title_typography
       - listing_caption_typography
-      - link_typography
       - footer_link_typography
 
 # ----------------- Variables -----------------
