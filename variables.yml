@@ -60,7 +60,6 @@ base_variables:
       - headline_typography
       - blog_title_typography
       - listing_caption_typography
-      - link_typography
       - footer_link_typography
 
   - id: base_body_font
@@ -77,6 +76,7 @@ base_variables:
       - menu_text_typography
       - footer_typography
       - text_typography
+      - link_typography
       - big_text_typography
       - gallery_caption_typography
       - gallery_caption_link_typography
