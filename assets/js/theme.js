@@ -168,7 +168,7 @@ $(document).ready(function(){
       },
 
       // Enable infinite gallery navigation
-      loop : false,
+      loop : true,
 
       // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
       margin : [50, 0],

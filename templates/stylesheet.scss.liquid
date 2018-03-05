@@ -2751,7 +2751,7 @@ p {
   margin-bottom: 0;
 }
 
-.gallery img, .gallery img {
+.gallery img, .listing img {
   width: 100%;
   display: block; 
   height: auto;
@@ -3876,6 +3876,7 @@ body:not(.blog) {
     backface-visibility: hidden;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
   .fancybox-outer,
@@ -3915,7 +3916,7 @@ body:not(.blog) {
 
   .fancybox-is-open .fancybox-bg {
     opacity: 1;
-    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
+    transition-timing-function:  cubic-bezier(0.19, 1, 0.22, 1); }
 
   .fancybox-infobar,
   .fancybox-toolbar,
@@ -3925,7 +3926,7 @@ body:not(.blog) {
     z-index: 99997;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .25s, visibility 0s linear .25s;
+    transition: opacity .6s, visibility 0s linear .6s;
     box-sizing: border-box; 
   }
 
@@ -3934,7 +3935,7 @@ body:not(.blog) {
   .fancybox-show-caption .fancybox-caption-wrap {
     opacity: 1;
     visibility: visible;
-    transition: opacity .25s, visibility 0s; }
+    transition: opacity .6s, visibility 0s; }
 
   .fancybox-infobar {
     top: 0;
@@ -4072,6 +4073,7 @@ body:not(.blog) {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     transition-property: opacity, -webkit-transform;
     transition-property: transform, opacity;
     transition-property: transform, opacity, -webkit-transform; }
@@ -4360,7 +4362,7 @@ body:not(.blog) {
 
   /* Transition effects */
   .fancybox-animated {
-    transition-timing-function: cubic-bezier(0, 0, 0.25, 1); }
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); }
 
   /* transitionEffect: slide */
   .fancybox-fx-slide.fancybox-slide--previous {
