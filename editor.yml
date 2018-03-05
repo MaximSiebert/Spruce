@@ -66,6 +66,7 @@ drawers:
           - listing_caption_text_font
           - blog_title_typography
           - blog_body_typography
+          - blog_images_slideshow_color
 
   - id: typography
     tabs:

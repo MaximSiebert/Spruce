@@ -45,7 +45,6 @@ base_variables:
       - footer_border_color
       - blog_title_typography
       - blog_body_typography
-      - blog_images_slideshow_color
 
   - id: base_heading_font
     kind: typography
