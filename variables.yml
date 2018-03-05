@@ -3,7 +3,7 @@ base_variables:
   - id: base_background_color
     kind: color
     value:
-      light: "#ffffff"
+      light: "#eeeeee"
       dark: "#000000"
       colored: "#022422"
     affected_variables:
@@ -35,7 +35,6 @@ base_variables:
       - text_typography
       - menu_border_color
       - footer_border_color
-      - logo_typography
       - menu_title_typography
       - link_typography.hover.color
       - menu_text_typography.hover.color
@@ -46,7 +45,6 @@ base_variables:
       - footer_border_color
       - blog_title_typography
       - blog_body_typography
-      - blog_images_slideshow_color
 
   - id: base_heading_font
     kind: typography
@@ -60,7 +58,6 @@ base_variables:
       - headline_typography
       - blog_title_typography
       - listing_caption_typography
-      - link_typography
       - footer_link_typography
 
   - id: base_body_font
@@ -71,12 +68,12 @@ base_variables:
         dark: "Bagnad"
         colored: "Lydian Regular"
     affected_variables:
-      - logo_typography
       - menu_typography
       - menu_title_typography
       - menu_text_typography
       - footer_typography
       - text_typography
+      - link_typography
       - big_text_typography
       - gallery_caption_typography
       - gallery_caption_link_typography
@@ -89,7 +86,6 @@ base_variables:
     kind: relative_font_size
     notes: Proportionally adjust the size of all your fonts
     affected_variables:
-      - logo_typography
       - menu_typography
       - menu_title_typography
       - menu_text_typography
@@ -102,7 +98,6 @@ base_variables:
       - blog_caption_typography
       - blog_title_typography
       - listing_caption_typography
-      - link_typography
       - footer_link_typography
 
 # ----------------- Variables -----------------
@@ -123,11 +118,10 @@ variables:
   # --- Logo ---
 
   - id: logo_type_toggle
-    label: Logo Type
     skip_drawer_check: true
     kind: logo_toggle
     notes: "This determines if the logo image should be used, if present"
-    value: image
+    value: text
     values:
       - text
       - image
