@@ -96,11 +96,13 @@ base_variables:
       - footer_typography
       - headline_typography
       - text_typography
+      - gallery_typography
       - gallery_caption_typography
       - gallery_video_link_typography
       - blog_body_typography
       - blog_caption_typography
       - blog_title_typography
+      - listing_header_typography
       - listing_caption_typography
       - footer_link_typography
 
