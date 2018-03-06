@@ -19,12 +19,13 @@
         </div>
     {% else if page.title.copy and page.title.copy_alignment != "none" %}
         {% if page.type == "gallery" %}
+            {% capture small %}{% if theme.gallery_header_typography_size == 'Small' %}w-80-ns{% endif %}{% endcapture %}
             <div class="title-element pv5-l pv4 w-90-l center flex ph4">
         {% else %}
+            {% capture small %}{% if theme.listing_header_typography_size == 'Small' %}w-80-ns{% endif %}{% endcapture %}
             {% capture layoutContainer %}{% if theme.listing_layout_container == false %}mb5-l mb4{% endif %}{% endcapture %}
             <div class="title-element pt5-l pt4 w-90-l center flex ph4 {{ layoutContainer }}">
         {% endif %}
-            {% capture small %}{% if theme.big_text_typography_size == 'Small' %}w-80-ns{% endif %}{% endcapture %}
             <div class="text big-text lh-copy {{ small }}">{{ page.title.copy }}</div>
         </div>
     {% endif %}
