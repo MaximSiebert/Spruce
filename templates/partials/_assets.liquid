@@ -8,7 +8,7 @@
         {% capture orientation %}{% if ratioWidth > ratioHeight %}landscape{% elsif ratioHeight > ratioWidth %}portrait{% else %}square{% endif %}{% endcapture %}
           <div class="asset {{ orientation }} image w-50-l w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
             <div class="img-container relative">
-                <a class="db" data-fancybox="e" href="{{ asset.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
+                <a class="db" name="{{ forloop.index }}" data-fancybox="e" href="{{ asset.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
                     <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ asset.image_url_1600x1200 }}" alt="{{ asset.alt_text }}" data-srcset="{{ asset | srcset: 'height' }}" data-parent-fit="contain" />
                 </a>
                 <canvas class="{{ orientation }} image-placeholder" width="{{ ratioWidth }}" height="{{ ratioHeight }}" style="background-color:{{ dominantColor }};"></canvas>
