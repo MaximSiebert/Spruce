@@ -3925,6 +3925,9 @@ Format Pages
     &.active {
       border: 2px solid {{ theme.menu_border_color }};
     }
+    img {
+      display: block;
+    }
   }
 }
 
@@ -4053,6 +4056,7 @@ html.cart-enabled {
   }
 }
 
+<<<<<<< HEAD
 .client .private_page form p, .private_page form input {
   font-size: 16px !important;
 }
@@ -4061,6 +4065,10 @@ html.cart-enabled {
   padding: 10px 14px !important;
   border-color: {{ theme.text_typography.color }};
   border-style: solid;
+=======
+.private_page form input {
+  padding: 10px 15px !important;
+>>>>>>> bae2de2d587a9649d2f36780cdc5a1b19b575731
 }
 
 body.order_confirmation .btn-cancel,
@@ -4077,6 +4085,7 @@ body.order_confirmation .btn-cancel,
   }
 }
 
+<<<<<<< HEAD
 #content_page_wrapper a.select2-choice {
   font-family: {{ theme.text_typography.font-family }};
 }
@@ -4085,6 +4094,8 @@ body.order_confirmation .btn-cancel,
   border-radius: 0 !important;
 }
 
+=======
+>>>>>>> bae2de2d587a9649d2f36780cdc5a1b19b575731
 .select2-drop {
   border-radius: 0 !important;
 }
@@ -4189,6 +4200,56 @@ body.product main .f-back-to-store-link {
 
 .order-download ul {
   padding: 0px;
+}
+
+/*
+------------------------------------------------------------------
+Client Access Pages
+------------------------------------------------------------------
+*/
+
+.client .private_page form p {
+  color: {{ theme.text_typography.color }} !important;
+  font-size: {{ theme.text_typography.font-size }}px !important;
+}
+
+.client .private_page form input[type='submit'] {
+  color: {{ theme.text_typography.color }} !important;
+  border: 1px solid {{ theme.text_typography.color }} !important;
+}
+
+.f_client_header {
+  border-bottom: 1px solid rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.3)!important;
+  margin: 0 5% 2%;
+}
+
+.f_client_header_copy p {
+  color: {{ theme.text_typography.color }} !important;
+}
+
+.f_client_header_info .f_btn {
+  color: {{ theme.text_typography.color }} !important;
+  border: 1px solid {{ theme.text_typography.color }} !important;
+  font-family: {{ theme.text_typography.font-family }} !important;
+  font-size: {{ theme.text_typography.font-size }}px !important;
+}
+
+.client .f_assets-container {
+  margin: 0 5%;
+}
+
+.client .private_page form input[type='submit'] {
+  color: {{ theme.text_typography.color }} !important;
+  border: 1px solid {{ theme.text_typography.color }} !important;
+}
+
+.f-load-more .spinner-wrap .spinner-circle {
+  stroke: {{ theme.text_typography.color }} !important;
+}
+
+.f-lightbox-bottom-bar-actions {
+  font-size: 16px;
+  line-height: 1em;
 }
 
 /*
