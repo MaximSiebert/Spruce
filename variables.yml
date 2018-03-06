@@ -40,7 +40,9 @@ base_variables:
       - menu_text_typography.hover.color
       - menu_text_typography.hover.color
       - headline_typography
-      - big_text_typography
+      - listing_header_typography
+      - gallery_header_typography
+      - gallery_typography
       - footer_typography
       - footer_border_color
       - blog_title_typography
@@ -74,7 +76,9 @@ base_variables:
       - footer_typography
       - text_typography
       - link_typography
-      - big_text_typography
+      - listing_header_typography
+      - gallery_header_typography
+      - gallery_typography
       - gallery_caption_typography
       - gallery_caption_link_typography
       - gallery_video_link_typography
@@ -181,8 +185,8 @@ variables:
 
   # --- Typography ---
 
-  - id: big_text_typography
-    label: Listing and Gallery Text
+  - id: listing_header_typography
+    label: Collection Header Text
     kind: typography
     value:
       color:
@@ -194,8 +198,8 @@ variables:
         dark: "Bagnad"
         colored: "Roboto"
 
-  - id: big_text_typography_size
-    label: Listing and Gallery Text Size
+  - id: listing_header_typography_size
+    label: Collection Header Text Size
     kind: select
     values:
       - Small
@@ -205,6 +209,52 @@ variables:
       light: "Large"
       dark: "Medium"
       colored: "Small"
+
+  - id: gallery_header_typography
+    label: Gallery Header Text
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        colored: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        colored: "Roboto"
+
+  - id: gallery_header_typography_size
+    label: Gallery Header Text Size
+    kind: select
+    values:
+      - Small
+      - Medium
+      - Large
+    value:
+      light: "Large"
+      dark: "Medium"
+      colored: "Small"
+
+  - id: gallery_typography
+    label: Gallery Text
+    kind: typography
+    value:
+      color:
+        light: "#000000"
+        dark: "#ffffff"
+        colored: "#C89379"
+      font-family: 
+        light: "Helvetica Neue"
+        dark: "Bagnad"
+        colored: "Roboto"
+      font-size: 
+        light: 32
+        dark: 32
+        colored: 32
+      line-height: 
+        light: 1.5
+        dark: 1.4
+        colored: 1.4
 
   - id: text_typography
     label: Body Text

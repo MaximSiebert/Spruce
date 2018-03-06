@@ -53,7 +53,8 @@ drawers:
           - menu_border_color
           - menu_background_color
           - headline_typography
-          - big_text_typography
+          - listing_header_typography
+          - gallery_header_typography
           - footer_typography
           - footer_link_typography
           - footer_border_color
@@ -84,7 +85,8 @@ drawers:
           - footer_typography
           - footer_link_typography
           - text_typography
-          - big_text_typography
+          - listing_header_typography
+          - gallery_header_typography
           - headline_typography
           - link_typography
           - gallery_caption_typography
@@ -136,8 +138,6 @@ groups:
   - id: body
     variables:
       - text_typography
-      - big_text_typography
-      - big_text_typography_size
 
   - id: text_links
     variables:
@@ -155,6 +155,9 @@ groups:
   - id: gallery
     variables:
       - gallery_layout
+      - gallery_header_typography
+      - gallery_header_typography_size
+      - gallery_typography
       - gallery_caption_typography
       - gallery_caption_link_typography
       - gallery_video_link_typography
@@ -165,6 +168,8 @@ groups:
 
   - id: collection
     variables:
+      - listing_header_typography
+      - listing_header_typography_size
       - listing_caption_typography
       - listing_caption_text
       - listing_caption_text_font
