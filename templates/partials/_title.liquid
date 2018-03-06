@@ -8,7 +8,7 @@
         <div class="asset {{ orientation }} title-element title-image image w-100 flex items-start justify-center relative" style="background-color:{{ galleryFramesColor }};">
           <div class="img-container relative">
               {% if page.type == "gallery" %}
-                <a class="db" data-fancybox="images" href="{{ page.title.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
+                <a class="db" data-fancybox="e" href="{{ page.title.image_url_1600x1200 }}" rel="lightbox" data-color="{{ galleryFramesColor }}">
                     <img data-color="{{ galleryFramesColor }}" class="absolute db bottom-0 top-0 z-2 lazyload {{ orientation }}" src='{{ page.title.image_url_1600x0 }}' data-sizes="auto" width="{{ ratioWidth }}" height="{{ ratioHeight }}" data-src="{{ page.title.image_url_1600x1200 }}" alt="{{ page.title.copy | strip_html }}" data-parent-fit="contain">
                 </a>
               {% else %}

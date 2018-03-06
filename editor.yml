@@ -11,7 +11,8 @@ drawers:
           - menu_title
           - menu_text_button
           - menu_layout
-          - big_text_typography_size
+          - listing_header_typography_size
+          - gallery_header_typography_size
           - gallery_layout
           - gallery_frame_size
           - gallery_frames_color
