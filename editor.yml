@@ -61,6 +61,7 @@ drawers:
           - footer_border_color
           - footer_background_color
           - background_color
+          - gallery_typography
           - gallery_caption_typography
           - gallery_caption_link_typography
           - gallery_video_link_typography
@@ -90,6 +91,7 @@ drawers:
           - gallery_header_typography
           - headline_typography
           - link_typography
+          - gallery_typography
           - gallery_caption_typography
           - gallery_caption_link_typography
           - gallery_video_link_typography
