@@ -3665,7 +3665,7 @@ Collection loop
         }
       }
     }
-    {% if theme.listings_layout != 'masonry' %}
+    {% if theme.listings_layout != 'Columns' %}
       .img-container {
         {% if theme.listing_frame_size == 'Small' %}
           margin: 5px;
@@ -3687,7 +3687,7 @@ Collection loop
         {% endif %}
       }
     {% endif %}
-    {% if theme.listings_layout == 'masonry' %}
+    {% if theme.listings_layout == 'Columns' %}
       .img-container {
         {% if theme.listing_frame_size == 'Small' %}
           padding: 5px;
@@ -3732,6 +3732,9 @@ Collection loop
       }
     }
   }
+  .overlay {
+    background: rgba(0,0,0,.4)
+  }
   .inner-asset-container {
     ms-grid-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
     grid-gap:  {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
@@ -3774,9 +3777,6 @@ Collection loop
           height: auto;
           width: 100%;
         }
-      }
-      .overlay {
-        background: rgba(0,0,0,.4)
       }
     }
   }
@@ -3881,10 +3881,22 @@ Collection loop
   {% elsif theme.listings_layout == 'Columns' %}
     .asset-container {
       @media #{$breakpoint-large}{
+        font-size: 0;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        -ms-column-count: 2;
         column-count: 2;
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        -ms-column-break-inside: avoid;
+        column-break-inside: avoid;
+        -webkit-column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
+        -moz-column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
+        -ms-column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
         column-gap: {% if theme.listing_grid_size == 'Small' %}2px{% elsif theme.listing_grid_size == 'Medium' %}3rem{% elsif theme.listing_grid_size == 'Large' %}5rem{% else %}0{% endif %};
       }
       .asset {
+        display: inline-block;
         {% if theme.listing_grid_size == 'Small' %}
           margin-bottom: 2px;
         {% elsif theme.listing_grid_size == 'Medium' %}

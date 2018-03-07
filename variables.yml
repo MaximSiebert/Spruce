@@ -716,9 +716,9 @@ variables:
     kind: boolean
     notes: Enable full-width layout for collection pages.
     value: 
-      light: true
-      dark: true
-      colored: false
+      light: false
+      dark: false
+      colored: true
 
   - id: listings_layout
     label: Collection Layout

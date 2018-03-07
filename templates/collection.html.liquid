@@ -10,7 +10,7 @@
         <div class="asset-container center {{ layoutContainer }}">
             {% for asset in page.assets %}
                 {% capture modulo %}{{ forloop.index | modulo: 3 }}{% endcapture %}
-                {% if modulo == '1' and theme.listings_layout != 'masonry' %}
+                {% if modulo == '1' and theme.listings_layout != 'Columns' %}
                     <div class="inner-asset-container">
                 {% endif %}
                         <div class="asset w-100">
@@ -34,7 +34,7 @@
                                 </div>
                             </a>
                         </div>
-                {% if modulo == '0' and theme.listings_layout != 'masonry' or forloop.last %}
+                {% if modulo == '0' and theme.listings_layout != 'Columns' or forloop.last %}
                     </div>
                 {% endif %}
             {% endfor %}
