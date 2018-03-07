@@ -3114,7 +3114,41 @@ a {
   }
 }
 
-.pagination .big-text, .big-text h2 {
+.listing .big-text h2 {
+  margin-bottom: 1rem;
+  color: {{ theme.listing_header_typography.color }};
+  {% if theme.listing_header_typography_size == 'Small' %}
+    font-size: 20px;
+  {% elsif theme.listing_header_typography_size == 'Medium' %}
+    font-size: 24px;
+    {% elsif theme.listing_header_typography_size == 'Large' %}
+    font-size: 32px;
+  {% endif %};
+  @media #{$breakpoint-medium}{
+    {% if theme.listing_header_typography_size == 'Small' %}
+      font-size: 30px;
+    {% elsif theme.listing_header_typography_size == 'Medium' %}
+      font-size: 36px;
+      {% elsif theme.listing_header_typography_size == 'Large' %}
+      font-size: 42px;
+    {% endif %};
+  }
+  @media #{$breakpoint-large}{
+    {% if theme.listing_header_typography_size == 'Small' %}
+      font-size: 36px;
+      font-size: 2.6vw;
+    {% elsif theme.listing_header_typography_size == 'Medium' %}
+      font-size: 48px;
+      font-size: 3.4vw;
+    {% elsif theme.listing_header_typography_size == 'Large' %}
+      font-size: 56px;
+      font-size: 3.8vw;
+    {% endif %};
+  }
+}
+
+
+.pagination .big-text, .gallery .big-text h2 {
   {% css_block theme.link_typography %}
   {% if theme.gallery_header_typography_size == 'Small' %}
     font-size: 20px;
@@ -3146,7 +3180,7 @@ a {
   }
 }
 
-.big-text h2 {
+.gallery .big-text h2 {
   {% css_block theme.gallery_header_typography %}
   text-decoration: none;
   margin-bottom: 1rem;

@@ -6,7 +6,7 @@
 
         {% theme_include 'partials/title' %}
 
-        {% capture layoutContainer %}{% if theme.listing_layout_container %}w-90-l pv5-ns pv4 ph4{% endif %}{% endcapture %}
+        {% capture layoutContainer %}{% if theme.listing_layout_container == false %}w-90-l pv5-ns pv4 ph4{% endif %}{% endcapture %}
         <div class="asset-container center {{ layoutContainer }}">
             {% for asset in page.assets %}
                 {% capture modulo %}{{ forloop.index | modulo: 3 }}{% endcapture %}

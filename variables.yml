@@ -96,11 +96,13 @@ base_variables:
       - footer_typography
       - headline_typography
       - text_typography
+      - gallery_typography
       - gallery_caption_typography
       - gallery_video_link_typography
       - blog_body_typography
       - blog_caption_typography
       - blog_title_typography
+      - listing_header_typography
       - listing_caption_typography
       - footer_link_typography
 
@@ -625,7 +627,7 @@ variables:
         text-decoration: none
 
   - id: gallery_frames_color
-    label: Use global color for all frames
+    label: Use Custom Frame Color
     kind: boolean
     notes: Use global color for all frames.
     value: 
@@ -710,9 +712,9 @@ variables:
         colored: "Roboto"
 
   - id: listing_layout_container
-    label: Contain listings within the page container
+    label: Full-Width Collection Layout
     kind: boolean
-    notes: Stops your listing page from spanning the full width of the browser.
+    notes: Enable full-width layout for collection pages.
     value: 
       light: true
       dark: true
@@ -744,16 +746,16 @@ variables:
       colored: "None"
 
   - id: listing_frames_color
-    label: Use global color for all frames
+    label: Use Custom Frame Color
     kind: boolean
-    notes: Use global color for all frames.
+    notes: Use a custom frame color for all Cover Images.
     value: 
       light: false
       dark: false
       colored: true
 
   - id: listing_frames_color_code
-    label: Collection Frame Background
+    label: Custom Cover Image Frame Color
     kind: color
     notes: The background color for your collection frames and hovers.
     value:
