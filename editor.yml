@@ -54,6 +54,8 @@ drawers:
           - menu_border_color
           - menu_background_color
           - headline_typography
+          - gallery_frames_color
+          - gallery_frames_color_code
           - listing_header_typography
           - gallery_header_typography
           - footer_typography
@@ -65,6 +67,9 @@ drawers:
           - gallery_caption_typography
           - gallery_caption_link_typography
           - gallery_video_link_typography
+          - gallery_video_frames_color
+          - listing_frames_color
+          - listing_frames_color_code
           - listing_caption_typography
           - listing_caption_text_font
           - blog_title_typography
@@ -150,7 +155,6 @@ groups:
     variables:
       - footer_text
       - footer_typography
-      - footer_link_typography
       - footer_border
       - footer_border_color
       - footer_background_color
@@ -192,7 +196,11 @@ groups:
 
   - id: social
     variables:
+      - footer_link_typography
       - social_links_style
+
+  - id: social_share
+    variables:
       - show_social_sharing
 
   - id: website_background

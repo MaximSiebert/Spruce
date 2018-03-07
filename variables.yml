@@ -345,7 +345,7 @@ variables:
         colored: 22
 
   - id: footer_link_typography
-    label: Footer Link
+    label: Social Network Link
     kind: typography
     value:
       font-family: 
