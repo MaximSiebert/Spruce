@@ -155,7 +155,6 @@ groups:
     variables:
       - footer_text
       - footer_typography
-      - footer_link_typography
       - footer_border
       - footer_border_color
       - footer_background_color
