@@ -3305,17 +3305,24 @@ body.active {
   }
 }
 
+.mobile-menu-toggle {
+  cursor: pointer;
+}
+
 .mobile-menu-toggle button {
   {% css_block theme.menu_text_typography %};
   text-decoration-skip-ink: auto;
 }
 
-.mobile-menu-toggle:hover button {
-  {% css_block theme.menu_text_typography.hover %};
-}
 
-.mobile-menu-toggle:hover .hamburger .line {
-  background-color: {{ theme.menu_text_typography.hover.color }}
+@media #{$breakpoint-not-small} {
+  .mobile-menu-toggle:hover button {
+    {% css_block theme.menu_text_typography.hover %};
+  }
+
+  .mobile-menu-toggle:hover .hamburger .line {
+    background-color: {{ theme.menu_text_typography.hover.color }}
+  }
 }
 
 .menu-icon:hover {
