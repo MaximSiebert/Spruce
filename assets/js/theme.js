@@ -59,7 +59,7 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
     window.Theme.reload();
   },
   onPageLoad: function (e) {
-    setTimeout(() => {
+    setTimeout(function () {
       $("html").removeClass("is-changing");
     }, 500);
   },
