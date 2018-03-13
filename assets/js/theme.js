@@ -159,8 +159,6 @@ $(document).ready(function(){
 
 
   // Lightbox
-  
-
   if (!($('body').hasClass('blog'))) {
     $("a[rel='lightbox']").fancybox({
       beforeShow: function (instance, slide) {
