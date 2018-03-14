@@ -3554,8 +3554,8 @@ body.gallery {
         }
       }
       .portrait, .square {
-        // width: auto;
-        // max-height: 100vh;
+        width: auto;
+        max-height: 100vh;
       }
       &.portrait, &.square {
         {% if theme.gallery_frame_size == 'Small' %}
@@ -3578,6 +3578,10 @@ body.gallery {
         {% endif %}
         .caption {
           padding-left: 0;
+          max-width: 450px; //fix from going wider than image
+          div {
+            max-width: inherit;
+          }
         }
       }
       &.video .video-overlay {
@@ -3613,6 +3617,7 @@ body.gallery {
 
 .image-placeholder {
   max-width: 100%;
+  width: 100%;
   height: auto;
   transition: opacity 500ms ease-in-out;
 }
