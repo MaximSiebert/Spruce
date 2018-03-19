@@ -136,6 +136,12 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
     VARIABLES
 */
 
+// Converted Variables
+
+
+// Custom Media Query Variables
+
+
 /*
    BACKGROUND SIZE
    Docs: http://tachyons.io/docs/themes/background-size/
@@ -150,8 +156,8 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   on an html element.
 */
 
-  .cover { background-size: cover!important; }
-  .contain { background-size: contain!important; }
+.cover { background-size: cover!important; }
+.contain { background-size: contain!important; }
 
 @media #{$breakpoint-not-small} {
   .cover-ns { background-size: cover!important; }
@@ -168,30 +174,8 @@ $breakpoint-large: 'screen and (min-width: 60em)' !default;
   .contain-l { background-size: contain!important; }
 }
 
-/*
-    BORDERS
-    Docs: http://tachyons.io/docs/themes/borders/
-    Base:
-      b = border
-    Modifiers:
-      a = all
-      t = top
-      r = right
-      b = bottom
-      l = left
-      n = none
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
-*/
 
-  .ba { border-style: solid; border-width: 1px; }
-  .bt { border-top-style: solid; border-top-width: 1px; }
-  .br { border-right-style: solid; border-right-width: 1px; }
-  .bb { border-bottom-style: solid; border-bottom-width: 1px; }
-  .bl { border-left-style: solid; border-left-width: 1px; }
-  .bn { border-style: none; border-width: 0; }
+.bn { border-style: none; border-width: 0; }
 
 
 @media #{$breakpoint-not-small} {
@@ -3449,7 +3433,7 @@ body.gallery {
       background-color: {{ theme.gallery_video_frames_color }};
       .video-overlay:before {
         top: 0;
-        bottom: 0;
+        bottom: -1px;
         right: 0;
         left: 0;
         content: "";
@@ -3610,9 +3594,6 @@ body.gallery {
 
 .asset.image img {
   transition: all .6s cubic-bezier(0.19, 1, 0.22, 1);
-  &:hover {
-    // opacity: .8 !important;
-  }
 }
 
 .image-placeholder {

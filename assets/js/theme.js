@@ -1,5 +1,4 @@
 // Create Theme JS
-
 window.Theme = window.Theme || {
   $: {
     container: $('.container'),
@@ -95,7 +94,6 @@ window.Theme.Gallery = window.Theme.Gallery || {
   }
 };
 
-
 $(document).ready(function(){
 
   // Hide Header on on scroll down
@@ -118,13 +116,8 @@ $(document).ready(function(){
 
   function hasScrolled() {
       var st = $(this).scrollTop();
-
-      // Make sure they scroll more than delta
       if(Math.abs(lastScrollTop - st) <= delta)
           return;
-
-      // If they scrolled down and are past the navbar, add class .nav-up.
-      // This is necessary so you never see what is "behind" the navbar.
       if (st > lastScrollTop && !navbar.hasClass('active') && st > 0 ){
           // Scroll Down
           navbar.removeClass('nav-down').addClass('nav-up');
@@ -134,7 +127,6 @@ $(document).ready(function(){
               navbar.removeClass('nav-up').addClass('nav-down');
           }
       }
-
       lastScrollTop = st;
   }
 
@@ -157,75 +149,28 @@ $(document).ready(function(){
     }
   });
 
-
-  // Lightbox
+  // Gallery Lightbox
   if (!($('body').hasClass('blog'))) {
     $("a[rel='lightbox']").fancybox({
       beforeShow: function (instance, slide) {
         $('.fancybox-bg').css('background-color', slide.opts.color);
       },
-
-      // Enable infinite gallery navigation
       loop : true,
-
-      // Space around image, ignored if zoomed-in or viewport width is smaller than 800px
       margin : [50, 0],
-
-      // Horizontal space between slides
       gutter : 50,
-
-      // Enable keyboard navigation
       keyboard : true,
-
-      // Should display navigation arrows at the screen edges
       arrows : true,
-
-      // Should display infobar (counter and arrows at the top)
       infobar : true,
-
-      // Should display toolbar (buttons at the top)
       toolbar : true,
-
-      // What buttons should appear in the top right corner.
-      // Buttons will be created using templates from `btnTpl` option
-      // and they will be placed into toolbar (class="fancybox-toolbar"` element)
       buttons : [
           'close'
       ],
-
-      // Default content type if cannot be detected automatically
       defaultType : 'image',
-
-      // Open/close animation type
-      // Possible values:
-      //   false            - disable
-      //   "zoom"           - zoom images from/to thumbnail
-      //   "fade"
-      //   "zoom-in-out"
-      //
       animationEffect : "zoom",
-
-      // Duration in ms for open/close animation
       animationDuration : 600,
-
-      // Transition effect between slides
-      //
-      // Possible values:
-      //   false            - disable
-      //   "fade'
-      //   "slide'
-      //   "circular'
-      //   "tube'
-      //   "zoom-in-out'
-      //   "rotate'
-      //
       transitionEffect : "fade",
-
-      // Duration in ms for transition animation
       transitionDuration : 600,
-
       btnTpl : {
-          // Arrows
           arrowLeft : '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
                           '<svg viewBox="0 0 40 40">' +
                             '<path d="M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"></path>' +
@@ -238,31 +183,11 @@ $(document).ready(function(){
                         '</svg>' +
                       '</button>'
       },
-
-
-      // Interaction
-      // ===========
-
-      // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
-      // each option can be string or method that returns value.
-      //
-      // Possible values:
-      //   "close"           - close instance
-      //   "next"            - move to next gallery item
-      //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
-      //   "toggleControls"  - show/hide controls
-      //   "zoom"            - zoom image (if loaded)
-      //   false             - do nothing
-
-      // Clicked on the content
       clickContent : function( current, event ) {
         return current.type === 'image' ? 'next' : false;
       },
     });
   }
-  
-  
-
 
   // Video overlays
   var video = $('.video'),
@@ -275,12 +200,10 @@ $(document).ready(function(){
   });
 });
 
-
 $(window).on("load", function () {
   Theme.Turbolinks.onPageLoad();
 });
 
-// Initialize object on DOM load
 $(document).on('DOMContentLoaded', function () {
   Theme.init();
 });
