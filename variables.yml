@@ -3,7 +3,7 @@ base_variables:
   - id: base_background_color
     kind: color
     value:
-      light: "#eeeeee"
+      light: "#f5f5f5"
       dark: "#000000"
       colored: "#022422"
     affected_variables:
@@ -117,7 +117,7 @@ variables:
     kind: color
     notes: The background color of your site
     value:
-      light: "#eeeeee"
+      light: "#f5f5f5"
       dark: "#000000"
       colored: "#022422"
 
@@ -353,7 +353,7 @@ variables:
         dark: "News Gothic Regular"
         colored: "Lydian Regular"
       font-size: 
-        light: 24
+        light: 36
         dark: 32
         colored: 24
       color:
@@ -396,7 +396,7 @@ variables:
     kind: color
     notes: The background color of your footer.
     value:
-      light: "#eeeeee"
+      light: "#f5f5f5"
       dark: "#000000"
       colored: "#022422"
 
@@ -415,7 +415,7 @@ variables:
         dark: "News Gothic Regular"
         colored: "Roboto"
       font-size: 
-        light: 32
+        light: 36
         dark: 20
         colored: 32
       text-decoration: none
@@ -515,7 +515,7 @@ variables:
     kind: boolean
     notes: Shows or hides menu button.
     value: 
-      light: false
+      light: true
       dark: true
       colored: true
   
@@ -542,7 +542,7 @@ variables:
     kind: color
     notes: The background color of your menu.
     value:
-      light: "#eeeeee"
+      light: "#f5f5f5"
       dark: "#000000"
       colored: "#022422"
 
@@ -685,7 +685,7 @@ variables:
         dark: "normal"
         colored: "normal"
       font-size: 
-        light: 28
+        light: 36
         dark: 36
         colored: 36
       text-decoration: 
@@ -951,8 +951,8 @@ variables:
         text-decoration: none
         color:
           light: "#222222"
-          dark: "#eeeeee"
-          colored: "#eeeeee"
+          dark: "#f5f5f5"
+          colored: "#f5f5f5"
 
   - id: blog_body_typography
     label: Post Body Text
