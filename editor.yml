@@ -47,7 +47,6 @@ drawers:
       - id: advanced
         variables:
           - text_typography
-          - logo_typography
           - menu_typography
           - menu_title_typography
           - menu_text_typography
@@ -85,7 +84,6 @@ drawers:
           - base_font_size
       - id: advanced
         variables:
-          - logo_typography
           - menu_typography
           - menu_title_typography
           - menu_text_typography
