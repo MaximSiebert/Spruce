@@ -14,6 +14,8 @@ window.Theme = window.Theme || {
     Theme.themeData = _4ORMAT_DATA;
     this.initJSForPageType();
     this.bindEvents();
+    this.Menu.position();
+    this.Menu.dropdownSubmenu();
   },
   bindEvents: function () {
   },
@@ -69,7 +71,64 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
 
 // Initialize menu show/hide toggle behaviour
 window.Theme.Menu = window.Theme.Menu || {
-  toggle: function () {
+  position: function() {
+
+    // Hide Header on on scroll down
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 50;
+    var navbar = $('.header');
+    var navbarHeight = navbar.outerHeight();
+
+    $(window).scroll(function(event){
+      didScroll = true;
+    });
+
+    setInterval(function() {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, 0);
+
+    function hasScrolled() {
+      var st = $(this).scrollTop();
+      if (Math.abs(lastScrollTop - st) <= delta)
+        return;
+      if (st > lastScrollTop && !navbar.hasClass('active') && st > 0 ){
+        // Scroll Down
+        navbar.removeClass('nav-down').addClass('nav-up');
+      } else {
+        // Scroll Up
+        if (st + $(window).height() < $(document).height()) {
+          navbar.removeClass('nav-up').addClass('nav-down');
+        }
+      }
+
+      lastScrollTop = st;
+    }
+
+    //Adjust top padding to nav height
+    $('body').css('padding-top', navbarHeight);
+  },
+  dropdownSubmenu: function() {
+    // Dropdown menus
+    var dropdownTrigger = $('.dropdown-trigger'),
+        dropdown = $('.dropdown');
+
+    dropdownTrigger.click(function(){
+      if ($(this).hasClass('open')) {
+        $(this).removeClass('open');
+        $(this).siblings(dropdown).removeClass('open');
+        $(this).children('.plus').html('+');
+      } else {
+        $(this).addClass('open');
+        $(this).siblings(dropdown).addClass('open');
+        $(this).children('.plus').html('–');
+      }
+    });
+  },
+  toggle: function() {
     $("html").on( "click", ".mobile-menu-toggle", function() {
       if ($('body').hasClass('active')) {
         Theme.$.header.removeClass('active');
@@ -88,69 +147,24 @@ window.Theme.Menu = window.Theme.Menu || {
 window.Theme.Gallery = window.Theme.Gallery || {
   init: function () {
     this.respVideo();
+    this.overlayVideo();
+    this.fancyBox();
+  },
+  overlayVideo: function () {
+    // Video overlays
+    var video = $('.video'),
+        videoOverlay = $('.video-overlay');
+
+    videoOverlay.click(function(e){
+      e.preventDefault();
+      $(this).parent().parent('.video').addClass('playing');
+      $(this).parent().parent('.video').find("iframe")[0].src += "&autoplay=1";
+    });
   },
   respVideo: function () {
     $('main').fitVids();
-  }
-};
-
-$(document).ready(function(){
-
-  // Hide Header on on scroll down
-  var didScroll;
-  var lastScrollTop = 0;
-  var delta = 50;
-  var navbar = $('.header');
-  var navbarHeight = navbar.outerHeight();
-
-  $(window).scroll(function(event){
-      didScroll = true;
-  });
-
-  setInterval(function() {
-      if (didScroll) {
-          hasScrolled();
-          didScroll = false;
-      }
-  }, 0);
-
-  function hasScrolled() {
-      var st = $(this).scrollTop();
-      if(Math.abs(lastScrollTop - st) <= delta)
-          return;
-      if (st > lastScrollTop && !navbar.hasClass('active') && st > 0 ){
-          // Scroll Down
-          navbar.removeClass('nav-down').addClass('nav-up');
-      } else {
-          // Scroll Up
-          if(st + $(window).height() < $(document).height()) {
-              navbar.removeClass('nav-up').addClass('nav-down');
-          }
-      }
-      lastScrollTop = st;
-  }
-
-  //Adjust top padding to nav height
-  $('body').css('padding-top', navbarHeight);
-  
-  // Dropdown menus
-  var dropdownTrigger = $('.dropdown-trigger'),
-      dropdown = $('.dropdown');
-
-  dropdownTrigger.click(function(){
-    if ($(this).hasClass('open')) {
-      $(this).removeClass('open');
-      $(this).siblings(dropdown).removeClass('open');
-      $(this).children('.plus').html('+');
-    } else {
-      $(this).addClass('open');
-      $(this).siblings(dropdown).addClass('open');
-      $(this).children('.plus').html('–');
-    }
-  });
-
-  // Gallery Lightbox
-  if (!($('body').hasClass('blog'))) {
+  },
+  fancyBox: function () {
     $("a[rel='lightbox']").fancybox({
       beforeShow: function (instance, slide) {
         $('.fancybox-bg').css('background-color', slide.opts.color);
@@ -163,7 +177,7 @@ $(document).ready(function(){
       infobar : true,
       toolbar : true,
       buttons : [
-          'close'
+        'close'
       ],
       defaultType : 'image',
       animationEffect : "zoom",
@@ -188,17 +202,7 @@ $(document).ready(function(){
       },
     });
   }
-
-  // Video overlays
-  var video = $('.video'),
-      videoOverlay = $('.video-overlay');
-
-  videoOverlay.click(function(e){
-    e.preventDefault();
-    $(this).parent().parent('.video').addClass('playing');
-    $(this).parent().parent('.video').find("iframe")[0].src += "&autoplay=1";
-  });
-});
+};
 
 $(window).on("load", function () {
   Theme.Turbolinks.onPageLoad();
