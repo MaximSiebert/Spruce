@@ -1,7 +1,6 @@
 // Create Theme JS
 window.Theme = window.Theme || {
   $: {
-    container: $(".container"),
     header: $(".header"),
     menuToggle: $(".mobile-menu-toggle")
   },
@@ -48,9 +47,9 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
       $("body").removeClass("active");
       $(".mobile-menu-toggle button").html(Theme.themeData.theme.menu_text);
     }
-    if ($(".header").hasClass("nav-up")) {
-      $(".header").removeClass("nav-up");
-      $(".header").addClass("nav-down");
+    if (Theme.$.header.hasClass("nav-up")) {
+      Theme.$.header.removeClass("nav-up");
+      Theme.$.header.addClass("nav-down");
     }
     $("html").addClass("is-changing");
     Turbolinks.visit(e.originalEvent.data.url);
