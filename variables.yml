@@ -271,11 +271,11 @@ variables:
         dark: "Bagnad"
         colored: "Roboto"
       font-size: 
-        light: 22
-        dark: 28
+        light: 16
+        dark: 24
         colored: 18
-      line-height: 
-        light: 1.5
+      line-height:
+        light: 1.4
         dark: 1.4
         colored: 1.4
 
@@ -407,7 +407,7 @@ variables:
     kind: typography
     value:
       color:
-        light: "#000000"
+        light: "#444444"
         dark: "#999999"
         colored: "#ffffff"
       font-family: 
@@ -434,7 +434,7 @@ variables:
           dark: "#ffffff"
           colored: "#E6AB8B"
         text-decoration:
-          light: "none"
+          light: "underline"
           dark: "none"
           colored: "none"
 
@@ -662,7 +662,7 @@ variables:
       - Medium
       - Large
     value:
-      light: "Large"
+      light: "Medium"
       dark: "None"
       colored: "Large"
 
@@ -716,7 +716,7 @@ variables:
     kind: boolean
     notes: Enable full-width layout for collection pages.
     value: 
-      light: false
+      light: true
       dark: false
       colored: true
 
@@ -772,7 +772,7 @@ variables:
       - Medium
       - Large
     value:
-      light: "Large"
+      light: "Medium"
       dark: "None"
       colored: "None"
 

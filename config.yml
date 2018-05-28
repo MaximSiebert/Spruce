@@ -2,9 +2,12 @@
 
 history:
   1: Initial version.
+  2: Minor bug fixes.
+  3: Updates to Light style.
+  4: Fixes an issue with social icons not displaying properly.
 
-hidden: true
-version: 1
+hidden: false
+version: 4
 api_version: 2
 support:
   # feature_name: min version supporting it
@@ -18,4 +21,4 @@ support:
   parent_page: 1
   base_vars: 1
 
-can_automatically_upgrade_to_versions: [1]
+can_automatically_upgrade_to_versions: [1, 2, 3, 4]
