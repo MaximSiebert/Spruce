@@ -47,6 +47,7 @@ drawers:
       - id: advanced
         variables:
           - text_typography
+          - link_typography
           - menu_typography
           - menu_title_typography
           - menu_text_typography

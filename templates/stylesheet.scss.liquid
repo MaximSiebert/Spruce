@@ -3045,7 +3045,6 @@ a {
 
 .gallery .text:not(.big-text) {
   {% css_block theme.gallery_typography %}
-  font-size: 16px;
   & h2, & h3, & h4, & h5, & h6 {
     margin-bottom: 1rem;
   }
@@ -4096,42 +4095,22 @@ html.cart-enabled {
     {% css_block theme.headline_typography %};
   }
   .product-price {
+    font-family: {{ theme.text_typography.font-family }} !important;
     color: {{ theme.text_typography.color }} !important;
   }
 }
 
-.client .private_page form p, .private_page form input {
-  font-size: 16px !important;
-}
-
-.private_page form input, .client .private_page form input[type='email'] {
-  padding: 10px 14px !important;
-  border-color: {{ theme.text_typography.color }};
-  border-style: solid;
-}
-
 body.order_confirmation .btn-cancel,
 .product-order-form .f-add-to-cart-button,
-.product-order-form .select2-choice, .private_page form input[type='submit'] {
+.product-order-form .select2-choice {
   background: transparent !important;
-  border: 2px solid {{ theme.text_typography.color }} !important;
+  border: 1px solid rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.2) !important;
   color: {{ theme.text_typography.color }} !important;
-  border-radius: 0 !important;
-  transition: all .15s ease-in;
-  font-size: 16px !important;
-  &:hover {
-    background: rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.1) !important;
-  }
 }
 
-#content_page_wrapper a.select2-choice {
-  font-family: {{ theme.text_typography.font-family }};
+.product-order-form .f-add-to-cart-button {
+  border: 1px solid rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.3) !important;
 }
-
-.client .private_page form input[type='password'], .client .private_page form input[type='email'] {
-  border-radius: 0 !important;
-}
-
 
 body.product .product-info {
   h1 {
@@ -4147,30 +4126,26 @@ body.product .product-info {
 
 body.product .select2-drop {
   background: {{ theme.background_color }} !important;
-  border-color: {{ theme.text_typography.color }} {{ theme.text_typography.color }} {{ theme.text_typography.color }} {{ theme.text_typography.color }} !important;
+  border: 1px solid rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.2) !important;
   color: {{ theme.text_typography.color }} !important;
 }
 
 body.product .select2-drop ul,
 body.product .select2-drop ul .select2-result-label {
-  border-color: {{ theme.text_typography.color }} {{ theme.text_typography.color }} {{ theme.text_typography.color }} {{ theme.text_typography.color }} !important;
+  border-color: rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.2) !important;
 }
 
 body.product .select2-results .select2-highlighted,
 .product-order-form .f-add-to-cart-button:hover {
-  background: rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.1) !important;
+  background: rgba({{ theme.text_typography.color }}, 0.1) !important;
 }
 
 body.product .select2-results .select2-highlighted {
   color: {{ theme.text_typography.color }} !important;
 }
 
-.product-order-form .select2-container .select2-choice div {
-  top: 18px !important;
-}
-
-body.product .product-order-form .select2-container.select2-dropdown-open .select2-choice div b {
-  border-top: 0 !important;
+body.product .product-order-form .select2-container .select2-choice div b:before {
+  border-top-color: rgba({{ theme.text_typography.color | hex_to_rgb }}, 0.6) !important;
 }
 
 body.order_confirmation .order-confirmation {
@@ -4180,7 +4155,6 @@ body.order_confirmation .order-confirmation {
 body.order_confirmation .order-confirmation .order-confirmation-details {
   border-top: 1px solid {{ theme.text_typography.color }} !important;
   border-bottom: 1px solid {{ theme.text_typography.color }} !important;
-
 }
 
 body.order_confirmation .order-confirmation .order-confirmation-details .order-confirmation-products th,
@@ -4204,7 +4178,6 @@ body.order_confirmation .order-confirmation .order-confirmation-total td:first-c
   color: {{ theme.text_typography.color }} !important;
 }
 
-
 body.order_confirmation .btn-confirm,
 body.order_download .btn-return,
 body.order_thank_you .btn-return,
@@ -4218,12 +4191,17 @@ body.order_download svg {
   fill: {{ theme.link_typography.color }};
 }
 
-.f-back-to-store-link svg {
-  fill: {{ theme.link_typography.color }};
-}
-
-body.product main .f-back-to-store-link {
-  text-decoration: none;
+.f-back-to-store-link {
+  {% css_block theme.link_typography %}
+  svg {
+    fill: {{ theme.link_typography.color }};
+  }
+  &:hover {
+    {% css_block theme.link_typography.hover %}
+    svg {
+      fill: {{ theme.link_typography.hover.color }};
+    }
+  }
 }
 
 .order-download ul {

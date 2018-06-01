@@ -20,7 +20,8 @@ base_variables:
     affected_variables:
       - link_typography
       - menu_text_typography
-      - menu_typography
+      - menu_typography.selected.color
+      - menu_typography.hover.color
       - footer_link_typography
       - gallery_video_link_typography
       - gallery_caption_link_typography
@@ -36,8 +37,8 @@ base_variables:
       - menu_border_color
       - footer_border_color
       - menu_title_typography
+      - menu_typography
       - link_typography.hover.color
-      - menu_text_typography.hover.color
       - menu_text_typography.hover.color
       - headline_typography
       - listing_header_typography
@@ -102,7 +103,6 @@ base_variables:
       - blog_body_typography
       - blog_caption_typography
       - blog_title_typography
-      - listing_header_typography
       - listing_caption_typography
       - footer_link_typography
 
@@ -220,6 +220,8 @@ variables:
         light: "#000000"
         dark: "#ffffff"
         colored: "#C89379"
+      font-weight: normal
+      font-style: normal
       font-family: 
         light: "Helvetica Neue"
         dark: "Bagnad"
@@ -249,10 +251,12 @@ variables:
         light: "Helvetica Neue"
         dark: "Bagnad"
         colored: "Roboto"
+      font-weight: normal
+      font-style: normal
       font-size: 
-        light: 32
-        dark: 32
-        colored: 32
+        light: 28
+        dark: 28
+        colored: 28
       line-height: 
         light: 1.5
         dark: 1.4
@@ -270,6 +274,8 @@ variables:
         light: "Helvetica Neue"
         dark: "Bagnad"
         colored: "Roboto"
+      font-weight: normal
+      font-style: normal
       font-size: 
         light: 16
         dark: 24
@@ -339,6 +345,9 @@ variables:
         light: "Helvetica Neue"
         dark: "Bagnad"
         colored: "Roboto"
+      font-weight: normal
+      font-style: normal
+      line-height: 1.4
       font-size: 
         light: 22
         dark: 22
@@ -419,6 +428,8 @@ variables:
         dark: 20
         colored: 32
       text-decoration: none
+      font-weight: normal
+      font-style: normal
       hover:
         color: 
           light: "#000000"
@@ -465,6 +476,8 @@ variables:
         light: 24
         dark: 21
         colored: 24
+      font-weight: normal
+      font-style: normal
       font-family: 
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
@@ -500,6 +513,8 @@ variables:
         dark: 24
         colored: 24
       text-decoration: none
+      font-weight: normal
+      font-style: normal
       hover:
         color: 
           light: "#000000"
@@ -572,6 +587,8 @@ variables:
         light: "Helvetica Neue"
         dark: "News Gothic Regular"
         colored: "Roboto"
+      font-weight: normal
+      font-style: normal
       font-size: 14
       line-height: 1.4
 
@@ -688,6 +705,8 @@ variables:
         light: 36
         dark: 36
         colored: 36
+      line-height: 1.4
+      font-style: normal
       text-decoration: 
         light: none
         dark: none
