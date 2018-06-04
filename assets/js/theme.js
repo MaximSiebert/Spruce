@@ -47,9 +47,9 @@ window.Theme.Turbolinks = window.Theme.Turbolinks || {
       $("body").removeClass("active");
       $(".mobile-menu-toggle button").html(Theme.themeData.theme.menu_text);
     }
-    if (Theme.$.header.hasClass("nav-up")) {
-      Theme.$.header.removeClass("nav-up");
-      Theme.$.header.addClass("nav-down");
+    if ($('.header').hasClass("nav-up")) {
+      $('.header').removeClass("nav-up");
+      $('.header').addClass("nav-down");
     }
     $("html").addClass("is-changing");
     Turbolinks.visit(e.originalEvent.data.url);
@@ -112,7 +112,8 @@ window.Theme.Menu = window.Theme.Menu || {
     var dropdownTrigger = $(".dropdown-trigger"),
       dropdown = $(".dropdown");
 
-    dropdownTrigger.click(function() {
+    dropdownTrigger.click(function(event) {
+      event.stopPropagation(event);
       if ($(this).hasClass("open")) {
         $(this).removeClass("open");
         $(this)
@@ -133,7 +134,8 @@ window.Theme.Menu = window.Theme.Menu || {
     });
   },
   toggle: function() {
-    $("html").on("click", ".mobile-menu-toggle", function() {
+    $("html").on("click", ".mobile-menu-toggle", function(event) {
+      event.stopPropagation(event);
       if ($("body").hasClass("active")) {
         Theme.$.header.removeClass("active");
         $("body").removeClass("active");
@@ -142,6 +144,13 @@ window.Theme.Menu = window.Theme.Menu || {
         Theme.$.header.addClass("active");
         $("body").addClass("active");
         $(".mobile-menu-toggle button").html("Close");
+      }
+    });
+    $('html').click(function() {
+      if ($("body").hasClass("active")) {
+        Theme.$.header.removeClass("active");
+        $("body").removeClass("active");
+        $(".mobile-menu-toggle button").html(Theme.themeData.theme.menu_text);
       }
     });
   }
