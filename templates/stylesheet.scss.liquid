@@ -3279,13 +3279,17 @@ body.active {
     }
   }
   &.selected {
-    a {
+    > a {
       {% css_block theme.menu_typography.selected %};
     }
   }
   ul li a {
     font-size: {{ theme.menu_typography.font-size | divided_by: 1.5 | append:'px' }};
   }
+}
+
+.category.selected .dropdown-trigger > a {
+  {% css_block theme.menu_typography.selected %};
 }
 
 .mobile-menu-toggle {
