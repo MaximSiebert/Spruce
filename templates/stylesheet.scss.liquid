@@ -2967,11 +2967,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-    color: {{ theme.background_color }};
-    background: {{ theme.text_typography.color }};
-}
-
 main, .page-title, .footer {
   transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   opacity: 1;
@@ -3928,6 +3923,10 @@ Collection loop
       }
     }
   {% endif %}
+
+  .title-element img {
+    position: absolute;
+  }
 }
 
 .asset.text, .title-element, .pagination {

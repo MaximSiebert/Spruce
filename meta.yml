@@ -5,10 +5,13 @@ description: Format theme
 skins:
 - name: Light
   id: light
+  path: skin_images/light.jpg
 - name: Dark
   id: dark
-- name: Colored
-  id: colored
+  path: skin_images/dark.jpg
+- name: Grove
+  id: grove
+  path: skin_images/grove.jpg
 default_skin: light
 
 using_position:
@@ -26,3 +29,4 @@ preview_site_images:
 
 filter_attributes:
 - vertical
+- tiled
